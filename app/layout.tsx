@@ -2,20 +2,52 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'elpaso.fyi - The Insider\'s Heartbeat of El Paso',
-  description: 'The modern, curated heartbeat of El Paso, Texas. Authentic underground cultural insights with a heavy emphasis on the local food and drink scene.',
-  keywords: 'El Paso, local culture, food scene, drink scene, underground events, insider guide',
+  title: 'elpaso.fyi - The Unofficial Guide to El Paso, TX | Local Events, Food & Things to Do',
+  description: 'The Unofficial Guide to El Paso. Discover best restaurants, local events, weekend itineraries, and authentic things to do in El Paso, Texas. Insider recommendations from locals.',
+  keywords: 'El Paso, things to do in El Paso, El Paso events, best restaurants El Paso, El Paso food, El Paso weekend guide, El Paso things to do this weekend, local culture, underground events, El Paso insider guide, El Paso TX',
   authors: [{ name: 'elpaso.fyi' }],
+  generator: 'Next.js',
+  applicationName: 'elpaso.fyi',
+  referrer: 'origin-when-cross-origin',
+  creator: 'elpaso.fyi',
+  publisher: 'elpaso.fyi',
+  formatDetection: {
+    email: false,
+    telephone: false,
+    address: false,
+  },
   openGraph: {
-    title: 'elpaso.fyi - The Insider\'s Heartbeat of El Paso',
-    description: 'The modern, curated heartbeat of El Paso, Texas.',
+    title: 'elpaso.fyi - The Unofficial Guide to El Paso',
+    description: 'Discover El Paso events, best restaurants, weekend itineraries, and authentic things to do. Insider local recommendations.',
     url: 'https://elpaso.fyi',
     type: 'website',
+    locale: 'en_US',
+    siteName: 'elpaso.fyi',
+    images: [
+      {
+        url: 'https://elpaso.fyi/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'elpaso.fyi - The Unofficial Guide to El Paso',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'elpaso.fyi',
-    description: 'The Insider\'s Heartbeat of El Paso',
+    title: 'elpaso.fyi - The Unofficial Guide to El Paso',
+    description: 'Discover El Paso events, restaurants, and weekend guides',
+    creator: '@elpasofyi',
+    images: ['https://elpaso.fyi/og-image.svg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
+    'max-video-preview': -1,
+  },
+  alternates: {
+    canonical: 'https://elpaso.fyi',
   },
 };
 
@@ -24,11 +56,37 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // JSON-LD Organization Schema
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'elpaso.fyi',
+    alternateName: 'The Unofficial Guide to El Paso',
+    url: 'https://elpaso.fyi',
+    description: 'The Unofficial Guide to El Paso. Discover best restaurants, local events, weekend itineraries, and authentic things to do in El Paso, Texas.',
+    logo: 'https://elpaso.fyi/logo.jpg',
+    sameAs: [
+      'https://twitter.com/elpasofyi',
+    ],
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'El Paso',
+      addressRegion: 'TX',
+      addressCountry: 'US',
+    },
+  };
+
   return (
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="format-detection" content="telephone=no" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="canonical" href="https://elpaso.fyi" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
       </head>
       <body className="bg-dark-bg text-dark-text dark">
         {children}

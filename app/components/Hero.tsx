@@ -64,10 +64,13 @@ export default function Hero() {
         initial="hidden"
         animate="visible"
       >
-        {/* Main heading with glitch effect */}
+        {/* Main heading with glitch effect - SEO optimized */}
         <motion.div variants={itemVariants} className="mb-8">
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-display font-bold mb-4 relative inline-block">
-            <span className="relative">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6 relative inline-block leading-tight">
+            <span className="block text-3xl sm:text-4xl lg:text-5xl text-sand mb-2">
+              The Unofficial Guide to El Paso, TX
+            </span>
+            <span className="relative text-5xl sm:text-6xl lg:text-7xl">
               elpaso
               <span className="text-sand">.</span>
               fyi
@@ -83,20 +86,20 @@ export default function Hero() {
           </h1>
         </motion.div>
 
-        {/* Tagline */}
+        {/* Tagline - SEO optimized */}
         <motion.p
           variants={itemVariants}
           className="text-lg sm:text-xl lg:text-2xl text-dark-text-muted mb-6 font-light"
         >
-          The insider's heartbeat of El Paso, Texas
+          <span className="text-sand font-semibold">Discover things to do in El Paso.</span> Events, restaurants, weekend itineraries, and local culture.
         </motion.p>
 
-        {/* Description */}
+        {/* Description - SEO focused */}
         <motion.p
           variants={itemVariants}
           className="text-base sm:text-lg text-dark-text-dim max-w-2xl mx-auto mb-8 leading-relaxed"
         >
-          Forget the corporate tourism boards. We're curating authentic underground cultural insights, with a heavy focus on the local food and drink scene that makes El Paso tick.
+          Skip the generic tourism guides. We're your insider to authentic El Paso: best restaurants and food, events this weekend, off-the-beaten-path neighborhoods, and everything locals actually do in El Paso, TX.
         </motion.p>
 
         {/* Newsletter signup section */}
