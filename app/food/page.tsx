@@ -2,20 +2,9 @@
 
 import { motion } from 'framer-motion';
 import { Star, MapPin, Clock } from 'lucide-react';
+import Link from 'next/link';
 import Footer from '../components/Footer';
 import Schema from '../components/Schema';
-
-export const metadata = {
-  title: 'Best Restaurants & Food in El Paso - Local Food Guide | elpaso.fyi',
-  description: 'Discover the best restaurants, tacos, and food scene in El Paso, TX. Local recommendations from the community for authentic El Paso dining experiences.',
-  keywords: 'best restaurants El Paso, tacos El Paso, food El Paso, best food in El Paso, El Paso restaurants, local food guide',
-  openGraph: {
-    title: 'Best Food & Restaurants in El Paso - Local Guide',
-    description: 'Discover the best restaurants and authentic food experiences in El Paso, TX.',
-    url: 'https://elpaso.fyi/food',
-    type: 'website',
-  },
-};
 
 interface Restaurant {
   id: string;
@@ -241,9 +230,12 @@ export default function FoodPage() {
                     </div>
                   </div>
 
-                  <button className="text-sand text-sm font-mono font-bold hover:text-neon-cyan transition-colors">
-                    View Details →
-                  </button>
+                  <Link
+                    href={`/food/${restaurant.id}`}
+                    className="text-sand text-sm font-mono font-bold hover:text-neon-cyan transition-colors inline-flex items-center gap-1"
+                  >
+                    View Details <span>→</span>
+                  </Link>
                 </motion.article>
               ))}
             </motion.div>

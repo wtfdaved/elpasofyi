@@ -1,21 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Users } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
+import Link from 'next/link';
 import Footer from '../components/Footer';
 import Schema from '../components/Schema';
-
-export const metadata = {
-  title: 'El Paso Events This Weekend - Things to Do | elpaso.fyi',
-  description: 'Discover the best El Paso events happening this weekend. Live music, festivals, cultural events, and things to do in El Paso, TX. Updated weekly by locals.',
-  keywords: 'El Paso events, things to do in El Paso, El Paso this weekend, El Paso events this weekend, live music El Paso, festivals El Paso',
-  openGraph: {
-    title: 'El Paso Events This Weekend - Things to Do',
-    description: 'Discover the best El Paso events happening this weekend and throughout the month.',
-    url: 'https://elpaso.fyi/events',
-    type: 'website',
-  },
-};
 
 interface Event {
   id: string;
@@ -189,9 +178,12 @@ export default function EventsPage() {
                     </span>
                   </div>
                   <p className="text-dark-text-dim mb-4">{event.description}</p>
-                  <button className="text-sand text-sm font-mono font-bold hover:text-neon-cyan transition-colors">
-                    Learn More →
-                  </button>
+                  <Link
+                    href={`/events/${event.id}`}
+                    className="text-sand text-sm font-mono font-bold hover:text-neon-cyan transition-colors inline-flex items-center gap-1"
+                  >
+                    Learn More <span>→</span>
+                  </Link>
                 </motion.article>
               ))}
             </motion.div>

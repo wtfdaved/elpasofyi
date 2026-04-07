@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { Calendar, Clock, User, Share2 } from 'lucide-react';
-import { Metadata } from 'next';
 import Footer from '../../components/Footer';
 import Schema from '../../components/Schema';
 
@@ -100,58 +99,6 @@ const guidesDatabase: Record<string, {
   },
 };
 
-// Generate static params for known guides
-export async function generateStaticParams() {
-  return Object.keys(guidesDatabase).map((slug) => ({
-    slug,
-  }));
-}
-
-// Generate metadata for the guide
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
-  const guide = guidesDatabase[params.slug];
-
-  if (!guide) {
-    return {
-      title: 'Guide Not Found | elpaso.fyi',
-      description: 'This guide could not be found.',
-    };
-  }
-
-  return {
-    title: `${guide.title} | elpaso.fyi`,
-    description: guide.description,
-    keywords: guide.tags.join(', ') + ', El Paso, guide, local',
-    authors: [{ name: guide.author }],
-    openGraph: {
-      title: guide.title,
-      description: guide.description,
-      url: `https://elpaso.fyi/guides/${params.slug}`,
-      type: 'article',
-      images: [
-        {
-          url: `https://elpaso.fyi${guide.image}`,
-          width: 1200,
-          height: 630,
-          alt: guide.title,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: guide.title,
-      description: guide.description,
-    },
-    alternates: {
-      canonical: `https://elpaso.fyi/guides/${params.slug}`,
-    },
-  };
-}
-
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -175,8 +122,9 @@ const itemVariants = {
   },
 };
 
-export default function GuidePage({ params }: { params: { slug: string } }) {
-  const guide = guidesDatabase[params.slug];
+export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const guide = guidesDatabase[slug];
 
   if (!guide) {
     return (
