@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Star, MapPin, Clock } from 'lucide-react';
+import Link from 'next/link';
 import Footer from '../components/Footer';
 import Schema from '../components/Schema';
 
@@ -241,9 +242,12 @@ export default function FoodPage() {
                     </div>
                   </div>
 
-                  <button className="text-sand text-sm font-mono font-bold hover:text-neon-cyan transition-colors">
-                    View Details →
-                  </button>
+                  <Link
+                    href={`/food/${restaurant.id}`}
+                    className="text-sand text-sm font-mono font-bold hover:text-neon-cyan transition-colors inline-flex items-center gap-1"
+                  >
+                    View Details <span>→</span>
+                  </Link>
                 </motion.article>
               ))}
             </motion.div>

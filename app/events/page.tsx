@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Users } from 'lucide-react';
+import Link from 'next/link';
 import Footer from '../components/Footer';
 import Schema from '../components/Schema';
 
@@ -189,9 +190,12 @@ export default function EventsPage() {
                     </span>
                   </div>
                   <p className="text-dark-text-dim mb-4">{event.description}</p>
-                  <button className="text-sand text-sm font-mono font-bold hover:text-neon-cyan transition-colors">
-                    Learn More →
-                  </button>
+                  <Link
+                    href={`/events/${event.id}`}
+                    className="text-sand text-sm font-mono font-bold hover:text-neon-cyan transition-colors inline-flex items-center gap-1"
+                  >
+                    Learn More <span>→</span>
+                  </Link>
                 </motion.article>
               ))}
             </motion.div>
