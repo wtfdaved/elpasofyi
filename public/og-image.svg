@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+
+  <!-- Film grain overlay -->
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" seed="2"/>
+    <feColorMatrix in="noise" type="saturate" values="0"/>
+    <feBlend in="SourceGraphic" in2="noise" mode="overlay"/>
+  </filter>
+  <rect width="1200" height="630" fill="#0a0a0a" opacity="0.03" filter="url(#noise)"/>
+
+  <!-- Sand-colored accent bar -->
+  <rect x="0" y="0" width="1200" height="8" fill="#D4B896"/>
+
+  <!-- Rust-colored accent circle -->
+  <circle cx="1050" cy="550" r="120" fill="#C4663B" opacity="0.1"/>
+
+  <!-- Cyan accent -->
+  <circle cx="150" cy="80" r="80" fill="#00D9FF" opacity="0.05"/>
+
+  <!-- Main text -->
+  <text x="50" y="150" font-family="'Space Mono', monospace" font-size="88" font-weight="bold" fill="#D4B896">
+    elpaso
+  </text>
+
+  <!-- Dot separator -->
+  <circle cx="50" cy="200" r="12" fill="#D4B896"/>
+
+  <!-- Secondary text -->
+  <text x="50" y="280" font-family="'Space Mono', monospace" font-size="48" fill="white" opacity="0.8">
+    The Unofficial Guide to El Paso
+  </text>
+
+  <!-- Description -->
+  <text x="50" y="350" font-family="'Space Mono', monospace" font-size="28" fill="#D4B896">
+    Events • Food • Neighborhoods • Guides
+  </text>
+
+  <!-- URL footer -->
+  <text x="50" y="580" font-family="'Space Mono', monospace" font-size="24" fill="white" opacity="0.6">
+    elpaso.fyi
+  </text>
+</svg>
