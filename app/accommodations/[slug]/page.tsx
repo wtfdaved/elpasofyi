@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin, DollarSign, Star, Phone, ExternalLink as ExternalLinkIcon, ArrowLeft } from 'lucide-react';
+import { MapPin, DollarSign, Star, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import Footer from '../../components/Footer';
 import Schema from '../../components/Schema';
@@ -259,12 +259,13 @@ const accommodationsDatabase: Record<string, {
   },
 };
 
-export default function AccommodationDetailPage({
+export default async function AccommodationDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const accommodation = accommodationsDatabase[params.slug];
+  const { slug } = await params;
+  const accommodation = accommodationsDatabase[slug];
 
   if (!accommodation) {
     return (

@@ -68,7 +68,37 @@ interface OrganizationSchema extends BaseSchema {
   };
 }
 
-type SchemaType = ArticleSchema | EventSchema | OrganizationSchema;
+interface TouristAttractionSchema extends BaseSchema {
+  '@type': 'TouristAttraction';
+  areaServed?: {
+    '@type': string;
+    name: string;
+    address?: {
+      '@type': 'PostalAddress';
+      addressLocality: string;
+      addressRegion: string;
+      addressCountry: string;
+    };
+  };
+}
+
+interface LocalBusinessSchema extends BaseSchema {
+  '@type': 'LocalBusiness' | 'Restaurant' | 'LodgingBusiness';
+  address?: {
+    '@type': 'PostalAddress';
+    addressLocality: string;
+    addressRegion: string;
+    addressCountry: string;
+    streetAddress?: string;
+  };
+  aggregateRating?: {
+    '@type': 'AggregateRating';
+    ratingValue: string;
+    reviewCount: string;
+  };
+}
+
+type SchemaType = ArticleSchema | EventSchema | OrganizationSchema | TouristAttractionSchema | LocalBusinessSchema | { [key: string]: any };
 
 interface SchemaProps {
   schema: SchemaType;

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin, Utensils, ShoppingBag, Info, ArrowLeft } from 'lucide-react';
+import { MapPin, Utensils, Info, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import Footer from '../../components/Footer';
 import Schema from '../../components/Schema';
@@ -433,12 +433,13 @@ const neighborhoodsDatabase: Record<string, {
   },
 };
 
-export default function NeighborhoodDetailPage({
+export default async function NeighborhoodDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const neighborhood = neighborhoodsDatabase[params.slug];
+  const { slug } = await params;
+  const neighborhood = neighborhoodsDatabase[slug];
 
   if (!neighborhood) {
     return (

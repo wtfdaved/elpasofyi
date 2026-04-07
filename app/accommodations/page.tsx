@@ -6,18 +6,6 @@ import Link from 'next/link';
 import Footer from '../components/Footer';
 import Schema from '../components/Schema';
 
-export const metadata = {
-  title: 'Best Hotels & Accommodations in El Paso - Local Recommendations | elpaso.fyi',
-  description: 'Discover the best hotels, boutique stays, and accommodations in El Paso, TX. From luxury to budget-friendly, find where to stay recommended by locals.',
-  keywords: 'hotels El Paso, accommodations El Paso, where to stay El Paso, best hotels, boutique stays',
-  openGraph: {
-    title: 'Best Hotels & Accommodations in El Paso',
-    description: 'Discover the best places to stay in El Paso, TX recommended by locals.',
-    url: 'https://elpaso.fyi/accommodations',
-    type: 'website',
-  },
-};
-
 interface Accommodation {
   id: string;
   slug: string;

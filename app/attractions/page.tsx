@@ -6,18 +6,6 @@ import Link from 'next/link';
 import Footer from '../components/Footer';
 import Schema from '../components/Schema';
 
-export const metadata = {
-  title: 'Best Attractions & Museums in El Paso - Local Guide | elpaso.fyi',
-  description: 'Discover the best attractions, museums, parks, and outdoor activities in El Paso, TX. From art galleries to natural landmarks, find where to explore in El Paso.',
-  keywords: 'attractions El Paso, museums El Paso, things to do El Paso, parks El Paso, best attractions',
-  openGraph: {
-    title: 'Best Attractions & Museums in El Paso',
-    description: 'Discover the best attractions, museums, and outdoor activities in El Paso, TX.',
-    url: 'https://elpaso.fyi/attractions',
-    type: 'website',
-  },
-};
-
 interface Attraction {
   id: string;
   slug: string;

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Star, MapPin, Clock, DollarSign, Phone, ExternalLink as ExternalLinkIcon, ArrowLeft } from 'lucide-react';
+import { Star, MapPin, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import Footer from '../../components/Footer';
 import Schema from '../../components/Schema';
@@ -275,12 +275,13 @@ const restaurantsDatabase: Record<string, {
   },
 };
 
-export default function RestaurantDetailPage({
+export default async function RestaurantDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const restaurant = restaurantsDatabase[params.id];
+  const { id } = await params;
+  const restaurant = restaurantsDatabase[id];
 
   if (!restaurant) {
     return (

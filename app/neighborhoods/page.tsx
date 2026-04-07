@@ -1,22 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin, Utensils, ShoppingBag, Home, ExternalLink } from 'lucide-react';
+import { MapPin, Utensils, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import Footer from '../components/Footer';
 import Schema from '../components/Schema';
-
-export const metadata = {
-  title: 'El Paso Neighborhoods Guide - Explore Local Areas | elpaso.fyi',
-  description: 'Discover El Paso\'s most vibrant neighborhoods. From Downtown to East Side, explore character, history, restaurants, shops, and local culture in each neighborhood.',
-  keywords: 'El Paso neighborhoods, downtown El Paso, Kern Place, East Side, Arts District, where to stay El Paso',
-  openGraph: {
-    title: 'El Paso Neighborhoods Guide',
-    description: 'Explore El Paso\'s most vibrant neighborhoods with insider tips, restaurants, and local culture.',
-    url: 'https://elpaso.fyi/neighborhoods',
-    type: 'website',
-  },
-};
 
 interface Neighborhood {
   id: string;

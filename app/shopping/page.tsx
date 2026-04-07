@@ -1,22 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ShoppingBag, MapPin, Heart, ExternalLink } from 'lucide-react';
-import Link from 'next/link';
+import { MapPin } from 'lucide-react';
 import Footer from '../components/Footer';
-import Schema from '../components/Schema';
-
-export const metadata = {
-  title: 'Best Shopping & Local Makers in El Paso | elpaso.fyi',
-  description: 'Support local El Paso makers, artisans, and independent shops. Discover unique products, handmade goods, and local businesses.',
-  keywords: 'local shops El Paso, El Paso makers, artisans El Paso, local products, independent shops',
-  openGraph: {
-    title: 'Shopping & Local Makers in El Paso',
-    description: 'Discover El Paso\'s local shops, makers, and artisans.',
-    url: 'https://elpaso.fyi/shopping',
-    type: 'website',
-  },
-};
 
 interface Shop {
   id: string;
@@ -170,16 +156,13 @@ export default function ShoppingPage() {
                   variants={itemVariants}
                   className="border border-dark-text-dim p-6 hover:border-sand transition-colors rounded group flex flex-col"
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex-1">
-                      <span className="inline-block text-xs px-2 py-1 border border-sand text-sand rounded mb-2 uppercase tracking-wider">
-                        {shop.type}
-                      </span>
-                      <h2 className="text-lg font-bold mb-1 group-hover:text-sand transition-colors">
-                        {shop.name}
-                      </h2>
-                    </div>
-                    <Heart className="w-5 h-5 text-sand opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="mb-4">
+                    <span className="inline-block text-xs px-2 py-1 border border-sand text-sand rounded mb-2 uppercase tracking-wider">
+                      {shop.type}
+                    </span>
+                    <h2 className="text-lg font-bold mb-1 group-hover:text-sand transition-colors">
+                      {shop.name}
+                    </h2>
                   </div>
 
                   <p className="text-sm text-dark-text-muted mb-4 flex-1">

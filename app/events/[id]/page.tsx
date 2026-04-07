@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Calendar, Clock, MapPin, Users, Share2, ArrowLeft } from 'lucide-react';
+import { Calendar, Clock, MapPin, Share2, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import Footer from '../../components/Footer';
 import Schema from '../../components/Schema';
@@ -203,12 +203,13 @@ const eventsDatabase: Record<string, {
   },
 };
 
-export default function EventDetailPage({
+export default async function EventDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const event = eventsDatabase[params.id];
+  const { id } = await params;
+  const event = eventsDatabase[id];
 
   if (!event) {
     return (

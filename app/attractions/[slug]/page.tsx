@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin, Clock, DollarSign, Calendar, Share2, ArrowLeft } from 'lucide-react';
+import { MapPin, Clock, DollarSign, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import Footer from '../../components/Footer';
 import Schema from '../../components/Schema';
@@ -383,12 +383,13 @@ const attractionsDatabase: Record<string, {
   },
 };
 
-export default function AttractionDetailPage({
+export default async function AttractionDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const attraction = attractionsDatabase[params.slug];
+  const { slug } = await params;
+  const attraction = attractionsDatabase[slug];
 
   if (!attraction) {
     return (
@@ -423,7 +424,7 @@ export default function AttractionDetailPage({
       addressCountry: 'US',
       streetAddress: attraction.neighborhood,
     },
-    url: `https://elpaso.fyi/attractions/${params.slug}`,
+    url: `https://elpaso.fyi/attractions/${slug}`,
   };
 
   const itemVariants = {
