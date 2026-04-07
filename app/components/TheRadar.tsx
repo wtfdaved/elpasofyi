@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Utensils, Music, Compass, Users, MapPin, Lightbulb } from 'lucide-react';
+import Link from 'next/link';
 
 const radarCategories = [
   {
@@ -11,6 +12,7 @@ const radarCategories = [
     icon: Utensils,
     color: 'text-sand',
     gradient: 'from-sand/10 to-rust/10',
+    href: '/food',
   },
   {
     id: 2,
@@ -19,6 +21,7 @@ const radarCategories = [
     icon: Music,
     color: 'text-neon-pink',
     gradient: 'from-neon-pink/10 to-neon-purple/10',
+    href: '/events',
   },
   {
     id: 3,
@@ -27,6 +30,7 @@ const radarCategories = [
     icon: Compass,
     color: 'text-neon-cyan',
     gradient: 'from-neon-cyan/10 to-neon-green/10',
+    href: '/guides',
   },
   {
     id: 4,
@@ -35,6 +39,7 @@ const radarCategories = [
     icon: Users,
     color: 'text-clay',
     gradient: 'from-clay/10 to-rust/10',
+    href: '/shopping',
   },
   {
     id: 5,
@@ -43,6 +48,7 @@ const radarCategories = [
     icon: MapPin,
     color: 'text-burnt',
     gradient: 'from-burnt/10 to-sand/10',
+    href: '/neighborhoods',
   },
   {
     id: 6,
@@ -51,6 +57,7 @@ const radarCategories = [
     icon: Lightbulb,
     color: 'text-neon-green',
     gradient: 'from-neon-green/10 to-neon-cyan/10',
+    href: '/attractions',
   },
 ];
 
@@ -148,12 +155,12 @@ export default function TheRadar() {
                   </div>
 
                   {/* Read more link */}
-                  <a
-                    href="#"
+                  <Link
+                    href={category.href}
                     className="inline-flex items-center text-sand hover:text-neon-cyan transition-colors text-sm font-mono font-bold uppercase tracking-widest"
                   >
                     Explore →
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             );
