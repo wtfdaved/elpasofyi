@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 export const metadata: Metadata = {
   title: 'elpaso.fyi - The Unofficial Guide to El Paso, TX | Local Events, Food & Things to Do',
@@ -67,6 +69,8 @@ export default function RootLayout({
     logo: 'https://elpaso.fyi/logo.jpg',
     sameAs: [
       'https://twitter.com/elpasofyi',
+      'https://www.instagram.com/elpaso.fyi',
+      'https://www.tiktok.com/@elpaso.fyi',
     ],
     address: {
       '@type': 'PostalAddress',
@@ -88,8 +92,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
-      <body className="bg-light-bg text-slate-900">
-        {children}
+      <body className="flex flex-col min-h-screen bg-light-bg text-slate-900">
+        <Header />
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

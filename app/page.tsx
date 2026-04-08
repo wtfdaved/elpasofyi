@@ -1,9 +1,7 @@
-import Header from './components/Header';
 import Hero from './components/Hero';
 import TheRadar from './components/TheRadar';
 import FeaturedHighlight from './components/FeaturedHighlight';
 import DirectoryTeaser from './components/DirectoryTeaser';
-import Footer from './components/Footer';
 import Schema from './components/Schema';
 
 export default function Home() {
@@ -40,22 +38,18 @@ export default function Home() {
   return (
     <>
       <Schema schema={schemaData} />
-      <Header />
-      <main className="bg-light-bg text-slate-900">
-        <article>
-          <Hero />
-        </article>
-        <section>
-          <TheRadar />
-        </section>
-        <section>
-          <FeaturedHighlight />
-        </section>
-        <section>
-          <DirectoryTeaser />
-        </section>
-        <Footer />
-      </main>
+      <article>
+        <Hero />
+      </article>
+      <section>
+        <TheRadar />
+      </section>
+      <section>
+        <FeaturedHighlight />
+      </section>
+      <section>
+        <DirectoryTeaser />
+      </section>
     </>
   );
 }

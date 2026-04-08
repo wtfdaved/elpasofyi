@@ -84,7 +84,7 @@ export default function Footer() {
               </h4>
               <div className="flex items-center gap-4 mb-6">
                 <motion.a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/elpaso.fyi"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
@@ -95,7 +95,7 @@ export default function Footer() {
                   <Instagram className="w-5 h-5" />
                 </motion.a>
                 <motion.a
-                  href="https://tiktok.com"
+                  href="https://www.tiktok.com/@elpaso.fyi"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}

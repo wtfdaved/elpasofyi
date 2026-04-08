@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { UtensilsCrossed } from 'lucide-react';
-import Footer from '../components/Footer';
 import Schema from '../components/Schema';
 import { SubmitForm } from '../components/SubmitForm';
 import { ComingSoonSection } from '../components/ComingSoonSection';
@@ -149,8 +148,6 @@ export default function FoodPage() {
             <SubmitForm />
           </div>
         </section>
-
-        <Footer />
       </main>
     </>
   );
