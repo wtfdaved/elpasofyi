@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { MapPin, Utensils, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
-import Footer from '../components/Footer';
 import Schema from '../components/Schema';
 
 interface Neighborhood {
@@ -309,8 +308,6 @@ export default function NeighborhoodsPage() {
             </motion.div>
           </motion.div>
         </section>
-
-        <Footer />
       </main>
     </>
   );

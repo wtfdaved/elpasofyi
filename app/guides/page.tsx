@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, BookOpen } from 'lucide-react';
 import Link from 'next/link';
-import Footer from '../components/Footer';
 import Schema from '../components/Schema';
 
 const guides = [
@@ -181,8 +180,6 @@ export default function GuidesPage() {
             </motion.div>
           </motion.div>
         </section>
-
-        <Footer />
       </main>
     </>
   );
