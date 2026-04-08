@@ -1,12 +1,21 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'El Paso Guides - Weekend Itineraries & Local Tips | elpaso.fyi',
-  description: 'Insider guides to El Paso. Weekend itineraries, neighborhood guides, food tours, and local tips for discovering the real El Paso, Texas.',
-  keywords: 'El Paso guides, weekend itinerary, local guide, things to do, El Paso tips',
+  title: 'Local Guides & Itineraries for El Paso, TX | elpaso.fyi',
+  description: 'Discover El Paso weekend itineraries, day trips, local guides, and insider tips. Explore what to do in El Paso from authentic neighborhoods to hidden gems. Deep-dive guides and itineraries coming soon.',
+  keywords: [
+    'El Paso weekend itineraries',
+    'El Paso day trips',
+    'El Paso local guides',
+    'what to do in El Paso',
+    'El Paso attractions',
+    'El Paso things to do',
+    'El Paso travel guide',
+    'El Paso neighborhoods',
+  ],
   openGraph: {
-    title: 'El Paso Guides - Local Insider Tips & Itineraries',
-    description: 'Discover the real El Paso through insider guides on neighborhoods, food, events, and weekend getaways.',
+    title: 'Local Guides & Itineraries for El Paso, TX | elpaso.fyi',
+    description: 'Discover El Paso weekend itineraries, day trips, and local guides for exploring the real El Paso. Deep-dive guides and itineraries dropping soon.',
     url: 'https://elpaso.fyi/guides',
     type: 'website',
   },
