@@ -10,8 +10,6 @@ const radarCategories = [
     title: 'Food & Drink',
     description: 'New spots, hidden gems, and the city\'s culinary pulse',
     icon: Utensils,
-    color: 'text-sand',
-    gradient: 'from-sand/10 to-rust/10',
     href: '/food',
   },
   {
@@ -19,8 +17,6 @@ const radarCategories = [
     title: 'Underground Events',
     description: 'Where the real culture happens',
     icon: Music,
-    color: 'text-neon-pink',
-    gradient: 'from-neon-pink/10 to-neon-purple/10',
     href: '/events',
   },
   {
@@ -28,8 +24,6 @@ const radarCategories = [
     title: 'Weekend Itineraries',
     description: 'Curated paths through the city',
     icon: Compass,
-    color: 'text-neon-cyan',
-    gradient: 'from-neon-cyan/10 to-neon-green/10',
     href: '/guides',
   },
   {
@@ -37,8 +31,6 @@ const radarCategories = [
     title: 'Local Makers',
     description: 'Artists, musicians, and creators shaping El Paso',
     icon: Users,
-    color: 'text-clay',
-    gradient: 'from-clay/10 to-rust/10',
     href: '/shopping',
   },
   {
@@ -46,8 +38,6 @@ const radarCategories = [
     title: 'Neighborhood Deep Dives',
     description: 'Block by block insights',
     icon: MapPin,
-    color: 'text-burnt',
-    gradient: 'from-burnt/10 to-sand/10',
     href: '/neighborhoods',
   },
   {
@@ -55,8 +45,6 @@ const radarCategories = [
     title: 'Insider Tips',
     description: 'What the locals actually do',
     icon: Lightbulb,
-    color: 'text-neon-green',
-    gradient: 'from-neon-green/10 to-neon-cyan/10',
     href: '/attractions',
   },
 ];
@@ -67,7 +55,7 @@ export default function TheRadar() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.08,
       },
     },
   };
@@ -79,13 +67,13 @@ export default function TheRadar() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: 'easeOut',
+        ease: 'easeInOut',
       },
     },
   };
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 relative">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 relative bg-light-bg">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -95,15 +83,11 @@ export default function TheRadar() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
         >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-sand font-mono text-sm font-bold">01</span>
-            <div className="h-px bg-sand/30 flex-1" />
-          </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-4">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold mb-4 text-slate-900">
             The Radar
           </h2>
-          <p className="text-lg text-dark-text-muted max-w-2xl">
-            Your real-time feed of what's happening in El Paso's underground scene. No hype, just the signal.
+          <p className="text-lg text-slate-600 max-w-2xl">
+            Your real-time feed of what's happening in El Paso. Curated content on food, events, culture, and everything worth exploring.
           </p>
         </motion.div>
 
@@ -121,47 +105,34 @@ export default function TheRadar() {
               <motion.div
                 key={category.id}
                 variants={cardVariants}
-                whileHover={{ y: -4, scale: 1.02 }}
+                whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.3 }}
-                className={`group relative p-6 border-2 border-dark-text-dim bg-gradient-to-br ${category.gradient} hover:border-sand transition-all duration-300 cursor-pointer overflow-hidden`}
               >
-                {/* Animated background accent */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-transparent via-sand/0 to-transparent opacity-0 group-hover:opacity-10"
-                  transition={{ duration: 0.3 }}
-                />
+                <Link href={category.href}>
+                  <div className="group relative p-6 border border-slate-300 bg-white rounded-2xl hover:border-agave-green hover:shadow-md transition-all duration-300 cursor-pointer h-full flex flex-col">
+                    {/* Content */}
+                    <div className="flex-1">
+                      <div className="flex items-start justify-between mb-4">
+                        <IconComponent className="w-8 h-8 text-agave-green" />
+                      </div>
 
-                {/* Content */}
-                <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-4">
-                    <IconComponent className={`w-8 h-8 ${category.color}`} />
-                    <span className="text-xs font-mono text-dark-text-dim uppercase tracking-widest">
-                      New
-                    </span>
+                      <h3 className="text-xl font-heading font-bold mb-2 text-slate-900">
+                        {category.title}
+                      </h3>
+
+                      <p className="text-sm text-slate-600 leading-relaxed">
+                        {category.description}
+                      </p>
+                    </div>
+
+                    {/* Explore link */}
+                    <div className="mt-6 pt-4 border-t border-slate-100">
+                      <span className="inline-flex items-center text-agave-green hover:text-opacity-80 transition-colors text-sm font-heading font-semibold uppercase tracking-wide">
+                        Explore →
+                      </span>
+                    </div>
                   </div>
-
-                  <h3 className="text-xl font-display font-bold mb-2 text-dark-text">
-                    {category.title}
-                  </h3>
-
-                  <p className="text-sm text-dark-text-muted mb-4 leading-relaxed">
-                    {category.description}
-                  </p>
-
-                  {/* Placeholder content */}
-                  <div className="space-y-2 mb-4">
-                    <div className="h-2 bg-dark-text-dim/20 w-full" />
-                    <div className="h-2 bg-dark-text-dim/20 w-5/6" />
-                  </div>
-
-                  {/* Read more link */}
-                  <Link
-                    href={category.href}
-                    className="inline-flex items-center text-sand hover:text-neon-cyan transition-colors text-sm font-mono font-bold uppercase tracking-widest"
-                  >
-                    Explore →
-                  </Link>
-                </div>
+                </Link>
               </motion.div>
             );
           })}

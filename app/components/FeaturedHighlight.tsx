@@ -9,7 +9,7 @@ export default function FeaturedHighlight() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.12,
         delayChildren: 0.1,
       },
     },
@@ -21,14 +21,14 @@ export default function FeaturedHighlight() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: 'easeOut',
+        duration: 0.7,
+        ease: 'easeInOut',
       },
     },
   };
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-light-bg">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
@@ -42,26 +42,26 @@ export default function FeaturedHighlight() {
             {/* Header */}
             <motion.div variants={itemVariants} className="mb-8">
               <div className="flex items-center gap-2 mb-4">
-                <Star className="w-5 h-5 text-neon-cyan" />
-                <span className="text-sm font-mono font-bold text-neon-cyan uppercase tracking-widest">
+                <Star className="w-5 h-5 text-agave-green" />
+                <span className="text-sm font-heading font-semibold text-agave-green uppercase tracking-wide">
                   Spotlight of the Week
                 </span>
               </div>
-              <h2 className="text-4xl sm:text-5xl lg:text-5xl font-display font-bold mb-4">
+              <h2 className="text-4xl sm:text-5xl lg:text-5xl font-heading font-bold mb-4 text-slate-900">
                 The Hottest Drop in El Paso
               </h2>
             </motion.div>
 
             {/* Featured content placeholder */}
             <motion.div variants={itemVariants} className="space-y-6">
-              <div className="border-l-4 border-sand pl-6">
-                <h3 className="text-2xl font-display font-bold mb-2 text-sand">
+              <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+                <h3 className="text-2xl font-heading font-bold mb-2 text-slate-900">
                   [Featured Venue / Event Name]
                 </h3>
-                <p className="text-dark-text-muted font-mono text-sm uppercase tracking-widest mb-4">
+                <p className="text-slate-500 text-sm uppercase tracking-wide font-heading font-semibold mb-4">
                   Coming This Weekend
                 </p>
-                <p className="text-base text-dark-text leading-relaxed mb-4">
+                <p className="text-base text-slate-700 leading-relaxed mb-4">
                   This is where the story goes. Tell us about what's happening this week—the restaurant that just opened, the underground show everyone's talking about, or the cultural moment you can't miss.
                 </p>
               </div>
@@ -69,12 +69,12 @@ export default function FeaturedHighlight() {
               {/* Meta info */}
               <div className="flex flex-col sm:flex-row gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-sand" />
-                  <span className="text-dark-text-muted">El Paso, TX</span>
+                  <MapPin className="w-4 h-4 text-agave-green" />
+                  <span className="text-slate-600">El Paso, TX</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-sand" />
-                  <span className="text-dark-text-muted">Friday - Sunday</span>
+                  <Clock className="w-4 h-4 text-agave-green" />
+                  <span className="text-slate-600">Friday - Sunday</span>
                 </div>
               </div>
 
@@ -100,40 +100,16 @@ export default function FeaturedHighlight() {
             transition={{ duration: 0.4 }}
             className="relative h-96 lg:h-full min-h-96"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-sand/5 via-rust/5 to-dark-bg border-2 border-dark-text-dim flex items-center justify-center group overflow-hidden">
-              {/* Placeholder image with animated background */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-sand/10 to-rust/10"
-                animate={{
-                  opacity: [0.5, 0.8, 0.5],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                }}
-              />
-
-              <div className="relative z-10 text-center">
+            <div className="absolute inset-0 bg-slate-100 border border-slate-300 rounded-2xl flex items-center justify-center overflow-hidden">
+              <div className="text-center">
                 <div className="text-6xl mb-4">🎭</div>
-                <p className="text-dark-text-muted font-mono text-sm uppercase tracking-widest">
+                <p className="text-slate-600 text-sm uppercase tracking-wide font-heading font-semibold">
                   [Featured Image]
                 </p>
-                <p className="text-xs text-dark-text-dim mt-2 max-w-xs">
+                <p className="text-xs text-slate-500 mt-2 max-w-xs px-4">
                   High-res images, dynamic visuals, and mood will go here
                 </p>
               </div>
-
-              {/* Corner accent */}
-              <motion.div
-                className="absolute top-0 right-0 w-px h-12 bg-gradient-to-b from-sand to-transparent"
-                animate={{ opacity: [0, 1, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-              <motion.div
-                className="absolute bottom-0 left-0 w-12 h-px bg-gradient-to-r from-sand to-transparent"
-                animate={{ opacity: [0, 1, 0] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-              />
             </div>
           </motion.div>
         </motion.div>

@@ -7,29 +7,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Dark mode base
-        'dark-bg': '#0a0a0a',
-        'dark-bg-secondary': '#0f0f0f',
-        'dark-text': '#e8e8e8',
-        'dark-text-muted': '#999999',
-        'dark-text-dim': '#666666',
+        // Sun-Drenched Modernism palette
+        'light-bg': '#faf9f6',
+        'light-bg-secondary': '#f5f5f5',
+        'slate-900': '#1a1a1a',
+        'slate-700': '#2d2d2d',
+        'slate-500': '#666666',
+        'slate-300': '#d0d0d0',
+        'slate-100': '#f0f0f0',
 
-        // Desert tones (accent)
-        'sand': '#d4a574',
-        'rust': '#8b4513',
-        'clay': '#a0522d',
-        'burnt': '#7a3e1f',
+        // Primary accent - Agave Green
+        'agave-green': '#88c860',
 
-        // Neon accents
-        'neon-cyan': '#00ffff',
-        'neon-pink': '#ff006e',
-        'neon-purple': '#b537f2',
-        'neon-green': '#39ff14',
+        // Neutral whites
+        'white': '#ffffff',
+      },
+      opacity: {
+        '3': '0.03',
       },
       fontFamily: {
-        'sans': ['system-ui', 'sans-serif'],
-        'mono': ['Space Mono', 'IBM Plex Mono', 'Courier New', 'monospace'],
-        'display': ['Space Mono', 'IBM Plex Mono', 'monospace'],
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'heading': ['Space Grotesk', 'system-ui', 'sans-serif'],
+        'mono': ['IBM Plex Mono', 'Courier New', 'monospace'],
       },
       fontSize: {
         'xs': ['0.75rem', { lineHeight: '1rem' }],
@@ -50,36 +49,6 @@ const config: Config = {
         'noise': "url('data:image/svg+xml;utf8,<svg viewBox=\"0 0 400 400\" xmlns=\"http://www.w3.org/2000/svg\"><filter id=\"noiseFilter\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.9\" numOctaves=\"4\" seed=\"2\" /><feColorMatrix type=\"saturate\" values=\"0.3\" /></filter><rect width=\"400\" height=\"400\" filter=\"url(%23noiseFilter)\" /></svg>')",
       },
       keyframes: {
-        glitch: {
-          '0%': {
-            clipPath: 'polygon(0 0, 100% 0, 100% 45%, 0 43%)',
-            transform: 'translate(0)',
-          },
-          '20%': {
-            clipPath: 'polygon(0 25%, 100% 25%, 100% 58%, 0 58%)',
-            transform: 'translate(-4px, 2px)',
-          },
-          '40%': {
-            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
-            transform: 'translate(0)',
-          },
-          '60%': {
-            clipPath: 'polygon(0 42%, 100% 44%, 100% 58%, 0 40%)',
-            transform: 'translate(4px, 2px)',
-          },
-          '80%': {
-            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
-            transform: 'translate(0)',
-          },
-          '100%': {
-            clipPath: 'polygon(0 0, 100% 0, 100% 45%, 0 43%)',
-            transform: 'translate(-4px, -2px)',
-          },
-        },
-        float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' },
-        },
         fadeInUp: {
           '0%': {
             opacity: '0',
@@ -100,24 +69,19 @@ const config: Config = {
         },
       },
       animation: {
-        glitch: 'glitch 2.5s infinite',
-        float: 'float 3s ease-in-out infinite',
-        fadeInUp: 'fadeInUp 0.6s ease-out',
-        fadeIn: 'fadeIn 0.6s ease-out',
+        fadeInUp: 'fadeInUp 0.7s ease-in-out',
+        fadeIn: 'fadeIn 0.7s ease-in-out',
         pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       boxShadow: {
-        'neon-cyan': '0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.2)',
-        'neon-pink': '0 0 10px rgba(255, 0, 110, 0.5), 0 0 20px rgba(255, 0, 110, 0.2)',
-        'glow-sm': '0 0 15px rgba(212, 165, 116, 0.3)',
-        'glow': '0 0 30px rgba(212, 165, 116, 0.5)',
-      },
-      opacity: {
-        '15': '0.15',
+        'sm': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        'md': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)',
+        'lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)',
+        'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
       },
     },
   },
-  darkMode: 'class',
+  darkMode: false,
   plugins: [],
 };
 

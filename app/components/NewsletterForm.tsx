@@ -37,7 +37,7 @@ export default function NewsletterForm() {
 
   return (
     <form onSubmit={handleSubmit} className="relative">
-      <div className="flex flex-col sm:flex-row gap-2">
+      <div className="flex flex-col sm:flex-row gap-3">
         <input
           type="email"
           placeholder="your@email.com"
@@ -45,34 +45,29 @@ export default function NewsletterForm() {
           onChange={(e) => setEmail(e.target.value)}
           required
           disabled={status === 'loading'}
-          className="flex-1 px-4 py-3 bg-dark-bg-secondary border-2 border-sand text-dark-text placeholder-dark-text-dim font-mono text-sm transition-all duration-300 hover:border-sand focus:border-neon-cyan focus:ring-2 focus:ring-neon-cyan/20 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex-1 px-4 py-3 min-h-12 bg-white border border-slate-300 text-slate-900 placeholder-slate-500 font-sans text-sm transition-all duration-300 rounded-2xl hover:border-slate-400 focus:border-agave-green focus:ring-2 focus:ring-agave-green/20 disabled:opacity-50 disabled:cursor-not-allowed"
         />
         <button
           type="submit"
           disabled={status === 'loading' || !email}
-          className="btn-primary px-4 py-3 flex items-center justify-center gap-2 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+          className="btn-primary px-6 py-3 flex items-center justify-center gap-2 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <Send className="w-4 h-4" />
-          <span className="hidden sm:inline">Submit</span>
+          <span className="hidden sm:inline">Subscribe</span>
         </button>
       </div>
 
       {/* Status messages */}
       {status === 'success' && (
-        <div className="mt-2 text-sm text-sand animate-fadeIn">
+        <div className="mt-3 text-sm text-green-600 animate-fadeIn font-medium">
           ✓ {message}
         </div>
       )}
       {status === 'error' && (
-        <div className="mt-2 text-sm text-neon-pink animate-fadeIn">
+        <div className="mt-3 text-sm text-red-600 animate-fadeIn font-medium">
           ✗ {message}
         </div>
       )}
-
-      {/* Placeholder note */}
-      <p className="mt-2 text-xs text-dark-text-dim font-mono">
-        ConvertKit integration coming soon. Emails logged to console for now.
-      </p>
     </form>
   );
 }

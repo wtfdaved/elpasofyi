@@ -88,7 +88,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
-      <body className="bg-dark-bg text-dark-text dark">
+      <body className="bg-light-bg text-slate-900">
         {children}
       </body>
     </html>
