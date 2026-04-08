@@ -93,7 +93,7 @@ export default function LatestReviews() {
               transition={{ duration: 0.3 }}
             >
               <Link href={review.href}>
-                <div className="group relative h-full bg-white border border-slate-300 rounded-2xl overflow-hidden hover:border-agave-green hover:shadow-md transition-all duration-300 flex flex-col">
+                <div className="group relative h-full bg-white border border-slate-300 rounded-2xl overflow-hidden hover:border-sunset-orange hover:shadow-md transition-all duration-300 flex flex-col">
                   {/* Image placeholder */}
                   <div className="h-48 bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center overflow-hidden">
                     <div className="text-4xl">📸</div>
@@ -102,7 +102,7 @@ export default function LatestReviews() {
                   {/* Content */}
                   <div className="p-6 flex-1 flex flex-col">
                     <div className="mb-3">
-                      <span className="inline-block px-3 py-1 bg-agave-green/10 text-agave-green text-xs font-heading font-semibold rounded-full">
+                      <span className="inline-block px-3 py-1 bg-sunset-orange/10 text-sunset-orange text-xs font-heading font-semibold rounded-full">
                         {review.category}
                       </span>
                     </div>
@@ -117,7 +117,7 @@ export default function LatestReviews() {
 
                     {/* Read review link */}
                     <div className="pt-4 border-t border-slate-100">
-                      <span className="inline-flex items-center text-agave-green hover:text-opacity-80 transition-colors text-sm font-heading font-semibold uppercase tracking-wide">
+                      <span className="inline-flex items-center text-sunset-orange hover:text-opacity-80 transition-colors text-sm font-heading font-semibold uppercase tracking-wide">
                         Read Review →
                       </span>
                     </div>
@@ -138,7 +138,7 @@ export default function LatestReviews() {
         >
           <Link
             href="/food"
-            className="inline-flex items-center gap-2 text-agave-green hover:text-opacity-80 transition-colors font-heading font-semibold uppercase tracking-wide text-sm"
+            className="inline-flex items-center gap-2 text-sunset-orange hover:text-opacity-80 transition-colors font-heading font-semibold uppercase tracking-wide text-sm"
           >
             View All Reviews →
           </Link>

@@ -41,7 +41,7 @@ export default function Footer() {
             {/* Branding */}
             <motion.div variants={itemVariants}>
               <h3 className="text-2xl font-heading font-bold mb-2 text-slate-900">
-                elpaso<span className="text-agave-green">.</span>fyi
+                elpaso<span className="text-sunset-orange">.</span>fyi
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed">
                 The insider's heartbeat of El Paso. Authentic cultural insights for a city that moves at its own pace.
@@ -50,27 +50,27 @@ export default function Footer() {
 
             {/* Quick links */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-heading font-semibold uppercase tracking-wide text-agave-green mb-4">
+              <h4 className="text-sm font-heading font-semibold uppercase tracking-wide text-sunset-orange mb-4">
                 Explore
               </h4>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <a href="#" className="text-slate-700 hover:text-agave-green transition-colors">
+                  <a href="#" className="text-slate-700 hover:text-sunset-orange transition-colors">
                     The Radar
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-slate-700 hover:text-agave-green transition-colors">
+                  <a href="#" className="text-slate-700 hover:text-sunset-orange transition-colors">
                     Food & Drink
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-slate-700 hover:text-agave-green transition-colors">
+                  <a href="#" className="text-slate-700 hover:text-sunset-orange transition-colors">
                     Events
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-slate-700 hover:text-agave-green transition-colors">
+                  <a href="#" className="text-slate-700 hover:text-sunset-orange transition-colors">
                     Neighborhoods
                   </a>
                 </li>
@@ -79,7 +79,7 @@ export default function Footer() {
 
             {/* Social & Contact */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-heading font-semibold uppercase tracking-wide text-agave-green mb-4">
+              <h4 className="text-sm font-heading font-semibold uppercase tracking-wide text-sunset-orange mb-4">
                 Connect
               </h4>
               <div className="flex items-center gap-4 mb-6">
@@ -89,7 +89,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="text-slate-700 hover:text-agave-green transition-colors"
+                  className="text-slate-700 hover:text-sunset-orange transition-colors"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />
@@ -100,7 +100,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="text-slate-700 hover:text-agave-green transition-colors"
+                  className="text-slate-700 hover:text-sunset-orange transition-colors"
                   aria-label="TikTok"
                 >
                   <Music2 className="w-5 h-5" />
@@ -109,7 +109,7 @@ export default function Footer() {
                   href="mailto:hello@elpaso.fyi"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="text-slate-700 hover:text-agave-green transition-colors"
+                  className="text-slate-700 hover:text-sunset-orange transition-colors"
                   aria-label="Email"
                 >
                   <Mail className="w-5 h-5" />
@@ -133,10 +133,10 @@ export default function Footer() {
               © {new Date().getFullYear()} elpaso.fyi. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <a href="#" className="hover:text-agave-green transition-colors">
+              <a href="#" className="hover:text-sunset-orange transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="hover:text-agave-green transition-colors">
+              <a href="#" className="hover:text-sunset-orange transition-colors">
                 Terms of Service
               </a>
             </div>

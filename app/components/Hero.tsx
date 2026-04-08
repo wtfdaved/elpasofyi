@@ -33,7 +33,7 @@ export default function Hero() {
       {/* Subtle background accent */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-20 right-10 w-72 h-72 bg-agave-green opacity-3 rounded-full mix-blend-multiply filter blur-3xl"
+          className="absolute top-20 right-10 w-72 h-72 bg-sunset-orange opacity-3 rounded-full mix-blend-multiply filter blur-3xl"
           animate={{
             y: [0, 15, 0],
             x: [0, 8, 0],
@@ -67,12 +67,12 @@ export default function Hero() {
         {/* Main heading - SEO optimized */}
         <motion.div variants={itemVariants} className="mb-8">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold mb-6 relative inline-block leading-tight text-slate-900">
-            <span className="block text-base sm:text-lg lg:text-xl text-agave-green font-semibold mb-4 tracking-wide">
+            <span className="block text-base sm:text-lg lg:text-xl text-sunset-orange font-semibold mb-4 tracking-wide">
               The Sun City, Curated.
             </span>
             <span className="relative text-5xl sm:text-6xl lg:text-7xl">
               elpaso
-              <span className="text-agave-green">.</span>
+              <span className="text-sunset-orange">.</span>
               fyi
             </span>
           </h1>
@@ -83,7 +83,7 @@ export default function Hero() {
           variants={itemVariants}
           className="text-lg sm:text-xl lg:text-2xl text-slate-700 mb-6 font-light"
         >
-          Discover authentic El Paso. <span className="text-agave-green font-semibold">Events, restaurants, weekend itineraries, and local culture.</span>
+          Discover authentic El Paso. <span className="text-sunset-orange font-semibold">Events, restaurants, weekend itineraries, and local culture.</span>
         </motion.p>
 
         {/* Description */}
@@ -96,7 +96,7 @@ export default function Hero() {
 
         {/* Newsletter signup section */}
         <motion.div variants={itemVariants} className="max-w-md mx-auto mb-12">
-          <div className="flex items-center justify-center mb-4 text-agave-green">
+          <div className="flex items-center justify-center mb-4 text-sunset-orange">
             <Mail className="w-5 h-5 mr-2" />
             <span className="text-sm font-heading font-semibold tracking-wider">THE WEEKEND DROP</span>
           </div>
@@ -123,7 +123,7 @@ export default function Hero() {
             <span className="text-xs text-slate-500 mb-2 uppercase tracking-widest">
               Scroll to discover
             </span>
-            <ChevronDown className="w-5 h-5 text-agave-green" />
+            <ChevronDown className="w-5 h-5 text-sunset-orange" />
           </div>
         </motion.div>
       </motion.div>

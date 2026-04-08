@@ -16,8 +16,8 @@ const config: Config = {
         'slate-300': '#d0d0d0',
         'slate-100': '#f0f0f0',
 
-        // Primary accent - Agave Green
-        'agave-green': '#88c860',
+        // Primary accent - Sunset Orange
+        'sunset-orange': '#ff6b35',
 
         // Neutral whites
         'white': '#ffffff',

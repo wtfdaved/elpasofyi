@@ -102,7 +102,7 @@ export default function ThisWeekend() {
               transition={{ duration: 0.3 }}
             >
               <Link href={event.href}>
-                <div className="group relative h-full bg-white border border-slate-300 rounded-2xl overflow-hidden hover:border-agave-green hover:shadow-md transition-all duration-300 flex flex-col">
+                <div className="group relative h-full bg-white border border-slate-300 rounded-2xl overflow-hidden hover:border-sunset-orange hover:shadow-md transition-all duration-300 flex flex-col">
                   {/* Image placeholder */}
                   <div className="h-48 bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center overflow-hidden">
                     <div className="text-4xl">🎉</div>
@@ -116,7 +116,7 @@ export default function ThisWeekend() {
 
                     {/* Date and time */}
                     <div className="flex items-start gap-2 mb-2">
-                      <Calendar className="w-4 h-4 text-agave-green flex-shrink-0 mt-0.5" />
+                      <Calendar className="w-4 h-4 text-sunset-orange flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-sm font-heading font-semibold text-slate-900">
                           {event.date}
@@ -129,7 +129,7 @@ export default function ThisWeekend() {
 
                     {/* Location */}
                     <div className="flex items-start gap-2 mb-4">
-                      <MapPin className="w-4 h-4 text-agave-green flex-shrink-0 mt-0.5" />
+                      <MapPin className="w-4 h-4 text-sunset-orange flex-shrink-0 mt-0.5" />
                       <p className="text-sm text-slate-600">
                         {event.location}
                       </p>
@@ -142,7 +142,7 @@ export default function ThisWeekend() {
 
                     {/* View details link */}
                     <div className="pt-4 border-t border-slate-100 mt-auto">
-                      <span className="inline-flex items-center text-agave-green hover:text-opacity-80 transition-colors text-sm font-heading font-semibold uppercase tracking-wide">
+                      <span className="inline-flex items-center text-sunset-orange hover:text-opacity-80 transition-colors text-sm font-heading font-semibold uppercase tracking-wide">
                         View Details <ArrowRight className="w-4 h-4 ml-1" />
                       </span>
                     </div>
@@ -163,7 +163,7 @@ export default function ThisWeekend() {
         >
           <Link
             href="/events"
-            className="inline-flex items-center gap-2 text-agave-green hover:text-opacity-80 transition-colors font-heading font-semibold uppercase tracking-wide text-sm"
+            className="inline-flex items-center gap-2 text-sunset-orange hover:text-opacity-80 transition-colors font-heading font-semibold uppercase tracking-wide text-sm"
           >
             See All Events →
           </Link>

@@ -98,7 +98,7 @@ export default function WhereToEat() {
               transition={{ duration: 0.3 }}
             >
               <Link href={restaurant.href}>
-                <div className="group relative h-full bg-white border border-slate-300 rounded-2xl overflow-hidden hover:border-agave-green hover:shadow-md transition-all duration-300 flex flex-col">
+                <div className="group relative h-full bg-white border border-slate-300 rounded-2xl overflow-hidden hover:border-sunset-orange hover:shadow-md transition-all duration-300 flex flex-col">
                   {/* Image placeholder - 1:1 aspect ratio */}
                   <div className="aspect-square bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center overflow-hidden">
                     <div className="text-5xl">🍽️</div>
@@ -138,7 +138,7 @@ export default function WhereToEat() {
 
                     {/* View menu link */}
                     <div className="pt-4 border-t border-slate-100 mt-auto">
-                      <span className="inline-flex items-center text-agave-green hover:text-opacity-80 transition-colors text-sm font-heading font-semibold uppercase tracking-wide">
+                      <span className="inline-flex items-center text-sunset-orange hover:text-opacity-80 transition-colors text-sm font-heading font-semibold uppercase tracking-wide">
                         View Menu →
                       </span>
                     </div>
@@ -159,7 +159,7 @@ export default function WhereToEat() {
         >
           <Link
             href="/food"
-            className="inline-flex items-center gap-2 text-agave-green hover:text-opacity-80 transition-colors font-heading font-semibold uppercase tracking-wide text-sm"
+            className="inline-flex items-center gap-2 text-sunset-orange hover:text-opacity-80 transition-colors font-heading font-semibold uppercase tracking-wide text-sm"
           >
             Explore All Restaurants →
           </Link>

@@ -42,8 +42,8 @@ export default function FeaturedHighlight() {
             {/* Header */}
             <motion.div variants={itemVariants} className="mb-8">
               <div className="flex items-center gap-2 mb-4">
-                <Star className="w-5 h-5 text-agave-green" />
-                <span className="text-sm font-heading font-semibold text-agave-green uppercase tracking-wide">
+                <Star className="w-5 h-5 text-sunset-orange" />
+                <span className="text-sm font-heading font-semibold text-sunset-orange uppercase tracking-wide">
                   Spotlight of the Week
                 </span>
               </div>
@@ -69,11 +69,11 @@ export default function FeaturedHighlight() {
               {/* Meta info */}
               <div className="flex flex-col sm:flex-row gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-agave-green" />
+                  <MapPin className="w-4 h-4 text-sunset-orange" />
                   <span className="text-slate-600">El Paso, TX</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-agave-green" />
+                  <Clock className="w-4 h-4 text-sunset-orange" />
                   <span className="text-slate-600">Friday - Sunday</span>
                 </div>
               </div>

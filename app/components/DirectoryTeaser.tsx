@@ -124,10 +124,10 @@ export default function DirectoryTeaser() {
                 transition={{ duration: 0.3 }}
               >
                 <Link href={category.href}>
-                  <div className="group relative h-full bg-white border border-slate-300 rounded-2xl p-8 hover:border-agave-green hover:shadow-md transition-all duration-300 flex flex-col items-center text-center cursor-pointer">
+                  <div className="group relative h-full bg-white border border-slate-300 rounded-2xl p-8 hover:border-sunset-orange hover:shadow-md transition-all duration-300 flex flex-col items-center text-center cursor-pointer">
                     {/* Icon */}
-                    <div className="mb-6 p-4 bg-agave-green/10 rounded-2xl group-hover:bg-agave-green/20 transition-colors">
-                      <IconComponent className="w-8 h-8 text-agave-green" />
+                    <div className="mb-6 p-4 bg-sunset-orange/10 rounded-2xl group-hover:bg-sunset-orange/20 transition-colors">
+                      <IconComponent className="w-8 h-8 text-sunset-orange" />
                     </div>
 
                     {/* Content */}
@@ -141,7 +141,7 @@ export default function DirectoryTeaser() {
 
                     {/* Explore link */}
                     <div className="pt-4 border-t border-slate-100 w-full">
-                      <span className="inline-flex items-center text-agave-green hover:text-opacity-80 transition-colors text-sm font-heading font-semibold uppercase tracking-wide">
+                      <span className="inline-flex items-center text-sunset-orange hover:text-opacity-80 transition-colors text-sm font-heading font-semibold uppercase tracking-wide">
                         Explore →
                       </span>
                     </div>

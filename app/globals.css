@@ -9,7 +9,7 @@
   --color-light-bg: #faf9f6;
   --color-slate-900: #1a1a1a;
   --color-slate-500: #666666;
-  --color-agave-green: #88c860;
+  --color-sunset-orange: #ff6b35;
 }
 
 /* Global styles */
@@ -62,7 +62,7 @@ a {
 }
 
 a:hover {
-  @apply text-agave-green;
+  @apply text-sunset-orange;
 }
 
 /* Custom scrollbar */
@@ -76,7 +76,7 @@ a:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-agave-green);
+  background: var(--color-sunset-orange);
   border-radius: 4px;
 }
 
@@ -95,26 +95,26 @@ a:hover {
 }
 
 .btn-primary {
-  @apply btn-base bg-agave-green text-white hover:opacity-90 transition-opacity;
+  @apply btn-base bg-sunset-orange text-white hover:opacity-90 transition-opacity;
 }
 
 .btn-secondary {
-  @apply btn-base border-2 border-slate-300 text-slate-900 hover:border-agave-green hover:text-agave-green;
+  @apply btn-base border-2 border-slate-300 text-slate-900 hover:border-sunset-orange hover:text-sunset-orange;
 }
 
 /* Input focus styles */
 input:focus,
 textarea:focus {
-  @apply outline-none ring-2 ring-agave-green;
+  @apply outline-none ring-2 ring-sunset-orange;
 }
 
 /* Selection styling */
 ::selection {
-  background-color: var(--color-agave-green);
+  background-color: var(--color-sunset-orange);
   color: white;
 }
 
 ::-moz-selection {
-  background-color: var(--color-agave-green);
+  background-color: var(--color-sunset-orange);
   color: white;
 }
