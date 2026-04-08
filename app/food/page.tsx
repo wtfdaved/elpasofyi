@@ -77,9 +77,6 @@ export default function FoodPage() {
           </motion.div>
         </section>
 
-        {/* Submit Form Section */}
-        <SubmitForm />
-
         {/* Coming Soon Section */}
         <ComingSoonSection
           icon={UtensilsCrossed}
@@ -128,6 +125,29 @@ export default function FoodPage() {
               </div>
             </motion.div>
           </motion.div>
+        </section>
+
+        {/* Submit Form Section - CTA */}
+        <section className="bg-slate-50 border-t border-slate-200 pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <motion.div variants={itemVariants}>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-2">
+                  Share Your Spot
+                </h2>
+                <p className="text-lg text-dark-text-muted max-w-2xl">
+                  Know a hidden gem or local favorite? Tell us about it and help the community discover El Paso's best food.
+                </p>
+              </motion.div>
+            </motion.div>
+            <SubmitForm />
+          </div>
         </section>
 
         <Footer />

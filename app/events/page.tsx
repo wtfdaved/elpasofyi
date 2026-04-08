@@ -77,29 +77,6 @@ export default function EventsPage() {
           </motion.div>
         </section>
 
-        {/* Host an Event Section */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="space-y-4"
-          >
-            <motion.div variants={itemVariants}>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-2">
-                Host an Event?
-              </h2>
-              <p className="text-lg text-dark-text-muted max-w-2xl">
-                Have a show, pop-up, market, or event happening in El Paso? Let us know! Submit your event and we'll add it to the radar.
-              </p>
-            </motion.div>
-          </motion.div>
-        </section>
-
-        {/* Submit Event Form Section */}
-        <SubmitEventForm />
-
         {/* Coming Soon Section */}
         <ComingSoonSection
           icon={Calendar}
@@ -129,6 +106,29 @@ export default function EventsPage() {
               Subscribe to Events
             </motion.button>
           </motion.div>
+        </section>
+
+        {/* Submit Event Form Section - CTA */}
+        <section className="bg-slate-50 border-t border-slate-200 pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <motion.div variants={itemVariants}>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-2">
+                  Host an Event?
+                </h2>
+                <p className="text-lg text-dark-text-muted max-w-2xl">
+                  Have a show, pop-up, market, or event happening in El Paso? Let us know! Submit your event and we'll add it to the radar.
+                </p>
+              </motion.div>
+            </motion.div>
+            <SubmitEventForm />
+          </div>
         </section>
 
         <Footer />
