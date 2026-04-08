@@ -2,9 +2,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import TheRadar from './components/TheRadar';
 import FeaturedHighlight from './components/FeaturedHighlight';
-import LatestReviews from './components/LatestReviews';
-import WhereToEat from './components/WhereToEat';
-import ThisWeekend from './components/ThisWeekend';
 import DirectoryTeaser from './components/DirectoryTeaser';
 import Footer from './components/Footer';
 import Schema from './components/Schema';
@@ -53,15 +50,6 @@ export default function Home() {
         </section>
         <section>
           <FeaturedHighlight />
-        </section>
-        <section>
-          <LatestReviews />
-        </section>
-        <section>
-          <WhereToEat />
-        </section>
-        <section>
-          <ThisWeekend />
         </section>
         <section>
           <DirectoryTeaser />

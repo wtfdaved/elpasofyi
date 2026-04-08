@@ -1,60 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Calendar, MapPin } from 'lucide-react';
-import Link from 'next/link';
+import { Calendar } from 'lucide-react';
 import Footer from '../components/Footer';
 import Schema from '../components/Schema';
+import { SubmitForm } from '../components/SubmitForm';
+import { ComingSoonSection } from '../components/ComingSoonSection';
 
-interface Event {
-  id: string;
-  title: string;
-  date: string;
-  time: string;
-  location: string;
-  description: string;
-  category: 'music' | 'festival' | 'culture' | 'food' | 'sports';
-}
-
-// Sample events data - can be replaced with CMS/database
-const events: Event[] = [
-  {
-    id: '1',
-    title: 'Live Music Night at Downtown Venue',
-    date: '2024-04-13',
-    time: '8:00 PM',
-    location: 'Downtown El Paso',
-    description: 'Local bands and artists performing live with drinks and good vibes.',
-    category: 'music',
-  },
-  {
-    id: '2',
-    title: 'El Paso Cultural Festival',
-    date: '2024-04-14',
-    time: '10:00 AM',
-    location: 'San Jacinto Plaza',
-    description: 'Celebrate El Paso culture with food vendors, music, art installations, and community performances.',
-    category: 'festival',
-  },
-  {
-    id: '3',
-    title: 'Food Truck Rally & Tasting',
-    date: '2024-04-15',
-    time: '11:00 AM',
-    location: 'Union Plaza',
-    description: 'The best food trucks in El Paso gather for a day of amazing street food and local flavors.',
-    category: 'food',
-  },
-  {
-    id: '4',
-    title: 'Weekend Art Walk',
-    date: '2024-04-20',
-    time: '6:00 PM',
-    location: 'Arts District',
-    description: 'Explore local galleries, street art, and artist studios throughout El Paso\'s vibrant Arts District.',
-    category: 'culture',
-  },
-];
+// Empty schema array - events data will be submitted via form
+const eventSchemaArray: never[] = [];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -79,25 +33,6 @@ const itemVariants = {
   },
 };
 
-const eventSchemaArray = events.map((event) => ({
-  '@context': 'https://schema.org',
-  '@type': 'Event',
-  name: event.title,
-  description: event.description,
-  startDate: `${event.date}T${event.time}`,
-  eventStatus: 'EventScheduled',
-  eventAttendanceMode: 'OfflineEventAttendanceMode',
-  location: {
-    '@type': 'Place',
-    name: event.location,
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'El Paso',
-      addressRegion: 'TX',
-      addressCountry: 'US',
-    },
-  },
-}));
 
 export default function EventsPage() {
   return (
@@ -142,53 +77,15 @@ export default function EventsPage() {
           </motion.div>
         </section>
 
-        {/* Events Grid */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-          <article>
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 gap-6"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {events.map((event) => (
-                <motion.article
-                  key={event.id}
-                  variants={itemVariants}
-                  className="border border-dark-text-dim p-6 hover:border-sand transition-colors rounded group"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h2 className="text-xl font-bold mb-2 group-hover:text-sand transition-colors">
-                        {event.title}
-                      </h2>
-                      <div className="space-y-2 text-sm text-dark-text-muted">
-                        <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4 text-sand" />
-                          <span>{event.date} at {event.time}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4 text-rust" />
-                          <span>{event.location}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <span className="text-xs px-3 py-1 border border-sand rounded text-sand capitalize">
-                      {event.category}
-                    </span>
-                  </div>
-                  <p className="text-dark-text-dim mb-4">{event.description}</p>
-                  <Link
-                    href={`/events/${event.id}`}
-                    className="text-sand text-sm font-mono font-bold hover:text-neon-cyan transition-colors inline-flex items-center gap-1"
-                  >
-                    Learn More <span>→</span>
-                  </Link>
-                </motion.article>
-              ))}
-            </motion.div>
-          </article>
-        </section>
+        {/* Submit Form Section */}
+        <SubmitForm />
+
+        {/* Coming Soon Section */}
+        <ComingSoonSection
+          icon={Calendar}
+          heading="Local Events Coming Soon"
+          subheading="Help us discover El Paso's best events. Submit an event and we'll feature it here!"
+        />
 
         {/* Call to Action */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-dark-text-dim">

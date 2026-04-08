@@ -1,92 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Star, MapPin, Clock } from 'lucide-react';
-import Link from 'next/link';
+import { UtensilsCrossed } from 'lucide-react';
 import Footer from '../components/Footer';
 import Schema from '../components/Schema';
+import { SubmitForm } from '../components/SubmitForm';
+import { ComingSoonSection } from '../components/ComingSoonSection';
 
-interface Restaurant {
-  id: string;
-  name: string;
-  cuisine: string;
-  rating: number;
-  reviews: number;
-  neighborhood: string;
-  description: string;
-  specialty: string;
-  priceRange: string;
-}
-
-// Sample restaurant data
-const restaurants: Restaurant[] = [
-  {
-    id: '1',
-    name: 'Tacos El Paso Authentic',
-    cuisine: 'Mexican',
-    rating: 4.8,
-    reviews: 342,
-    neighborhood: 'Downtown',
-    description: 'Family-owned taco spot serving authentic street-style tacos with homemade tortillas since 1985.',
-    specialty: 'Carnitas & Al Pastor Tacos',
-    priceRange: '$',
-  },
-  {
-    id: '2',
-    name: 'The Chop House',
-    cuisine: 'American Steakhouse',
-    rating: 4.6,
-    reviews: 187,
-    neighborhood: 'Central',
-    description: 'Premium steakhouse featuring locally-sourced meats and an impressive wine selection.',
-    specialty: 'Dry-Aged Steaks & Seafood',
-    priceRange: '$$$',
-  },
-  {
-    id: '3',
-    name: 'Border Cafe y Cocina',
-    cuisine: 'New Mexican',
-    rating: 4.7,
-    reviews: 256,
-    neighborhood: 'Kern Place',
-    description: 'Modern take on traditional New Mexican cuisine with house-made chile blends.',
-    specialty: 'Green & Red Chile Dishes',
-    priceRange: '$$',
-  },
-  {
-    id: '4',
-    name: 'Lola\'s Bistro',
-    cuisine: 'Contemporary American',
-    rating: 4.5,
-    reviews: 198,
-    neighborhood: 'Arts District',
-    description: 'Farm-to-table bistro with seasonal menus and craft cocktails in a cozy atmosphere.',
-    specialty: 'House-Made Pasta & Local Vegetables',
-    priceRange: '$$',
-  },
-  {
-    id: '5',
-    name: 'Cocina del Barrio',
-    cuisine: 'Street Food',
-    rating: 4.9,
-    reviews: 412,
-    neighborhood: 'East Side',
-    description: 'Hidden gem serving traditional home cooking and street food favorites beloved by locals.',
-    specialty: 'Enchiladas & Gorditas',
-    priceRange: '$',
-  },
-  {
-    id: '6',
-    name: 'Monsoon Asian Kitchen',
-    cuisine: 'Asian Fusion',
-    rating: 4.4,
-    reviews: 165,
-    neighborhood: 'Midtown',
-    description: 'Creative Asian fusion dishes combining Thai, Vietnamese, and Japanese influences.',
-    specialty: 'Pad Thai & House-Made Dumplings',
-    priceRange: '$$',
-  },
-];
+// Empty schema array - restaurants data will be submitted via form
+const restaurantSchemaArray: never[] = [];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -111,25 +33,6 @@ const itemVariants = {
   },
 };
 
-const restaurantSchemaArray = restaurants.map((restaurant) => ({
-  '@context': 'https://schema.org',
-  '@type': 'Restaurant',
-  name: restaurant.name,
-  description: restaurant.description,
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'El Paso',
-    addressRegion: 'TX',
-    addressCountry: 'US',
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: restaurant.rating.toString(),
-    reviewCount: restaurant.reviews.toString(),
-  },
-  cuisine: restaurant.cuisine,
-  servesCuisine: restaurant.cuisine,
-}));
 
 export default function FoodPage() {
   return (
@@ -174,73 +77,15 @@ export default function FoodPage() {
           </motion.div>
         </section>
 
-        {/* Restaurants Grid */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-          <article>
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {restaurants.map((restaurant) => (
-                <motion.article
-                  key={restaurant.id}
-                  variants={itemVariants}
-                  className="border border-dark-text-dim p-6 hover:border-sand transition-colors rounded group flex flex-col"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex-1">
-                      <h2 className="text-lg font-bold mb-1 group-hover:text-sand transition-colors">
-                        {restaurant.name}
-                      </h2>
-                      <p className="text-xs text-dark-text-muted uppercase tracking-wider">
-                        {restaurant.cuisine}
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <div className="flex items-center gap-1 justify-end mb-1">
-                        <span className="text-sm font-bold text-sand">
-                          {restaurant.rating}
-                        </span>
-                        <Star className="w-4 h-4 fill-sand text-sand" />
-                      </div>
-                      <p className="text-xs text-dark-text-dim">
-                        {restaurant.reviews} reviews
-                      </p>
-                    </div>
-                  </div>
+        {/* Submit Form Section */}
+        <SubmitForm />
 
-                  <p className="text-sm text-dark-text-muted mb-3 flex-1">
-                    {restaurant.description}
-                  </p>
-
-                  <div className="space-y-2 text-xs text-dark-text-dim mb-4">
-                    <div className="flex items-center gap-2">
-                      <MapPin className="w-3 h-3 text-rust" />
-                      <span>{restaurant.neighborhood}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-sand font-semibold">Specialty:</span>
-                      <span>{restaurant.specialty}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Clock className="w-3 h-3 text-neon-cyan" />
-                      <span>{restaurant.priceRange}</span>
-                    </div>
-                  </div>
-
-                  <Link
-                    href={`/food/${restaurant.id}`}
-                    className="text-sand text-sm font-mono font-bold hover:text-neon-cyan transition-colors inline-flex items-center gap-1"
-                  >
-                    View Details <span>→</span>
-                  </Link>
-                </motion.article>
-              ))}
-            </motion.div>
-          </article>
-        </section>
+        {/* Coming Soon Section */}
+        <ComingSoonSection
+          icon={UtensilsCrossed}
+          heading="Curating the Best Restaurants"
+          subheading="We're collecting community recommendations to bring you El Paso's top food spots. Check back soon!"
+        />
 
         {/* Tips Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-dark-text-dim">

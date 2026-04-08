@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Star, Clock, MapPin } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 export default function FeaturedHighlight() {
   const containerVariants = {
@@ -42,73 +42,48 @@ export default function FeaturedHighlight() {
             {/* Header */}
             <motion.div variants={itemVariants} className="mb-8">
               <div className="flex items-center gap-2 mb-4">
-                <Star className="w-5 h-5 text-sunset-orange" />
+                <Sparkles className="w-5 h-5 text-sunset-orange" />
                 <span className="text-sm font-heading font-semibold text-sunset-orange uppercase tracking-wide">
-                  Spotlight of the Week
+                  Coming Soon
                 </span>
               </div>
               <h2 className="text-4xl sm:text-5xl lg:text-5xl font-heading font-bold mb-4 text-slate-900">
-                The Hottest Drop in El Paso
+                The Next Big Thing in El Paso
               </h2>
             </motion.div>
 
-            {/* Featured content placeholder */}
+            {/* Coming Soon Content */}
             <motion.div variants={itemVariants} className="space-y-6">
-              <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-                <h3 className="text-2xl font-heading font-bold mb-2 text-slate-900">
-                  [Featured Venue / Event Name]
-                </h3>
-                <p className="text-slate-500 text-sm uppercase tracking-wide font-heading font-semibold mb-4">
-                  Coming This Weekend
-                </p>
-                <p className="text-base text-slate-700 leading-relaxed mb-4">
-                  This is where the story goes. Tell us about what's happening this week—the restaurant that just opened, the underground show everyone's talking about, or the cultural moment you can't miss.
+              <p className="text-base text-slate-700 leading-relaxed">
+                We're scouting the hottest new spots, restaurants, and events happening in El Paso. Check back soon for our next featured spotlight—the ones locals are actually talking about.
+              </p>
+
+              <div className="bg-gradient-to-r from-sunset-orange/5 to-sunset-orange/10 rounded-2xl p-6 border border-sunset-orange/20">
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  <span className="font-semibold text-slate-900">Help us find the best:</span> Know about an amazing new spot or event? Submit your recommendations on our Food and Events pages—the community's input shapes what gets featured here.
                 </p>
               </div>
-
-              {/* Meta info */}
-              <div className="flex flex-col sm:flex-row gap-6 text-sm">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-sunset-orange" />
-                  <span className="text-slate-600">El Paso, TX</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-sunset-orange" />
-                  <span className="text-slate-600">Friday - Sunday</span>
-                </div>
-              </div>
-
-              {/* CTA Buttons */}
-              <motion.div
-                variants={itemVariants}
-                className="flex flex-col sm:flex-row gap-4 pt-4"
-              >
-                <button className="btn-primary">
-                  Learn More
-                </button>
-                <button className="btn-secondary">
-                  Save to Radar
-                </button>
-              </motion.div>
             </motion.div>
           </div>
 
-          {/* Featured image placeholder */}
+          {/* Coming Soon Visual */}
           <motion.div
             variants={itemVariants}
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.4 }}
             className="relative h-96 lg:h-full min-h-96"
           >
-            <div className="absolute inset-0 bg-slate-100 border border-slate-300 rounded-2xl flex items-center justify-center overflow-hidden">
-              <div className="text-center">
-                <div className="text-6xl mb-4">🎭</div>
-                <p className="text-slate-600 text-sm uppercase tracking-wide font-heading font-semibold">
-                  [Featured Image]
-                </p>
-                <p className="text-xs text-slate-500 mt-2 max-w-xs px-4">
-                  High-res images, dynamic visuals, and mood will go here
-                </p>
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-2xl flex items-center justify-center overflow-hidden">
+              <div className="text-center space-y-4">
+                <Sparkles className="w-16 h-16 text-sunset-orange mx-auto opacity-80" />
+                <div>
+                  <p className="text-slate-600 text-sm uppercase tracking-wide font-heading font-semibold">
+                    Coming This Weekend
+                  </p>
+                  <p className="text-xs text-slate-500 mt-2 max-w-xs px-4">
+                    Curating the best El Paso has to offer
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
