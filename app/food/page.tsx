@@ -1,10 +1,23 @@
 'use client';
 
+import type { Metadata } from 'next';
 import { motion } from 'framer-motion';
 import { UtensilsCrossed } from 'lucide-react';
 import Schema from '../components/Schema';
 import { SubmitForm } from '../components/SubmitForm';
 import { ComingSoonSection } from '../components/ComingSoonSection';
+
+export const metadata: Metadata = {
+  title: 'Best Food & Restaurants in El Paso, TX | elpaso.fyi',
+  description: 'Discover El Paso\'s vibrant food scene with our comprehensive guide to the best local restaurants, street food, tacos, and dining experiences. Find where to eat in El Paso today.',
+  keywords: 'El Paso food scene, best tacos, local restaurants, where to eat in El Paso, El Paso dining guide, best food El Paso, authentic Mexican food',
+  openGraph: {
+    title: 'Best Food & Restaurants in El Paso, TX',
+    description: 'Your complete guide to El Paso\'s best food, tacos, and local dining spots.',
+    url: 'https://elpaso.fyi/food',
+    type: 'website',
+  },
+};
 
 // Empty schema array - restaurants data will be submitted via form
 const restaurantSchemaArray: never[] = [];
@@ -40,6 +53,50 @@ export default function FoodPage() {
       {restaurantSchemaArray.map((schema, idx) => (
         <Schema key={idx} schema={schema} />
       ))}
+
+      {/* CollectionPage Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: 'El Paso Food & Dining Guide',
+            description: 'A comprehensive guide to the best restaurants, tacos, street food, and local dining experiences in El Paso, Texas.',
+            url: 'https://elpaso.fyi/food',
+            mainEntity: {
+              '@type': 'LocalBusiness',
+              name: 'El Paso Food Scene',
+              description: 'Discover the vibrant food culture of El Paso, TX, featuring authentic Mexican cuisine, local street food, and upscale dining.',
+              areaServed: {
+                '@type': 'City',
+                name: 'El Paso',
+                addressCountry: 'US',
+              },
+              telephone: '',
+              url: 'https://elpaso.fyi/food',
+            },
+            hasPart: [
+              {
+                '@type': 'Thing',
+                name: 'Mexican & Authentic Tacos',
+                description: 'Authentic Mexican cuisine and the best tacos in El Paso',
+              },
+              {
+                '@type': 'Thing',
+                name: 'Street Food & Food Trucks',
+                description: 'Local street food favorites and food truck spots',
+              },
+              {
+                '@type': 'Thing',
+                name: 'Upscale Dining',
+                description: 'Fine dining and upscale restaurant experiences in El Paso',
+              },
+            ],
+          }),
+        }}
+        suppressHydrationWarning
+      />
 
       <main className="bg-dark-bg text-dark-text min-h-screen">
         {/* Header Section */}
@@ -83,48 +140,6 @@ export default function FoodPage() {
           subheading="We're collecting community recommendations to bring you El Paso's top food spots. Check back soon!"
         />
 
-        {/* Tips Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-dark-text-dim">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <motion.div variants={itemVariants}>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-                Local Food<span className="text-sand"> Tips</span>
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <h3 className="text-lg font-semibold text-sand">Pro Tip #1</h3>
-                  <p className="text-dark-text-muted">
-                    Ask for the carne asada "well done" for crispy edges. Locals know.
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-lg font-semibold text-sand">Pro Tip #2</h3>
-                  <p className="text-dark-text-muted">
-                    Visit East Side restaurants for the most authentic, affordable street food experiences.
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-lg font-semibold text-sand">Pro Tip #3</h3>
-                  <p className="text-dark-text-muted">
-                    Always ask for fresh tortillas. Most places make them daily.
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-lg font-semibold text-sand">Pro Tip #4</h3>
-                  <p className="text-dark-text-muted">
-                    Best time to visit food trucks: late night after 10 PM when the crowds line up.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        </section>
 
         {/* Submit Form Section - CTA */}
         <section className="bg-light-bg pt-20 pb-16 px-4 sm:px-6 lg:px-8">
