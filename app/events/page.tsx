@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { Calendar } from 'lucide-react';
-import Footer from '../components/Footer';
 import Schema from '../components/Schema';
 import { SubmitEventForm } from '../components/SubmitEventForm';
 import { ComingSoonSection } from '../components/ComingSoonSection';
@@ -130,8 +129,6 @@ export default function EventsPage() {
             <SubmitEventForm />
           </div>
         </section>
-
-        <Footer />
       </main>
     </>
   );
