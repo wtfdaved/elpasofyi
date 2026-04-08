@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Calendar } from 'lucide-react';
 import Footer from '../components/Footer';
 import Schema from '../components/Schema';
-import { SubmitForm } from '../components/SubmitForm';
+import { SubmitEventForm } from '../components/SubmitEventForm';
 import { ComingSoonSection } from '../components/ComingSoonSection';
 
 // Empty schema array - events data will be submitted via form
@@ -77,8 +77,28 @@ export default function EventsPage() {
           </motion.div>
         </section>
 
-        {/* Submit Form Section */}
-        <SubmitForm />
+        {/* Host an Event Section */}
+        <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
+            <motion.div variants={itemVariants}>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-2">
+                Host an Event?
+              </h2>
+              <p className="text-lg text-dark-text-muted max-w-2xl">
+                Have a show, pop-up, market, or event happening in El Paso? Let us know! Submit your event and we'll add it to the radar.
+              </p>
+            </motion.div>
+          </motion.div>
+        </section>
+
+        {/* Submit Event Form Section */}
+        <SubmitEventForm />
 
         {/* Coming Soon Section */}
         <ComingSoonSection
