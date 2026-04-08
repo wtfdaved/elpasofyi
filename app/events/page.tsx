@@ -41,6 +41,50 @@ export default function EventsPage() {
         <Schema key={idx} schema={schema} />
       ))}
 
+      {/* CollectionPage Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: 'Upcoming Events & Things to Do in El Paso',
+            description: 'Discover upcoming events, live music, local markets, festivals, and the best things to do in El Paso, Texas.',
+            url: 'https://elpaso.fyi/events',
+            mainEntity: {
+              '@type': 'LocalBusiness',
+              name: 'El Paso Events',
+              description: 'Your guide to the best events, live music, markets, festivals, and things to do happening in El Paso, TX.',
+              areaServed: {
+                '@type': 'City',
+                name: 'El Paso',
+                addressCountry: 'US',
+              },
+              telephone: '',
+              url: 'https://elpaso.fyi/events',
+            },
+            hasPart: [
+              {
+                '@type': 'Thing',
+                name: 'Live Music & Concerts',
+                description: 'Live music events and concerts happening in El Paso',
+              },
+              {
+                '@type': 'Thing',
+                name: 'Markets & Festivals',
+                description: 'Local markets, street fairs, and festivals in El Paso',
+              },
+              {
+                '@type': 'Thing',
+                name: 'Weekend Events',
+                description: 'Fun things to do this weekend in El Paso',
+              },
+            ],
+          }),
+        }}
+        suppressHydrationWarning
+      />
+
       <main className="bg-dark-bg text-dark-text min-h-screen">
         {/* Header Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
@@ -52,7 +96,7 @@ export default function EventsPage() {
           >
             <motion.div variants={itemVariants}>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-display mb-4">
-                El Paso<span className="text-sand"> Events</span>
+                El Paso<span className="text-sand"> Events & Things to Do</span>
               </h1>
               <p className="text-lg sm:text-xl text-dark-text-muted max-w-2xl">
                 Discover what's happening this weekend and beyond. From live music to food festivals, find the best things to do in El Paso, TX.
