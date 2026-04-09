@@ -89,16 +89,22 @@ export default function TheRadar() {
           <p className="text-lg text-slate-600 max-w-2xl">
             Your real-time feed of what's happening in El Paso. Curated content on food, events, culture, and everything worth exploring.
           </p>
+          <p className="text-xs text-slate-500 font-heading font-semibold uppercase tracking-wide mt-2 md:hidden">
+            Scroll to explore →
+          </p>
         </motion.div>
 
         {/* Cards grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-        >
+        <div className="relative">
+          {/* Right-edge fade hint — mobile only */}
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-light-bg to-transparent z-10 md:hidden" />
+          <motion.div
+            className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 px-4 sm:-mx-6 sm:px-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] md:grid md:grid-cols-2 md:flex-none md:overflow-x-visible md:pb-0 md:mx-0 md:px-0 lg:grid-cols-3"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+          >
           {radarCategories.map((category) => {
             const IconComponent = category.icon;
             return (
@@ -107,6 +113,7 @@ export default function TheRadar() {
                 variants={cardVariants}
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.3 }}
+                className="flex-none w-[280px] snap-start md:w-auto md:flex-1"
               >
                 <Link href={category.href}>
                   <div className="group relative p-6 border border-slate-300 bg-white rounded-2xl hover:border-sunset-orange hover:shadow-md transition-all duration-300 cursor-pointer h-full flex flex-col">
@@ -136,7 +143,8 @@ export default function TheRadar() {
               </motion.div>
             );
           })}
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
