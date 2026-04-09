@@ -1,7 +1,6 @@
 import Hero from './components/Hero';
 import TheRadar from './components/TheRadar';
 import FeaturedHighlight from './components/FeaturedHighlight';
-import DirectoryTeaser from './components/DirectoryTeaser';
 import Schema from './components/Schema';
 
 export default function Home() {
@@ -46,9 +45,6 @@ export default function Home() {
       </section>
       <section>
         <FeaturedHighlight />
-      </section>
-      <section>
-        <DirectoryTeaser />
       </section>
     </>
   );
