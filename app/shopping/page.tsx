@@ -1,84 +1,39 @@
-'use client';
-
+import type { Metadata } from 'next';
 import { motion } from 'framer-motion';
-import { MapPin } from 'lucide-react';
-import Footer from '../components/Footer';
+import { MapPin, ShoppingBag } from 'lucide-react';
+import { ComingSoonSection } from '../components/ComingSoonSection';
 
-interface Shop {
-  id: string;
-  name: string;
-  type: string;
-  neighborhood: string;
-  description: string;
-  specialties: string[];
-}
-
-const shops: Shop[] = [
-  {
-    id: '1',
-    name: 'Local Artisan Galleries - Arts District',
-    type: 'Art Gallery & Artist Studios',
-    neighborhood: 'Arts District',
-    description: 'Independent galleries and artist studios showcasing local and regional artists. Support creators directly.',
-    specialties: ['Original Art', 'Photography', 'Sculptures', 'Mixed Media', 'Street Art'],
+export const metadata: Metadata = {
+  title: 'Best Shopping, Boutiques & Markets in El Paso, TX | elpaso.fyi',
+  description: 'Discover El Paso\'s best shopping, local boutiques, vintage markets, and artisan makers. Explore Kern Place, Arts District, Downtown, and East Side Markets. Support local El Paso businesses and makers.',
+  keywords: 'El Paso shopping, El Paso boutiques, vintage markets El Paso, local makers El Paso, Cielo Vista shopping, Kern Place shops, Arts District galleries, downtown El Paso shops, artisan markets, local El Paso businesses',
+  openGraph: {
+    title: 'Best Shopping, Boutiques & Markets in El Paso, TX',
+    description: 'Discover El Paso\'s best shopping, local boutiques, vintage markets, and artisan makers.',
+    url: 'https://elpaso.fyi/shopping',
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'elpaso.fyi',
+    images: [
+      {
+        url: 'https://elpaso.fyi/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'El Paso Shopping & Local Makers',
+      },
+    ],
   },
-  {
-    id: '2',
-    name: 'Kern Place Independent Boutiques',
-    type: 'Fashion & Accessories',
-    neighborhood: 'Kern Place',
-    description: 'Curated selection of independent boutiques offering unique clothing, accessories, and vintage finds.',
-    specialties: ['Fashion', 'Accessories', 'Vintage Clothing', 'Local Designers', 'Unique Pieces'],
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Best Shopping, Boutiques & Markets in El Paso, TX',
+    description: 'Discover El Paso\'s best shopping, local boutiques, and artisan makers',
+    creator: '@elpasofyi',
+    images: ['https://elpaso.fyi/og-image.svg'],
   },
-  {
-    id: '3',
-    name: 'El Paso Artisan Markets',
-    type: 'Farmers & Craft Markets',
-    neighborhood: 'Multiple',
-    description: 'Weekly and seasonal markets featuring local food producers, crafters, and makers selling directly.',
-    specialties: ['Fresh Produce', 'Handmade Crafts', 'Local Food', 'Organic Products', 'Direct from Makers'],
+  alternates: {
+    canonical: 'https://elpaso.fyi/shopping',
   },
-  {
-    id: '4',
-    name: 'Local Leather & Craft Workshops',
-    type: 'Artisan Products',
-    neighborhood: 'Downtown',
-    description: 'Family-owned businesses crafting leather goods, pottery, textiles, and other handmade products.',
-    specialties: ['Leather Goods', 'Pottery', 'Textiles', 'Jewelry', 'Handcrafted Items'],
-  },
-  {
-    id: '5',
-    name: 'Independent Coffee & Tea Shops',
-    type: 'Specialty Beverages',
-    neighborhood: 'Multiple',
-    description: 'Local coffee roasters and tea importers serving El Paso residents with quality artisan beverages.',
-    specialties: ['Specialty Coffee', 'Locally Roasted', 'Tea Selection', 'Cafe Culture', 'Artisan Preparation'],
-  },
-  {
-    id: '6',
-    name: 'El Paso Record Shops',
-    type: 'Vinyl & Music',
-    neighborhood: 'Multiple',
-    description: 'Independent record shops and music stores supporting vinyl culture and local musicians.',
-    specialties: ['Vinyl Records', 'Local Music', 'Vintage Records', 'Music Memorabilia', 'Music Gear'],
-  },
-  {
-    id: '7',
-    name: 'Local Bakeries & Food Artisans',
-    type: 'Food & Beverages',
-    neighborhood: 'Multiple',
-    description: 'Family-owned bakeries and food producers making traditional and innovative El Paso specialties.',
-    specialties: ['Fresh Baked Goods', 'Traditional Recipes', 'Artisan Food', 'Local Flavors', 'Quality Ingredients'],
-  },
-  {
-    id: '8',
-    name: 'El Paso Bookstores & Vintage Shops',
-    type: 'Books & Vintage',
-    neighborhood: 'Multiple',
-    description: 'Independent bookstores and vintage shops offering unique finds and local author works.',
-    specialties: ['Independent Books', 'Local Authors', 'Vintage Items', 'Used Books', 'Collectibles'],
-  },
-];
+};
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -104,8 +59,26 @@ const itemVariants = {
 };
 
 export default function ShoppingPage() {
+  // JSON-LD CollectionPage Schema for SEO
+  const collectionPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'El Paso Shopping & Local Makers',
+    description: 'Discover El Paso\'s best shopping, local boutiques, vintage markets, and artisan makers. Explore Kern Place, Arts District, Downtown, and East Side Markets.',
+    url: 'https://elpaso.fyi/shopping',
+    inLanguage: 'en-US',
+  };
+
   return (
     <>
+      {/* Inject CollectionPage Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(collectionPageSchema),
+        }}
+      />
+
       <main className="bg-dark-bg text-dark-text min-h-screen">
         {/* Header Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
@@ -117,7 +90,7 @@ export default function ShoppingPage() {
           >
             <motion.div variants={itemVariants}>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-display mb-4">
-                Shopping &<span className="text-sand"> Local Makers</span>
+                El Paso Shopping &<span className="text-sand"> Local Makers</span>
               </h1>
               <p className="text-lg sm:text-xl text-dark-text-muted max-w-2xl">
                 Support El Paso's creative community. Discover local artisans, independent shops, makers, and local products that represent the heart of the city.
@@ -141,56 +114,13 @@ export default function ShoppingPage() {
           </motion.div>
         </section>
 
-        {/* Shops Grid */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-          <article>
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 gap-6"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {shops.map((shop) => (
-                <motion.article
-                  key={shop.id}
-                  variants={itemVariants}
-                  className="border border-dark-text-dim p-6 hover:border-sand transition-colors rounded group flex flex-col"
-                >
-                  <div className="mb-4">
-                    <span className="inline-block text-xs px-2 py-1 border border-sand text-sand rounded mb-2 uppercase tracking-wider">
-                      {shop.type}
-                    </span>
-                    <h2 className="text-lg font-bold mb-1 group-hover:text-sand transition-colors">
-                      {shop.name}
-                    </h2>
-                  </div>
-
-                  <p className="text-sm text-dark-text-muted mb-4 flex-1">
-                    {shop.description}
-                  </p>
-
-                  <div className="mb-4 pb-4 border-t border-dark-text-dim pt-4">
-                    <p className="text-xs text-dark-text-dim font-semibold mb-2">Specialties:</p>
-                    <div className="flex flex-wrap gap-1">
-                      {shop.specialties.map((specialty) => (
-                        <span
-                          key={specialty}
-                          className="text-xs px-2 py-1 bg-dark-bg-alt border border-dark-text-dim text-dark-text-muted rounded"
-                        >
-                          {specialty}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2 text-xs text-dark-text-dim">
-                    <MapPin className="w-3 h-3 text-rust" />
-                    <span>{shop.neighborhood}</span>
-                  </div>
-                </motion.article>
-              ))}
-            </motion.div>
-          </article>
+        {/* Coming Soon Section */}
+        <section className="py-12 px-4 sm:px-6 lg:px-8">
+          <ComingSoonSection
+            icon={ShoppingBag}
+            heading="Curating the best local shops..."
+            subheading="A deep dive into El Paso boutiques, vintage markets, and local makers is dropping soon."
+          />
         </section>
 
         {/* Why Shop Local Section */}
@@ -292,8 +222,6 @@ export default function ShoppingPage() {
             </motion.div>
           </motion.div>
         </section>
-
-        <Footer />
       </main>
     </>
   );
