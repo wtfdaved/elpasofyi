@@ -1,5 +1,4 @@
 import { Camera } from 'lucide-react';
-import Footer from '../components/Footer';
 
 export default function AttractionsPage() {
   return (
@@ -76,8 +75,6 @@ export default function AttractionsPage() {
         }}
         suppressHydrationWarning
       />
-
-      <Footer />
     </main>
   );
 }
