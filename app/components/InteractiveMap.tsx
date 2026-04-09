@@ -15,6 +15,16 @@ const regions = [
 export default function InteractiveMap() {
   const [activeRegion, setActiveRegion] = useState<string | null>(null);
 
+  // Neutral color palette for each region (different shades for visual distinction)
+  const regionColors: { [key: string]: string } = {
+    'Central & Downtown': '#f3f4f6', // gray-100
+    'West Side': '#e5e7eb', // gray-200
+    'Northeast': '#d1d5db', // gray-300
+    'East Side': '#f9fafb', // gray-50
+    'Far East': '#d1d5db', // gray-300
+    'Lower Valley': '#e5e7eb', // gray-200
+  };
+
   const regionPaths: { [key: string]: { paths: Array<{d: string; transform?: string}>; ariaLabel: string } } = {
     'Central & Downtown': {
       paths: [
@@ -111,42 +121,54 @@ export default function InteractiveMap() {
           <rect width="810" height="809.999993" className="fill-light-bg" />
 
           {/* Region Groups */}
-          {regions.map((regionName) => (
-            <g
-              key={regionName}
-              onMouseEnter={() => setActiveRegion(regionName)}
-              onMouseLeave={() => setActiveRegion(null)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  setActiveRegion(regionName);
-                }
-              }}
-              role="button"
-              tabIndex={0}
-              aria-label={regionPaths[regionName]?.ariaLabel}
-              className="cursor-pointer transition-all duration-300"
-            >
-              {regionPaths[regionName]?.paths.map((pathData, index) => (
-                <g key={`${regionName}-path-${index}`} transform={pathData.transform}>
-                  <path
-                    d={pathData.d}
-                    className="fill-slate-100 stroke-slate-300 stroke-2 transition-all duration-300 hover:fill-sunset-orange"
-                  />
-                </g>
-              ))}
-            </g>
-          ))}
+          {regions.map((regionName) => {
+            const isActive = activeRegion === regionName;
+            const fillColor = isActive ? '#ff6b35' : regionColors[regionName];
+
+            return (
+              <g
+                key={regionName}
+                onMouseEnter={() => setActiveRegion(regionName)}
+                onMouseLeave={() => setActiveRegion(null)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    setActiveRegion(regionName);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={regionPaths[regionName]?.ariaLabel}
+                className={`cursor-pointer transition-all duration-300 ${isActive ? 'drop-shadow-md' : ''}`}
+                style={{ filter: isActive ? 'drop-shadow(0 10px 15px -3px rgba(255, 107, 53, 0.2))' : 'none' }}
+              >
+                {regionPaths[regionName]?.paths.map((pathData, index) => (
+                  <g key={`${regionName}-path-${index}`} transform={pathData.transform}>
+                    <path
+                      d={pathData.d}
+                      fill={fillColor}
+                      stroke="none"
+                      strokeWidth="0"
+                      style={{ transition: 'fill 0.3s ease-in-out' }}
+                    />
+                  </g>
+                ))}
+              </g>
+            );
+          })}
         </svg>
       </div>
 
       {/* Legend */}
-      <div className="flex flex-wrap gap-3 justify-center mb-8">
+      <div className="flex flex-wrap gap-4 justify-center mb-8">
         {regions.map((region) => (
           <div
             key={region}
             className="flex items-center gap-2"
           >
-            <div className="w-3 h-3 rounded-sm bg-slate-100 border border-slate-300"></div>
+            <div
+              className="w-3 h-3 rounded-sm"
+              style={{ backgroundColor: regionColors[region] }}
+            ></div>
             <span className="text-sm text-slate-700">{region}</span>
           </div>
         ))}
