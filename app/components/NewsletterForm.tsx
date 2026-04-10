@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Send } from 'lucide-react';
+import { subscribeToNewsletter } from '@/app/actions/newsletter';
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState('');
@@ -13,25 +14,40 @@ export default function NewsletterForm() {
     setStatus('loading');
 
     try {
-      // TODO: Integrate with ConvertKit API
-      // For now, this is a placeholder that logs the email
-      console.log('Newsletter signup:', email);
+      const formData = new FormData();
+      formData.append('email', email);
 
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 500));
+      const result = await subscribeToNewsletter(formData);
 
-      setStatus('success');
-      setMessage('Thanks for signing up!');
-      setEmail('');
+      if (result.success) {
+        setStatus('success');
+        setMessage(result.message);
+        setEmail('');
 
-      // Reset after 3 seconds
-      setTimeout(() => {
-        setStatus('idle');
-        setMessage('');
-      }, 3000);
+        // Reset after 5 seconds
+        setTimeout(() => {
+          setStatus('idle');
+          setMessage('');
+        }, 5000);
+      } else {
+        setStatus('error');
+        setMessage(result.message);
+
+        // Reset after 5 seconds
+        setTimeout(() => {
+          setStatus('idle');
+          setMessage('');
+        }, 5000);
+      }
     } catch (error) {
       setStatus('error');
       setMessage('Something went wrong. Try again.');
+
+      // Reset after 5 seconds
+      setTimeout(() => {
+        setStatus('idle');
+        setMessage('');
+      }, 5000);
     }
   };
 
@@ -59,7 +75,7 @@ export default function NewsletterForm() {
 
       {/* Status messages */}
       {status === 'success' && (
-        <div className="mt-3 text-sm text-green-600 animate-fadeIn font-medium">
+        <div className="mt-3 text-sm text-sunset-orange animate-fadeIn font-medium">
           ✓ {message}
         </div>
       )}

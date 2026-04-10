@@ -138,6 +138,15 @@ export default function TermsOfService() {
 
           <section>
             <h2 className="text-2xl font-heading font-semibold mb-4 text-slate-900">
+              Newsletter Unsubscribe
+            </h2>
+            <p>
+              You may unsubscribe from "The Weekend Drop" newsletter at any time. To unsubscribe, click the unsubscribe link located at the bottom of any newsletter email. You may also contact us at hello@elpaso.fyi to manage your subscription preferences.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-heading font-semibold mb-4 text-slate-900">
               Contact Us
             </h2>
             <p>

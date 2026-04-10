@@ -59,6 +59,26 @@ export default function PrivacyPolicy() {
 
           <section>
             <h2 className="text-2xl font-heading font-semibold mb-4 text-slate-900">
+              Newsletter & Email Communications
+            </h2>
+            <p>
+              We use Beehiiv, a third-party email service provider, to manage our newsletter "The Weekend Drop." When you subscribe to our newsletter, we collect your email address and transmit it to Beehiiv's servers. By subscribing, you consent to receiving marketing emails about El Paso events, attractions, and recommendations.
+            </p>
+            <p className="mt-4">
+              Beehiiv tracks standard email analytics to help us improve our content, including:
+            </p>
+            <ul className="list-disc list-inside space-y-2 mt-4 ml-4">
+              <li>Email open rates</li>
+              <li>Link clicks and engagement</li>
+              <li>Subscriber preferences</li>
+            </ul>
+            <p className="mt-4">
+              We recommend reviewing <a href="https://www.beehiiv.com/privacy" target="_blank" rel="noopener noreferrer" className="text-sunset-orange hover:underline">Beehiiv's privacy policy</a> to understand their data practices. You can unsubscribe from our newsletter at any time by clicking the unsubscribe link at the bottom of any email.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-heading font-semibold mb-4 text-slate-900">
               Third-Party Services
             </h2>
             <p>
