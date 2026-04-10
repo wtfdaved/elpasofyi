@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { MapOff } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
 
 export default function NotFound() {
   const containerVariants = {
@@ -68,7 +68,7 @@ export default function NotFound() {
         <motion.div variants={itemVariants} className="mb-8">
           <div className="flex justify-center">
             <div className="bg-slate-100 p-4 rounded-full inline-block">
-              <MapOff className="w-12 h-12 text-sunset-orange" />
+              <AlertCircle className="w-12 h-12 text-sunset-orange" />
             </div>
           </div>
         </motion.div>
