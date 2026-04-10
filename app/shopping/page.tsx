@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ShoppingBag } from 'lucide-react';
+import { ShoppingBag, Store, CalendarDays } from 'lucide-react';
 import { ComingSoonSection } from '../components/ComingSoonSection';
 
 const containerVariants = {
@@ -128,23 +128,17 @@ export default function ShoppingPage() {
             </motion.div>
 
             <motion.div variants={itemVariants} className="border-t border-dark-text-dim pt-8">
-              <h2 className="text-2xl font-bold mb-4">Shopping Neighborhoods</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="border border-dark-text-dim p-4 rounded hover:border-sand transition-colors">
-                  <h3 className="text-sand font-semibold mb-2">Kern Place</h3>
-                  <p className="text-sm text-dark-text-muted">Tree-lined streets with independent boutiques, galleries, and local shops. The premier shopping destination.</p>
-                </div>
-                <div className="border border-dark-text-dim p-4 rounded hover:border-sand transition-colors">
-                  <h3 className="text-sand font-semibold mb-2">Arts District</h3>
-                  <p className="text-sm text-dark-text-muted">Galleries, artist studios, and creative shops. The heart of El Paso's art scene and maker culture.</p>
-                </div>
-                <div className="border border-dark-text-dim p-4 rounded hover:border-sand transition-colors">
-                  <h3 className="text-sand font-semibold mb-2">Downtown</h3>
-                  <p className="text-sm text-dark-text-muted">Historic buildings home to craft shops, galleries, and specialty retailers. Walkable exploration.</p>
-                </div>
-                <div className="border border-dark-text-dim p-4 rounded hover:border-sand transition-colors">
-                  <h3 className="text-sand font-semibold mb-2">East Side Markets</h3>
-                  <p className="text-sm text-dark-text-muted">Local markets and shops featuring food producers and traditional crafts. Authentic El Paso commerce.</p>
+              <h2 className="text-2xl font-bold mb-6">Shopping Neighborhoods</h2>
+              <div className="flex justify-center">
+                <div className="w-full border-2 border-dashed border-gray-200 rounded-2xl p-12 bg-stone-50 flex flex-col items-center justify-center text-center">
+                  <span className="inline-block mb-6 px-3 py-1 text-xs font-semibold text-sand bg-stone-100 rounded-full border border-sand">
+                    IN PROGRESS
+                  </span>
+                  <Store className="w-12 h-12 text-sand mb-4" strokeWidth={1.5} />
+                  <h3 className="text-xl font-semibold text-dark-text mb-2">Scouting local boutiques...</h3>
+                  <p className="text-dark-text-muted max-w-md">
+                    We're mapping out El Paso's best shopping neighborhoods and local boutiques. Coming soon.
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -161,30 +155,16 @@ export default function ShoppingPage() {
             className="space-y-8"
           >
             <motion.div variants={itemVariants}>
-              <h2 className="text-3xl font-bold mb-6">Markets & Events</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <h3 className="text-lg font-semibold text-sand">Farmers Markets</h3>
-                  <p className="text-dark-text-muted">
-                    Year-round farmers markets featuring local food producers, artisans, and crafters. Regular weekend markets in various neighborhoods.
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-lg font-semibold text-sand">Art Markets & Craft Fairs</h3>
-                  <p className="text-dark-text-muted">
-                    Seasonal art markets and craft fairs where local makers sell directly. Great for unique holiday gifts and supporting creators.
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-lg font-semibold text-sand">Gallery Openings & Art Walks</h3>
-                  <p className="text-dark-text-muted">
-                    First Friday art walks and gallery openings in the Arts District. Connect with artists and discover new work throughout the year.
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-lg font-semibold text-sand">Pop-up Shops & Maker Events</h3>
-                  <p className="text-dark-text-muted">
-                    Follow local makers on social media for pop-up shops and special events. El Paso\'s maker community is active and welcoming.
+              <h2 className="text-2xl font-bold mb-6">Markets & Events</h2>
+              <div className="flex justify-center">
+                <div className="w-full border-2 border-dashed border-gray-200 rounded-2xl p-12 bg-stone-50 flex flex-col items-center justify-center text-center">
+                  <span className="inline-block mb-6 px-3 py-1 text-xs font-semibold text-sand bg-stone-100 rounded-full border border-sand">
+                    IN PROGRESS
+                  </span>
+                  <CalendarDays className="w-12 h-12 text-sand mb-4" strokeWidth={1.5} />
+                  <h3 className="text-xl font-semibold text-dark-text mb-2">Mapping out upcoming pop-ups...</h3>
+                  <p className="text-dark-text-muted max-w-md">
+                    We're curating El Paso's best markets, events, and pop-up shops. Coming soon.
                   </p>
                 </div>
               </div>
