@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Instagram, Music2, Mail } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Footer() {
   const containerVariants = {
@@ -55,24 +56,24 @@ export default function Footer() {
               </h4>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <a href="#" className="text-slate-700 hover:text-sunset-orange transition-colors">
+                  <Link href="/" className="text-slate-700 hover:text-sunset-orange transition-colors">
                     The Radar
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-slate-700 hover:text-sunset-orange transition-colors">
+                  <Link href="/food" className="text-slate-700 hover:text-sunset-orange transition-colors">
                     Food & Drink
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-slate-700 hover:text-sunset-orange transition-colors">
+                  <Link href="/events" className="text-slate-700 hover:text-sunset-orange transition-colors">
                     Events
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-slate-700 hover:text-sunset-orange transition-colors">
+                  <Link href="/neighborhoods" className="text-slate-700 hover:text-sunset-orange transition-colors">
                     Neighborhoods
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </motion.div>
@@ -133,12 +134,12 @@ export default function Footer() {
               © {new Date().getFullYear()} elpaso.fyi. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <a href="#" className="hover:text-sunset-orange transition-colors">
+              <Link href="/privacy" className="hover:text-sunset-orange transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="hover:text-sunset-orange transition-colors">
+              </Link>
+              <Link href="/terms" className="hover:text-sunset-orange transition-colors">
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </motion.div>
         </motion.div>
