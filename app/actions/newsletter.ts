@@ -1,6 +1,13 @@
 'use server';
 
 export async function subscribeToNewsletter(formData: FormData) {
+  if (!process.env.BEEHIIV_API_KEY || !process.env.BEEHIIV_PUBLICATION_ID) {
+    return {
+      success: false,
+      message: 'Missing API Keys in Vercel.',
+    };
+  }
+
   const email = formData.get('email');
 
   if (!email || typeof email !== 'string') {
@@ -12,14 +19,6 @@ export async function subscribeToNewsletter(formData: FormData) {
 
   const publicationId = process.env.BEEHIIV_PUBLICATION_ID;
   const apiKey = process.env.BEEHIIV_API_KEY;
-
-  if (!publicationId || !apiKey) {
-    console.error('Missing Beehiiv configuration');
-    return {
-      success: false,
-      message: 'Server configuration error',
-    };
-  }
 
   try {
     const response = await fetch(
@@ -39,9 +38,6 @@ export async function subscribeToNewsletter(formData: FormData) {
     );
 
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      console.error('Beehiiv API error:', errorData);
-
       if (response.status === 409) {
         return {
           success: true,
@@ -49,9 +45,12 @@ export async function subscribeToNewsletter(formData: FormData) {
         };
       }
 
+      const errorData = await response.json();
+      console.error('Beehiiv Submission Error:', errorData);
+
       return {
         success: false,
-        message: 'Failed to subscribe. Please try again.',
+        message: errorData.message || response.statusText,
       };
     }
 
