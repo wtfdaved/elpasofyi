@@ -43,7 +43,7 @@ export function SubmitEventForm() {
               minLength={2}
               placeholder="e.g., Summer Music Festival, Pop-Up Market"
               disabled={state.submitting}
-              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-sunset-orange/20 focus:border-sunset-orange disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-terracotta/20 focus:border-terracotta disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
 
@@ -58,7 +58,7 @@ export function SubmitEventForm() {
               name="dateTime"
               required
               disabled={state.submitting}
-              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-sunset-orange/20 focus:border-sunset-orange disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-terracotta/20 focus:border-terracotta disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
 
@@ -75,7 +75,7 @@ export function SubmitEventForm() {
               minLength={2}
               placeholder="e.g., Downtown Plaza, The Tap Room, San Jacinto Park"
               disabled={state.submitting}
-              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-sunset-orange/20 focus:border-sunset-orange disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-terracotta/20 focus:border-terracotta disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
 
@@ -94,7 +94,7 @@ export function SubmitEventForm() {
               placeholder="Tell us about the event vibe, energy, what attendees can expect..."
               rows={5}
               disabled={state.submitting}
-              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-sunset-orange/20 focus:border-sunset-orange disabled:opacity-50 disabled:cursor-not-allowed resize-none"
+              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-terracotta/20 focus:border-terracotta disabled:opacity-50 disabled:cursor-not-allowed resize-none"
             />
           </div>
 
@@ -110,7 +110,7 @@ export function SubmitEventForm() {
               name="link"
               placeholder="https://example.com/tickets"
               disabled={state.submitting}
-              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-sunset-orange/20 focus:border-sunset-orange disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-terracotta/20 focus:border-terracotta disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
 

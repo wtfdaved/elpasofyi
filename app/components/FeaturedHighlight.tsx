@@ -42,8 +42,8 @@ export default function FeaturedHighlight() {
             {/* Header */}
             <motion.div variants={itemVariants} className="mb-8">
               <div className="flex items-center gap-2 mb-4">
-                <Sparkles className="w-5 h-5 text-sunset-orange" />
-                <span className="text-sm font-heading font-semibold text-sunset-orange uppercase tracking-wide">
+                <Sparkles className="w-5 h-5 text-terracotta" />
+                <span className="text-sm font-heading font-semibold text-terracotta uppercase tracking-wide">
                   Coming Soon
                 </span>
               </div>
@@ -58,7 +58,7 @@ export default function FeaturedHighlight() {
                 We're scouting the hottest new spots, restaurants, and events happening in El Paso. Check back soon for our next featured spotlight—the ones locals are actually talking about.
               </p>
 
-              <div className="bg-gradient-to-r from-sunset-orange/5 to-sunset-orange/10 rounded-2xl p-6 border border-sunset-orange/20">
+              <div className="bg-gradient-to-r from-terracotta/5 to-terracotta/10 rounded-2xl p-6 border border-terracotta/20">
                 <p className="text-slate-600 text-sm leading-relaxed">
                   <span className="font-semibold text-slate-900">Help us find the best:</span> Know about an amazing new spot or event? Submit your recommendations on our Food and Events pages—the community's input shapes what gets featured here.
                 </p>
@@ -75,7 +75,7 @@ export default function FeaturedHighlight() {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-2xl flex items-center justify-center overflow-hidden">
               <div className="text-center space-y-4">
-                <Sparkles className="w-16 h-16 text-sunset-orange mx-auto opacity-80" />
+                <Sparkles className="w-16 h-16 text-terracotta mx-auto opacity-80" />
                 <div>
                   <p className="text-slate-600 text-sm uppercase tracking-wide font-heading font-semibold">
                     Coming This Weekend

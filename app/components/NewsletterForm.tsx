@@ -61,7 +61,7 @@ export default function NewsletterForm() {
           onChange={(e) => setEmail(e.target.value)}
           required
           disabled={status === 'loading'}
-          className="flex-1 px-4 py-3 min-h-12 bg-white border border-slate-300 text-slate-900 placeholder-slate-500 font-sans text-sm transition-all duration-300 rounded-2xl hover:border-slate-400 focus:border-sunset-orange focus:ring-2 focus:ring-sunset-orange/20 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex-1 px-4 py-3 min-h-12 bg-white border border-slate-300 text-slate-900 placeholder-slate-500 font-sans text-sm transition-all duration-300 rounded-2xl hover:border-slate-400 focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 disabled:opacity-50 disabled:cursor-not-allowed"
         />
         <button
           type="submit"
@@ -75,7 +75,7 @@ export default function NewsletterForm() {
 
       {/* Status messages */}
       {status === 'success' && (
-        <div className="mt-3 text-sm text-sunset-orange animate-fadeIn font-medium">
+        <div className="mt-3 text-sm text-terracotta animate-fadeIn font-medium">
           ✓ {message}
         </div>
       )}

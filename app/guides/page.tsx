@@ -47,7 +47,7 @@ export default function GuidesPage() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
           >
-            <Compass className="w-16 h-16 text-sunset-orange" />
+            <Compass className="w-16 h-16 text-terracotta" />
           </motion.div>
 
           {/* Main Header */}

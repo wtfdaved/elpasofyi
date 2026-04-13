@@ -8,7 +8,7 @@ export default function AttractionsPage() {
         <div className="text-center max-w-2xl">
           {/* Icon */}
           <div className="mb-8 flex justify-center">
-            <Camera className="w-24 h-24 text-sunset-orange opacity-80" strokeWidth={1.5} />
+            <Camera className="w-24 h-24 text-terracotta opacity-80" strokeWidth={1.5} />
           </div>
 
           {/* Header */}
@@ -17,7 +17,7 @@ export default function AttractionsPage() {
           </h1>
 
           {/* Subheader */}
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4 text-sunset-orange">
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4 text-terracotta">
             Scouting the city...
           </h2>
 

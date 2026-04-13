@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,7 +9,8 @@
   --color-light-bg: #faf9f6;
   --color-slate-900: #1a1a1a;
   --color-slate-500: #666666;
-  --color-sunset-orange: #ff6b35;
+  --color-terracotta: #CD7A5E;
+  --color-desert-sage: #8FA896;
 }
 
 /* Global styles */
@@ -62,7 +63,7 @@ a {
 }
 
 a:hover {
-  @apply text-sunset-orange;
+  @apply text-terracotta;
 }
 
 /* Custom scrollbar */
@@ -76,12 +77,12 @@ a:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-sunset-orange);
+  background: var(--color-terracotta);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6ba844;
+  background: #B86945;
 }
 
 /* Utility classes */
@@ -95,26 +96,26 @@ a:hover {
 }
 
 .btn-primary {
-  @apply btn-base bg-sunset-orange text-white hover:opacity-90 transition-opacity;
+  @apply btn-base bg-terracotta text-white hover:opacity-90 transition-opacity;
 }
 
 .btn-secondary {
-  @apply btn-base border-2 border-slate-300 text-slate-900 hover:border-sunset-orange hover:text-sunset-orange;
+  @apply btn-base border-2 border-slate-300 text-slate-900 hover:border-terracotta hover:text-terracotta;
 }
 
 /* Input focus styles */
 input:focus,
 textarea:focus {
-  @apply outline-none ring-2 ring-sunset-orange;
+  @apply outline-none ring-2 ring-terracotta;
 }
 
 /* Selection styling */
 ::selection {
-  background-color: var(--color-sunset-orange);
+  background-color: var(--color-terracotta);
   color: white;
 }
 
 ::-moz-selection {
-  background-color: var(--color-sunset-orange);
+  background-color: var(--color-terracotta);
   color: white;
 }

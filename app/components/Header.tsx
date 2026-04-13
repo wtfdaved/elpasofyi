@@ -23,7 +23,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-1 group">
           <span className="text-2xl font-heading font-bold text-slate-900">
             elpaso
-            <span className="text-sunset-orange">.</span>
+            <span className="text-terracotta">.</span>
             fyi
           </span>
         </Link>
@@ -34,7 +34,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-slate-700 hover:text-sunset-orange transition-colors text-sm font-heading font-medium"
+              className="text-slate-700 hover:text-terracotta transition-colors text-sm font-heading font-medium"
             >
               {item.label}
             </Link>
@@ -45,7 +45,7 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-4">
           <button
             aria-label="Search"
-            className="p-2 rounded-lg hover:bg-slate-100 transition-colors text-slate-700 hover:text-sunset-orange"
+            className="p-2 rounded-lg hover:bg-slate-100 transition-colors text-slate-700 hover:text-terracotta"
           >
             <Search className="w-5 h-5" />
           </button>
@@ -75,7 +75,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100 hover:text-sunset-orange transition-colors font-heading font-medium"
+                className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100 hover:text-terracotta transition-colors font-heading font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
