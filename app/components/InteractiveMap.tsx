@@ -132,8 +132,8 @@ export default function InteractiveMap() {
                   isActive ? 'drop-shadow-md' : ''
                 }`}
                 style={{
-                  color: isActive ? '#ff6b35' : undefined,
-                  filter: isActive ? 'drop-shadow(0 10px 15px -3px rgba(255, 107, 53, 0.2))' : 'none',
+                  color: isActive ? '#CD7A5E' : undefined,
+                  filter: isActive ? 'drop-shadow(0 10px 15px -3px rgba(205, 122, 94, 0.2))' : 'none',
                 }}
               >
                 {/* Render all shapes for this region */}

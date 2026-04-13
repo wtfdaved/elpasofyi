@@ -40,7 +40,7 @@ export function SubmitForm() {
               name="submissionType"
               required
               disabled={state.submitting}
-              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-sunset-orange/20 focus:border-sunset-orange disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-terracotta/20 focus:border-terracotta disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <option value="">Select a type</option>
               <option value="Restaurant / Bar">Restaurant / Bar</option>
@@ -62,7 +62,7 @@ export function SubmitForm() {
               minLength={2}
               placeholder="e.g., El Paso Café, Summer Concert Series"
               disabled={state.submitting}
-              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-sunset-orange/20 focus:border-sunset-orange disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-terracotta/20 focus:border-terracotta disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
 
@@ -77,7 +77,7 @@ export function SubmitForm() {
               name="vibe"
               placeholder="e.g., cozy, upscale, casual, energetic"
               disabled={state.submitting}
-              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-sunset-orange/20 focus:border-sunset-orange disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-terracotta/20 focus:border-terracotta disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
 
@@ -95,7 +95,7 @@ export function SubmitForm() {
               placeholder="Tell us about your experience, what made it special, what you loved..."
               rows={5}
               disabled={state.submitting}
-              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-sunset-orange/20 focus:border-sunset-orange disabled:opacity-50 disabled:cursor-not-allowed resize-none"
+              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 placeholder-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-terracotta/20 focus:border-terracotta disabled:opacity-50 disabled:cursor-not-allowed resize-none"
             />
           </div>
 
@@ -108,7 +108,7 @@ export function SubmitForm() {
               id="rating"
               name="rating"
               disabled={state.submitting}
-              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-sunset-orange/20 focus:border-sunset-orange disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-4 py-3 border border-slate-300 rounded-2xl bg-white text-slate-900 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-terracotta/20 focus:border-terracotta disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <option value="">Select a rating</option>
               {Array.from({ length: 10 }, (_, i) => i + 1).map((num) => (

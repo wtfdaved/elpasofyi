@@ -33,7 +33,7 @@ export default function NotFound() {
       {/* Subtle background accent */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-20 right-10 w-72 h-72 bg-sunset-orange opacity-3 rounded-full mix-blend-multiply filter blur-3xl"
+          className="absolute top-20 right-10 w-72 h-72 bg-terracotta opacity-3 rounded-full mix-blend-multiply filter blur-3xl"
           animate={{
             y: [0, 15, 0],
             x: [0, 8, 0],
@@ -68,7 +68,7 @@ export default function NotFound() {
         <motion.div variants={itemVariants} className="mb-8">
           <div className="flex justify-center">
             <div className="bg-slate-100 p-4 rounded-full inline-block">
-              <AlertCircle className="w-12 h-12 text-sunset-orange" />
+              <AlertCircle className="w-12 h-12 text-terracotta" />
             </div>
           </div>
         </motion.div>

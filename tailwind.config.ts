@@ -7,7 +7,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Sun-Drenched Modernism palette
+        // Elegant Desert Editorial palette
         'light-bg': '#faf9f6',
         'light-bg-secondary': '#f5f5f5',
         'slate-900': '#1a1a1a',
@@ -16,8 +16,11 @@ const config: Config = {
         'slate-300': '#d0d0d0',
         'slate-100': '#f0f0f0',
 
-        // Primary accent - Sunset Orange
-        'sunset-orange': '#ff6b35',
+        // Primary accent - Terracotta (warm clay tone)
+        'terracotta': '#CD7A5E',
+
+        // Secondary accent - Desert Sage (muted green)
+        'desert-sage': '#8FA896',
 
         // Neutral whites
         'white': '#ffffff',
@@ -26,8 +29,8 @@ const config: Config = {
         '3': '0.03',
       },
       fontFamily: {
-        'sans': ['Inter', 'system-ui', 'sans-serif'],
-        'heading': ['Space Grotesk', 'system-ui', 'sans-serif'],
+        'sans': ['Montserrat', 'system-ui', 'sans-serif'],
+        'heading': ['Playfair Display', 'system-ui', 'serif'],
         'mono': ['IBM Plex Mono', 'Courier New', 'monospace'],
       },
       fontSize: {

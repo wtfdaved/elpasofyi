@@ -53,7 +53,7 @@ export default function NeighborhoodsPage() {
           >
             <motion.div variants={itemVariants}>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-heading mb-4">
-                El Paso<span className="text-sunset-orange"> Districts</span>
+                El Paso<span className="text-terracotta"> Districts</span>
               </h1>
               <p className="text-lg sm:text-xl text-slate-600 max-w-2xl">
                 Explore the districts of El Paso, TX. From the historic Downtown and scenic West Side to the growing Far East. Discover what makes each region unique.
@@ -86,7 +86,7 @@ export default function NeighborhoodsPage() {
           >
             <motion.div variants={itemVariants} className="text-center">
               <div className="flex justify-center mb-6">
-                <Map className="w-16 h-16 text-sunset-orange opacity-60" />
+                <Map className="w-16 h-16 text-terracotta opacity-60" />
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold font-heading mb-3 text-slate-900">
                 Coming Soon

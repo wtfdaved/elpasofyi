@@ -73,7 +73,7 @@ export default function PrivacyPolicy() {
               <li>Subscriber preferences</li>
             </ul>
             <p className="mt-4">
-              We recommend reviewing <a href="https://www.beehiiv.com/privacy" target="_blank" rel="noopener noreferrer" className="text-sunset-orange hover:underline">Beehiiv's privacy policy</a> to understand their data practices. You can unsubscribe from our newsletter at any time by clicking the unsubscribe link at the bottom of any email.
+              We recommend reviewing <a href="https://www.beehiiv.com/privacy" target="_blank" rel="noopener noreferrer" className="text-terracotta hover:underline">Beehiiv's privacy policy</a> to understand their data practices. You can unsubscribe from our newsletter at any time by clicking the unsubscribe link at the bottom of any email.
             </p>
           </section>
 

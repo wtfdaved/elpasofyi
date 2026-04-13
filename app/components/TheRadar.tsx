@@ -116,11 +116,11 @@ export default function TheRadar() {
                 className="flex-none w-[280px] snap-start md:w-auto md:flex-1"
               >
                 <Link href={category.href}>
-                  <div className="group relative p-6 border border-slate-300 bg-white rounded-2xl hover:border-sunset-orange hover:shadow-md transition-all duration-300 cursor-pointer h-full flex flex-col">
+                  <div className="group relative p-6 border border-slate-300 bg-white rounded-2xl hover:border-terracotta hover:shadow-md transition-all duration-300 cursor-pointer h-full flex flex-col">
                     {/* Content */}
                     <div className="flex-1">
                       <div className="flex items-start justify-between mb-4">
-                        <IconComponent className="w-8 h-8 text-sunset-orange" />
+                        <IconComponent className="w-8 h-8 text-terracotta" />
                       </div>
 
                       <h3 className="text-xl font-heading font-bold mb-2 text-slate-900">
@@ -134,7 +134,7 @@ export default function TheRadar() {
 
                     {/* Explore link */}
                     <div className="mt-6 pt-4 border-t border-slate-100">
-                      <span className="inline-flex items-center text-sunset-orange hover:text-opacity-80 transition-colors text-sm font-heading font-semibold uppercase tracking-wide">
+                      <span className="inline-flex items-center text-terracotta hover:text-opacity-80 transition-colors text-sm font-heading font-semibold uppercase tracking-wide">
                         Explore →
                       </span>
                     </div>

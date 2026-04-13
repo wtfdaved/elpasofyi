@@ -42,7 +42,7 @@ export default function Footer() {
             {/* Branding */}
             <motion.div variants={itemVariants}>
               <h3 className="text-2xl font-heading font-bold mb-2 text-slate-900">
-                elpaso<span className="text-sunset-orange">.</span>fyi
+                elpaso<span className="text-terracotta">.</span>fyi
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed">
                 The insider's heartbeat of El Paso. Authentic cultural insights for a city that moves at its own pace.
@@ -51,27 +51,27 @@ export default function Footer() {
 
             {/* Quick links */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-heading font-semibold uppercase tracking-wide text-sunset-orange mb-4">
+              <h4 className="text-sm font-heading font-semibold uppercase tracking-wide text-terracotta mb-4">
                 Explore
               </h4>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <Link href="/" className="text-slate-700 hover:text-sunset-orange transition-colors">
+                  <Link href="/" className="text-slate-700 hover:text-terracotta transition-colors">
                     The Radar
                   </Link>
                 </li>
                 <li>
-                  <Link href="/food" className="text-slate-700 hover:text-sunset-orange transition-colors">
+                  <Link href="/food" className="text-slate-700 hover:text-terracotta transition-colors">
                     Food & Drink
                   </Link>
                 </li>
                 <li>
-                  <Link href="/events" className="text-slate-700 hover:text-sunset-orange transition-colors">
+                  <Link href="/events" className="text-slate-700 hover:text-terracotta transition-colors">
                     Events
                   </Link>
                 </li>
                 <li>
-                  <Link href="/neighborhoods" className="text-slate-700 hover:text-sunset-orange transition-colors">
+                  <Link href="/neighborhoods" className="text-slate-700 hover:text-terracotta transition-colors">
                     Neighborhoods
                   </Link>
                 </li>
@@ -80,7 +80,7 @@ export default function Footer() {
 
             {/* Social & Contact */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-heading font-semibold uppercase tracking-wide text-sunset-orange mb-4">
+              <h4 className="text-sm font-heading font-semibold uppercase tracking-wide text-terracotta mb-4">
                 Connect
               </h4>
               <div className="flex items-center gap-4 mb-6">
@@ -90,7 +90,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="text-slate-700 hover:text-sunset-orange transition-colors"
+                  className="text-slate-700 hover:text-terracotta transition-colors"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />
@@ -101,7 +101,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="text-slate-700 hover:text-sunset-orange transition-colors"
+                  className="text-slate-700 hover:text-terracotta transition-colors"
                   aria-label="TikTok"
                 >
                   <Music2 className="w-5 h-5" />
@@ -110,7 +110,7 @@ export default function Footer() {
                   href="mailto:hello@elpaso.fyi"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="text-slate-700 hover:text-sunset-orange transition-colors"
+                  className="text-slate-700 hover:text-terracotta transition-colors"
                   aria-label="Email"
                 >
                   <Mail className="w-5 h-5" />
@@ -134,10 +134,10 @@ export default function Footer() {
               © {new Date().getFullYear()} elpaso.fyi. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <Link href="/privacy" className="hover:text-sunset-orange transition-colors">
+              <Link href="/privacy" className="hover:text-terracotta transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="hover:text-sunset-orange transition-colors">
+              <Link href="/terms" className="hover:text-terracotta transition-colors">
                 Terms of Service
               </Link>
             </div>
