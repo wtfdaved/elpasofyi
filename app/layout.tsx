@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
-import { DM_Serif_Display, Outfit } from 'next/font/google';
+import { Lora, Outfit } from 'next/font/google';
 import './globals.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Analytics } from '@vercel/analytics/next';
 
 // Modern Retro Typography
-const dmSerifDisplay = DM_Serif_Display({
+const lora = Lora({
   subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-dm-serif-display',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-lora',
 });
 
 const outfit = Outfit({
@@ -96,7 +96,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${dmSerifDisplay.variable} ${outfit.variable}`}>
+    <html lang="en" className={`${lora.variable} ${outfit.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="format-detection" content="telephone=no" />

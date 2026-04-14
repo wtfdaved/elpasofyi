@@ -66,7 +66,7 @@ export default function Hero() {
       >
         {/* Main heading - SEO optimized */}
         <motion.div variants={itemVariants} className="mb-8">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-dm-serif-display font-bold mb-6 relative inline-block leading-tight text-slate-900">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-lora font-bold mb-6 relative inline-block leading-tight text-slate-900">
             <span className="block text-base sm:text-lg lg:text-xl text-terracotta font-semibold mb-4 tracking-wide">
               The Sun City, Curated.
             </span>
@@ -98,7 +98,7 @@ export default function Hero() {
         <motion.div variants={itemVariants} className="max-w-md mx-auto mb-12">
           <div className="flex items-center justify-center mb-4 text-terracotta">
             <Mail className="w-5 h-5 mr-2" />
-            <span className="text-sm font-dm-serif-display font-semibold tracking-wider">THE WEEKEND DROP</span>
+            <span className="text-sm font-lora font-semibold tracking-wider">THE WEEKEND DROP</span>
           </div>
           <NewsletterForm />
           <p className="text-xs text-slate-500 mt-4">
