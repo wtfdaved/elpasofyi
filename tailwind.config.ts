@@ -29,8 +29,10 @@ const config: Config = {
         '3': '0.03',
       },
       fontFamily: {
-        'sans': ['Montserrat', 'system-ui', 'sans-serif'],
-        'heading': ['Playfair Display', 'system-ui', 'serif'],
+        'sans': ['var(--font-outfit)', 'system-ui', 'sans-serif'],
+        'outfit': ['var(--font-outfit)', 'system-ui', 'sans-serif'],
+        'heading': ['var(--font-fraunces)', 'system-ui', 'serif'],
+        'fraunces': ['var(--font-fraunces)', 'system-ui', 'serif'],
         'mono': ['IBM Plex Mono', 'Courier New', 'monospace'],
       },
       fontSize: {

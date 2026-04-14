@@ -1,8 +1,22 @@
 import type { Metadata } from 'next';
+import { Fraunces, Outfit } from 'next/font/google';
 import './globals.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Analytics } from '@vercel/analytics/next';
+
+// Modern Retro Typography
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  variable: '--font-fraunces',
+});
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-outfit',
+});
 
 export const metadata: Metadata = {
   title: 'elpaso.fyi - The Unofficial Guide to El Paso, TX | Local Events, Food & Things to Do',
@@ -82,7 +96,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${fraunces.variable} ${outfit.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="format-detection" content="telephone=no" />
@@ -93,7 +107,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
-      <body className="flex flex-col min-h-screen bg-light-bg text-slate-900">
+      <body className="flex flex-col min-h-screen bg-light-bg text-slate-900 font-outfit">
         <Header />
         <main className="flex-1">
           {children}

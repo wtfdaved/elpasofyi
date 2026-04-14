@@ -41,7 +41,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Branding */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-2xl font-heading font-bold mb-2 text-slate-900">
+              <h3 className="text-2xl font-fraunces font-bold mb-2 text-slate-900">
                 elpaso<span className="text-terracotta">.</span>fyi
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed">
@@ -51,7 +51,7 @@ export default function Footer() {
 
             {/* Quick links */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-heading font-semibold uppercase tracking-wide text-terracotta mb-4">
+              <h4 className="text-sm font-fraunces font-semibold uppercase tracking-wide text-terracotta mb-4">
                 Explore
               </h4>
               <ul className="space-y-3 text-sm">
@@ -80,7 +80,7 @@ export default function Footer() {
 
             {/* Social & Contact */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-heading font-semibold uppercase tracking-wide text-terracotta mb-4">
+              <h4 className="text-sm font-fraunces font-semibold uppercase tracking-wide text-terracotta mb-4">
                 Connect
               </h4>
               <div className="flex items-center gap-4 mb-6">
