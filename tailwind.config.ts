@@ -31,8 +31,8 @@ const config: Config = {
       fontFamily: {
         'sans': ['var(--font-outfit)', 'system-ui', 'sans-serif'],
         'outfit': ['var(--font-outfit)', 'system-ui', 'sans-serif'],
-        'heading': ['var(--font-fraunces)', 'system-ui', 'serif'],
-        'fraunces': ['var(--font-fraunces)', 'system-ui', 'serif'],
+        'heading': ['var(--font-dm-serif-display)', 'system-ui', 'serif'],
+        'dm-serif-display': ['var(--font-dm-serif-display)', 'system-ui', 'serif'],
         'mono': ['IBM Plex Mono', 'Courier New', 'monospace'],
       },
       fontSize: {

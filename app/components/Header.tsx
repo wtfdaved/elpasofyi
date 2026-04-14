@@ -21,7 +21,7 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-1 group">
-          <span className="text-2xl font-fraunces font-bold text-slate-900">
+          <span className="text-2xl font-dm-serif-display font-bold text-slate-900">
             elpaso
             <span className="text-terracotta">.</span>
             fyi
@@ -34,7 +34,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-slate-700 hover:text-terracotta transition-colors text-sm font-fraunces font-medium"
+              className="text-slate-700 hover:text-terracotta transition-colors text-sm font-dm-serif-display font-medium"
             >
               {item.label}
             </Link>
@@ -75,7 +75,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100 hover:text-terracotta transition-colors font-fraunces font-medium"
+                className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100 hover:text-terracotta transition-colors font-dm-serif-display font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}

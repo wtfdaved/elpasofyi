@@ -31,7 +31,7 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  @apply font-fraunces font-bold tracking-tight;
+  @apply font-dm-serif-display font-bold tracking-tight;
   letter-spacing: -0.02em;
 }
 
@@ -90,7 +90,7 @@ a:hover {
 
 /* Button utilities */
 .btn-base {
-  @apply px-6 py-3 rounded-2xl font-fraunces font-bold transition-all duration-300 cursor-pointer;
+  @apply px-6 py-3 rounded-2xl font-dm-serif-display font-bold transition-all duration-300 cursor-pointer;
 }
 
 .btn-primary {
