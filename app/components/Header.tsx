@@ -14,6 +14,7 @@ export default function Header() {
     { label: 'Events', href: '/events' },
     { label: 'Guides', href: '/guides' },
     { label: 'Neighborhoods', href: '/neighborhoods' },
+    { label: 'Traffic Cameras', href: '/cameras' },
   ];
 
   return (

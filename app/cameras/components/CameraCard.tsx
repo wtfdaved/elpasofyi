@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Camera } from '@/app/lib/types';
-import { MapPin, RadioTower } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 interface CameraCardProps {
   camera: Camera;

@@ -1,7 +1,7 @@
 'use server';
 
 import { Camera, DriveTexasResponse, DriveTexasFeature } from '@/app/lib/types';
-import { MOCK_CAMERAS, getFallbackMockCameras } from '@/app/lib/mockCameraData';
+import { getFallbackMockCameras } from '@/app/lib/mockCameraData';
 
 // El Paso geographic bounds (approximate)
 const EL_PASO_BOUNDS = {
