@@ -117,3 +117,32 @@ textarea:focus {
   background-color: var(--color-terracotta);
   color: white;
 }
+
+/* Glassmorphism styles */
+.glass-panel {
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(208, 208, 208, 0.2);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+.glass-card {
+  @apply glass-panel transition-all duration-300;
+}
+
+.glass-card:hover {
+  background: rgba(26, 26, 26, 0.8);
+  box-shadow: 0 12px 48px 0 rgba(31, 38, 135, 0.15);
+}
+
+.dark-gradient-bg {
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0a0a0a 100%);
+}
+
+.glass-backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
