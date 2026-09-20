@@ -1,98 +1,38 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { AlertCircle } from 'lucide-react';
+import MountainRange from './components/MountainRange';
+import { NAV } from './content/site';
 
 export default function NotFound() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        ease: 'easeInOut',
-      },
-    },
-  };
-
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 relative overflow-hidden bg-light-bg">
-      {/* Subtle background accent */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-20 right-10 w-72 h-72 bg-terracotta opacity-3 rounded-full mix-blend-multiply filter blur-3xl"
-          animate={{
-            y: [0, 15, 0],
-            x: [0, 8, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 left-10 w-72 h-72 bg-slate-300 opacity-3 rounded-full mix-blend-multiply filter blur-3xl"
-          animate={{
-            y: [0, -15, 0],
-            x: [0, -8, 0],
-          }}
-          transition={{
-            duration: 9,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-      </div>
-
-      <motion.div
-        className="max-w-2xl mx-auto relative z-10 text-center"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* 404 Icon */}
-        <motion.div variants={itemVariants} className="mb-8">
-          <div className="flex justify-center">
-            <div className="bg-slate-100 p-4 rounded-full inline-block">
-              <AlertCircle className="w-12 h-12 text-terracotta" />
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Headline */}
-        <motion.h1 variants={itemVariants} className="text-5xl sm:text-6xl font-heading font-bold mb-6 text-slate-900">
+    <section className="relative overflow-hidden bg-dusk-fade text-white">
+      <MountainRange className="pointer-events-none absolute bottom-0 left-0 h-40 w-full text-white" />
+      <div className="container-custom relative py-24 sm:py-32">
+        <p className="eyebrow">Error 404</p>
+        <h1 className="mt-4 max-w-2xl text-4xl text-white sm:text-5xl">
           Looks like you took a wrong turn at the Franklins.
-        </motion.h1>
-
-        {/* Subtext */}
-        <motion.p
-          variants={itemVariants}
-          className="text-lg sm:text-xl text-slate-600 mb-12 font-light max-w-xl mx-auto leading-relaxed"
-        >
-          We couldn't find the page you're looking for, but there's plenty more to explore.
-        </motion.p>
-
-        {/* CTA Button */}
-        <motion.div variants={itemVariants}>
-          <Link href="/" className="btn-primary inline-block">
-            Back to the Radar
+        </h1>
+        <p className="mt-4 max-w-xl text-lg text-white/70">
+          That page is not here. The rest of the city still is.
+        </p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link href="/" className="btn-primary">
+            Back to the homepage
           </Link>
-        </motion.div>
-      </motion.div>
+          <Link href="/eat" className="btn-ghost-dark">
+            Go eat something instead
+          </Link>
+        </div>
+
+        <ul className="mt-14 grid gap-3 sm:grid-cols-3">
+          {NAV.map((item) => (
+            <li key={item.href}>
+              <Link href={item.href} className="text-white/70 hover:text-sun">
+                {item.label} <span className="text-white/40">— {item.blurb}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }

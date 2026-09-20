@@ -1,66 +1,57 @@
-'use client';
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import PageHero from '../components/PageHero';
+import { GUIDES } from '../content/guides';
+import { SITE } from '../content/site';
 
-import { motion } from 'framer-motion';
-import { Compass } from 'lucide-react';
-import Schema from '../components/Schema';
-
-const collectionSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: 'El Paso Guides & Itineraries',
-  description: 'Local guides and deep-dive itineraries for exploring El Paso, Texas. Weekend itineraries, day trips, and insider tips coming soon.',
-  url: 'https://elpaso.fyi/guides',
-  mainEntity: {
-    '@type': 'LocalBusiness',
-    name: 'elpaso.fyi',
-    description: 'Your guide to the real El Paso',
-  },
-};
-
-const fadeInVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: 'easeOut',
-    },
-  },
+export const metadata: Metadata = {
+  title: 'El Paso Itineraries & Guides',
+  description:
+    'Step-by-step El Paso itineraries: your first 48 hours, a Tex-Mex crawl, a full day on the Franklin Mountains, and downtown on foot.',
+  alternates: { canonical: '/guides' },
 };
 
 export default function GuidesPage() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'El Paso Itineraries',
+    url: `${SITE.url}/guides`,
+  };
+
   return (
     <>
-      <Schema schema={collectionSchema} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <PageHero
+        eyebrow="Guides"
+        title="Itineraries you can actually follow"
+        dek="El Paso is 25 miles long. The wrong plan is mostly windshield time. These group by geography so you spend the day in the city instead of on the freeway."
+      />
 
-      <main className="bg-dark-bg text-dark-text min-h-screen flex flex-col items-center justify-center px-4">
-        <motion.div
-          variants={fadeInVariants}
-          initial="hidden"
-          animate="visible"
-          className="text-center max-w-2xl"
-        >
-          {/* Icon */}
-          <motion.div
-            className="mb-8 flex justify-center"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-          >
-            <Compass className="w-16 h-16 text-terracotta" />
-          </motion.div>
-
-          {/* Main Header */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display mb-6 text-dark-text">
-            Mapping out the city...
-          </h1>
-
-          {/* Subtext */}
-          <p className="text-lg sm:text-xl text-dark-text-muted">
-            Deep-dive itineraries and local guides dropping soon.
-          </p>
-        </motion.div>
-      </main>
+      <div className="container-custom py-14">
+        <div className="grid gap-6 md:grid-cols-2">
+          {GUIDES.map((guide) => (
+            <Link key={guide.slug} href={`/guides/${guide.slug}`} className="card-hover group flex flex-col p-8">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="chip chip-active">{guide.length}</span>
+                <span className="chip">{guide.stops.length} stops</span>
+              </div>
+              <h2 className="mt-5 text-2xl leading-snug group-hover:text-sun">{guide.title}</h2>
+              <p className="mt-3 flex-1 leading-relaxed text-ink-soft">{guide.dek}</p>
+              <dl className="mt-6 space-y-1 text-xs text-ink-faint">
+                <div className="flex gap-2">
+                  <dt className="font-mono uppercase tracking-wider">Best for</dt>
+                  <dd>{guide.bestFor}</dd>
+                </div>
+                <div className="flex gap-2">
+                  <dt className="font-mono uppercase tracking-wider">Season</dt>
+                  <dd>{guide.season}</dd>
+                </div>
+              </dl>
+            </Link>
+          ))}
+        </div>
+      </div>
     </>
   );
 }

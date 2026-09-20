@@ -1,0 +1,412 @@
+/**
+ * Things to do. Same editorial rules as the eat listings: nothing invented,
+ * no printed hours or prices, and a `note` wherever a visitor could get burned.
+ */
+
+export type DoCategory = 'outdoors' | 'history' | 'museums' | 'downtown' | 'sports' | 'daytrip';
+
+export interface Thing {
+  slug: string;
+  name: string;
+  category: DoCategory;
+  kind: string;
+  area: string;
+  blurb: string;
+  why: string[];
+  planning?: string[];
+  note?: string;
+  cost?: string;
+  tags: string[];
+  canon?: boolean;
+}
+
+export const DO_LABELS: Record<DoCategory, string> = {
+  outdoors: 'Outdoors',
+  history: 'History & Heritage',
+  museums: 'Museums',
+  downtown: 'Downtown & Arts',
+  sports: 'Sports',
+  daytrip: 'Day Trips',
+};
+
+export const THINGS: Thing[] = [
+  {
+    slug: 'franklin-mountains-state-park',
+    name: 'Franklin Mountains State Park',
+    category: 'outdoors',
+    kind: 'State park',
+    area: 'Inside the city limits',
+    blurb: 'One of the largest urban parks in the United States, sitting in the middle of the city like a spine.',
+    why: [
+      'Trails for every level, from the easy loops at Tom Mays to the long grind up North Franklin Peak.',
+      'You can be on a desert ridgeline 20 minutes after leaving a downtown lunch.',
+      'The Sunday-evening view back over the city and Juárez is the whole argument for living here.',
+    ],
+    planning: [
+      'Go early. From late spring through September, the mountain is unforgiving after mid-morning.',
+      'Carry more water than you think you need — a gallon a person on a long day is not dramatic.',
+      'Tom Mays Unit is reached off Transmountain Road (Loop 375).',
+    ],
+    note: 'Day-use entry fee through Texas Parks & Wildlife. Check the TPWD page for closures before you drive up.',
+    cost: 'State park day-use fee',
+    tags: ['hiking', 'views', 'sunset', 'free-ish'],
+    canon: true,
+  },
+  {
+    slug: 'hueco-tanks',
+    name: 'Hueco Tanks State Park & Historic Site',
+    category: 'outdoors',
+    kind: 'State park',
+    area: '32 miles east of the city',
+    blurb: 'Rock basins that held water in the desert for thousands of years, ringed by some of the most significant pictographs in North America — and world-class bouldering.',
+    why: [
+      'Climbers fly in from other continents for the boulder problems here.',
+      'The painted masks and figures on the rock are the real draw, and they are ancient.',
+      'It feels genuinely remote, and it is only 45 minutes out.',
+    ],
+    planning: [
+      'Reservations are effectively mandatory and access is capped to protect the site.',
+      'Much of the park is only reachable on a guided tour or with a trained volunteer.',
+      'Book well ahead for cool-season weekends — climbing season fills months out.',
+    ],
+    note: 'Do not drive out and hope. Reserve through Texas Parks & Wildlife first.',
+    cost: 'State park entry + reservation',
+    tags: ['bouldering', 'pictographs', 'reservation required'],
+    canon: true,
+  },
+  {
+    slug: 'scenic-drive-overlook',
+    name: 'Scenic Drive Overlook',
+    category: 'outdoors',
+    kind: 'Overlook',
+    area: 'Rim Road / Murchison Park',
+    blurb: 'The five-minute version of the mountain view: park, walk to the rail, and see El Paso and Juárez laid out as one city.',
+    why: [
+      'The single clearest way to understand the geography of the border here.',
+      'Best at dusk when both sides of the river light up at once.',
+    ],
+    planning: ['Parking is limited at sunset on weekends. Go a little early.'],
+    cost: 'Free',
+    tags: ['view', 'free', 'sunset', 'quick'],
+    canon: true,
+  },
+  {
+    slug: 'transmountain-road',
+    name: 'Transmountain Road (Loop 375)',
+    category: 'outdoors',
+    kind: 'Scenic drive',
+    area: 'Between the west and northeast sides',
+    blurb: 'A highway that climbs straight through the Franklins — the most casually spectacular commute in Texas.',
+    why: [
+      'Pull-offs with big views on both sides of the pass.',
+      'Connects the West Side to the Northeast, so it doubles as a shortcut.',
+    ],
+    cost: 'Free',
+    tags: ['drive', 'views', 'free'],
+  },
+  {
+    slug: 'el-paso-mission-trail',
+    name: 'The Mission Trail',
+    category: 'history',
+    kind: 'Historic route',
+    area: 'Lower Valley: Ysleta, Socorro, San Elizario',
+    blurb: 'Three centuries of continuous worship along the valley: Ysleta Mission, Socorro Mission, and the San Elizario Chapel.',
+    why: [
+      'Ysleta del Sur Pueblo is one of the oldest continuously inhabited communities in Texas.',
+      'The San Elizario historic district around the plaza is walkable, with galleries and a real small-town feel.',
+      'A half-day that covers more actual history than anything else in the region.',
+    ],
+    planning: [
+      'Drive the route east to west or west to east — the three stops are close together.',
+      'Sunday mornings are for the congregations. Visit respectfully, or go another day.',
+    ],
+    cost: 'Free (donations welcome)',
+    tags: ['history', 'architecture', 'half day'],
+    canon: true,
+  },
+  {
+    slug: 'concordia-cemetery',
+    name: 'Concordia Cemetery',
+    category: 'history',
+    kind: 'Historic cemetery',
+    area: 'Central, near I-10',
+    blurb: 'A sprawling frontier burial ground with separate sections for Chinese railroad workers, Buffalo Soldiers, Jesuits, and the gunfighter John Wesley Hardin.',
+    why: [
+      'The old West is not a theme here — it is literally buried in the ground.',
+      'Volunteer-maintained, with tours and Day of the Dead programming.',
+    ],
+    note: 'Open grounds with uneven footing. Daylight hours only.',
+    cost: 'Free',
+    tags: ['old west', 'free', 'day of the dead'],
+  },
+  {
+    slug: 'chamizal-national-memorial',
+    name: 'Chamizal National Memorial',
+    category: 'history',
+    kind: 'National Park Service site',
+    area: 'Central, along the border',
+    blurb: 'A national park commemorating the peaceful settlement of a century-long border dispute between the United States and Mexico.',
+    why: [
+      'The visitor center explains why the river — and the border — moved.',
+      'Grounds, a theater, and a steady program of bicultural arts events.',
+    ],
+    cost: 'Free',
+    tags: ['nps', 'free', 'border history', 'events'],
+  },
+  {
+    slug: 'magoffin-home',
+    name: 'Magoffin Home State Historic Site',
+    category: 'history',
+    kind: 'Historic house',
+    area: 'Magoffin, near downtown',
+    blurb: 'An 1875 adobe hacienda still holding the furnishings of the family that helped build El Paso.',
+    why: [
+      'Territorial-style adobe you can walk through, not just look at.',
+      'The guided tour is the shortest route to understanding 19th-century El Paso.',
+    ],
+    note: 'Access is by guided tour on a set schedule — check the day you plan to go.',
+    cost: 'Modest admission',
+    tags: ['adobe', 'tour', 'history'],
+  },
+  {
+    slug: 'el-paso-museum-of-art',
+    name: 'El Paso Museum of Art',
+    category: 'museums',
+    kind: 'Art museum',
+    area: 'Downtown, Arts Festival Plaza',
+    blurb: 'A serious collection — European, American, Mexican colonial and contemporary border art — with free general admission.',
+    why: [
+      'Free, air-conditioned, and right in the middle of downtown.',
+      'The Mexican colonial and regional contemporary holdings are the reason to come back.',
+    ],
+    cost: 'Free general admission',
+    tags: ['free', 'art', 'downtown', 'rainy day'],
+    canon: true,
+  },
+  {
+    slug: 'el-paso-museum-of-history',
+    name: 'El Paso Museum of History',
+    category: 'museums',
+    kind: 'History museum',
+    area: 'Downtown',
+    blurb: 'The city’s own story, plus the Digital Wall — an interactive archive of El Paso photographs you can pull apart with your hands.',
+    why: [
+      'The Digital Wall alone is worth the stop, especially with kids.',
+      'Rotating exhibits lean local, which is the point.',
+    ],
+    cost: 'Free general admission',
+    tags: ['free', 'kids', 'downtown'],
+  },
+  {
+    slug: 'el-paso-holocaust-museum',
+    name: 'El Paso Holocaust Museum & Study Center',
+    category: 'museums',
+    kind: 'Memorial museum',
+    area: 'Downtown',
+    blurb: 'A small, carefully built museum founded by a survivor who settled in El Paso.',
+    why: ['Free, sober, and unusually personal for a museum of its size.'],
+    cost: 'Free',
+    tags: ['free', 'downtown', 'memorial'],
+  },
+  {
+    slug: 'national-border-patrol-museum',
+    name: 'National Border Patrol Museum',
+    category: 'museums',
+    kind: 'Specialty museum',
+    area: 'Northeast, near the Franklins',
+    blurb: 'Vehicles, aircraft, and artifacts documenting the history of the agency, housed in the only museum of its kind.',
+    why: ['Free, and unavoidably part of the story of this region.'],
+    cost: 'Free',
+    tags: ['free', 'northeast', 'unusual'],
+  },
+  {
+    slug: 'plaza-theatre',
+    name: 'The Plaza Theatre',
+    category: 'downtown',
+    kind: 'Historic theater',
+    area: 'Downtown',
+    blurb: 'A 1930 Spanish Colonial movie palace with a ceiling full of stars, saved from demolition and now the city’s marquee venue.',
+    why: [
+      'Touring Broadway, concerts, and the Plaza Classic Film Festival every August.',
+      'The building itself is the reason to buy a ticket to almost anything.',
+    ],
+    planning: ['Check El Paso Live for the current calendar and to buy tickets.'],
+    tags: ['theater', 'historic', 'shows'],
+    canon: true,
+  },
+  {
+    slug: 'san-jacinto-plaza',
+    name: 'San Jacinto Plaza',
+    category: 'downtown',
+    kind: 'City plaza',
+    area: 'Downtown',
+    blurb: 'The heart of downtown, with Luis Jiménez’s fiberglass alligator sculpture standing in for the live ones that really lived here until 1965.',
+    why: [
+      'Shade, a splash pad, food nearby, and the center of downtown events.',
+      'Best starting point for a walk around downtown.',
+    ],
+    cost: 'Free',
+    tags: ['free', 'downtown', 'kids', 'art'],
+  },
+  {
+    slug: 'downtown-art-district',
+    name: 'Downtown Arts District & Murals',
+    category: 'downtown',
+    kind: 'Walkable district',
+    area: 'Downtown, Union Plaza, Segundo Barrio',
+    blurb: 'Galleries, studios, and an open-air mural scene that runs from Union Plaza into Segundo Barrio and out to the Lincoln Park underpasses.',
+    why: [
+      'The Lincoln Park murals under the freeway columns are a landmark of Chicano public art.',
+      'Segundo Barrio’s walls carry the neighborhood’s own history, painted by people from it.',
+    ],
+    planning: ['Walk it in the morning or the evening; midday sun is brutal and flattens the colors.'],
+    cost: 'Free',
+    tags: ['murals', 'free', 'walking', 'photography'],
+  },
+  {
+    slug: 'el-paso-zoo',
+    name: 'El Paso Zoo',
+    category: 'downtown',
+    kind: 'Zoo',
+    area: 'Central, near Washington Park',
+    blurb: 'A mid-size city zoo with an Asian grasslands section, a Chihuahuan Desert area, and enough shade to survive a summer morning.',
+    why: ['The reliable answer to a weekend with kids.'],
+    planning: ['Arrive at opening in summer. The animals and your family will both be happier.'],
+    cost: 'Admission',
+    tags: ['kids', 'family', 'morning'],
+  },
+  {
+    slug: 'keystone-heritage-park',
+    name: 'Keystone Heritage Park & El Paso Desert Botanical Garden',
+    category: 'outdoors',
+    kind: 'Park & garden',
+    area: 'West Central',
+    blurb: 'A wetland, an archaeological site dating back thousands of years, and a desert garden — all on the same few acres.',
+    why: [
+      'Birding here is genuinely good, especially during migration.',
+      'Quiet in a way the rest of the city is not.',
+    ],
+    note: 'Limited open hours — confirm before going.',
+    tags: ['birding', 'garden', 'quiet'],
+  },
+  {
+    slug: 'rio-bosque-wetlands-park',
+    name: 'Rio Bosque Wetlands Park',
+    category: 'outdoors',
+    kind: 'Wetlands',
+    area: 'Lower Valley, near the river',
+    blurb: 'A restored stretch of Rio Grande bosque managed by UTEP, and the best birding in the county when the water is on.',
+    why: ['Hundreds of species recorded. Bring binoculars and go at first light.'],
+    note: 'Water flows are seasonal and change what you will see. Check UTEP’s park page.',
+    cost: 'Free',
+    tags: ['birding', 'free', 'walking'],
+  },
+  {
+    slug: 'ascarate-park',
+    name: 'Ascarate Park',
+    category: 'outdoors',
+    kind: 'County park',
+    area: 'Central / East',
+    blurb: 'The county’s big park: a lake, golf, ballfields, a water park in season, and carne asada smoke every weekend.',
+    why: ['This is where El Paso actually spends its Saturdays.'],
+    cost: 'Small vehicle entry fee',
+    tags: ['lake', 'family', 'picnic'],
+  },
+  {
+    slug: 'southwest-university-park',
+    name: 'Southwest University Park',
+    category: 'sports',
+    kind: 'Ballpark',
+    area: 'Downtown',
+    blurb: 'Home of the El Paso Chihuahuas, Triple-A affiliate of the San Diego Padres, and the downtown project that changed the neighborhood around it.',
+    why: [
+      'One of the best-regarded ballparks in minor league baseball, with the mountains over the outfield.',
+      'The Chihuahuas brand is a genuine national merchandising phenomenon.',
+      'Walk to dinner and a bar afterward without moving your car.',
+    ],
+    planning: ['Season runs roughly late March through September. Locomotive FC soccer also plays downtown.'],
+    tags: ['baseball', 'downtown', 'family', 'nights'],
+    canon: true,
+  },
+  {
+    slug: 'utep-miners',
+    name: 'UTEP & the Sun Bowl',
+    category: 'sports',
+    kind: 'College sports & campus',
+    area: 'West Central',
+    blurb: 'A campus built in Bhutanese-inspired architecture — genuinely, sloping walls and all — wrapped around a stadium carved into the mountain.',
+    why: [
+      'The architecture story is real and the campus is worth a walk on its own.',
+      'Miners basketball at the Don Haskins Center carries the 1966 national championship legacy.',
+      'The Sun Bowl game every December is one of the oldest bowls in the country.',
+    ],
+    tags: ['campus', 'football', 'basketball', 'architecture'],
+  },
+  {
+    slug: 'sunland-park-racetrack',
+    name: 'Sunland Park Racetrack & Casino',
+    category: 'sports',
+    kind: 'Racing & gaming',
+    area: 'Sunland Park, New Mexico',
+    blurb: 'Quarter horse and thoroughbred racing just over the state line, with the Sunland Derby as the marquee date.',
+    why: ['Racing season gives the winter calendar something to point at.'],
+    note: 'Racing runs a defined winter-to-spring season. Check the calendar before going for the horses.',
+    tags: ['racing', 'new mexico', 'winter'],
+  },
+  {
+    slug: 'white-sands-national-park',
+    name: 'White Sands National Park',
+    category: 'daytrip',
+    kind: 'National park',
+    area: 'Alamogordo, NM — about 90 minutes',
+    blurb: 'Gypsum dunes so white they read as snow, and the best sledding in the desert.',
+    why: [
+      'Buy a plastic saucer at the visitor center and sled the dunes. Everyone does it.',
+      'Sunset on the dunes is one of the great sights in the Southwest.',
+    ],
+    planning: [
+      'The park sits inside a missile range and closes for tests — check the closure schedule the morning you go.',
+      'Full Moon Nights and ranger sunset strolls are worth timing a trip around.',
+    ],
+    cost: 'National park entry fee',
+    tags: ['day trip', 'new mexico', 'sunset', 'family'],
+    canon: true,
+  },
+  {
+    slug: 'mesilla-las-cruces',
+    name: 'Old Mesilla & Las Cruces',
+    category: 'daytrip',
+    kind: 'Historic town',
+    area: 'Doña Ana County, NM — about 45 minutes',
+    blurb: 'An adobe plaza where Billy the Kid was sentenced, surrounded by New Mexico chile country.',
+    why: [
+      'Green chile everything, plus pecan groves along the highway in.',
+      'An easy half-day that pairs with the Organ Mountains.',
+    ],
+    tags: ['day trip', 'new mexico', 'plaza', 'green chile'],
+  },
+  {
+    slug: 'guadalupe-mountains',
+    name: 'Guadalupe Mountains National Park',
+    category: 'daytrip',
+    kind: 'National park',
+    area: 'About 2 hours east',
+    blurb: 'The highest point in Texas, a reef that used to be underwater, and McKittrick Canyon turning gold every fall.',
+    why: [
+      'Guadalupe Peak is the Texas summit — a hard, rewarding day hike.',
+      'Late October and early November in McKittrick Canyon is the only real fall color in the region.',
+    ],
+    planning: [
+      'Start Guadalupe Peak at sunrise, and respect the wind — it is famous for a reason.',
+      'Carlsbad Caverns is another 45 minutes past it if you are making a weekend of it.',
+    ],
+    cost: 'National park entry fee',
+    tags: ['hiking', 'fall color', 'day trip'],
+  },
+];
+
+export const DO_CANON = THINGS.filter((t) => t.canon);
+
+export function getThing(slug: string): Thing | undefined {
+  return THINGS.find((t) => t.slug === slug);
+}
