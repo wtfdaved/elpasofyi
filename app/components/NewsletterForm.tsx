@@ -39,7 +39,7 @@ export default function NewsletterForm() {
           setMessage('');
         }, 5000);
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
       setMessage('Something went wrong. Try again.');
 
@@ -61,12 +61,12 @@ export default function NewsletterForm() {
           onChange={(e) => setEmail(e.target.value)}
           required
           disabled={status === 'loading'}
-          className="flex-1 px-4 py-3 min-h-12 bg-white border border-slate-300 text-slate-900 placeholder-slate-500 font-sans text-sm transition-all duration-300 rounded-2xl hover:border-slate-400 focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="min-h-12 flex-1 rounded-full border border-sand-line bg-white px-5 py-3 font-sans text-sm text-ink placeholder-ink-faint transition-colors hover:border-ink/30 focus:border-sun disabled:cursor-not-allowed disabled:opacity-50"
         />
         <button
           type="submit"
           disabled={status === 'loading' || !email}
-          className="btn-primary px-6 py-3 flex items-center justify-center gap-2 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+          className="btn-primary whitespace-nowrap disabled:cursor-not-allowed disabled:opacity-50"
         >
           <Send className="w-4 h-4" />
           <span className="hidden sm:inline">Subscribe</span>
@@ -75,12 +75,12 @@ export default function NewsletterForm() {
 
       {/* Status messages */}
       {status === 'success' && (
-        <div className="mt-3 text-sm text-terracotta animate-fadeIn font-medium">
+        <div className="mt-3 animate-fadeIn text-sm font-medium text-sage">
           ✓ {message}
         </div>
       )}
       {status === 'error' && (
-        <div className="mt-3 text-sm text-red-600 animate-fadeIn font-medium">
+        <div className="mt-3 animate-fadeIn text-sm font-medium text-chile">
           ✗ {message}
         </div>
       )}

@@ -1,179 +1,106 @@
-'use client';
+import type { Metadata } from 'next';
+import { ExternalLink } from 'lucide-react';
+import PageHero from '../components/PageHero';
+import { ANNUAL_EVENTS, eventsByMonth } from '../content/events';
+import { NEWS_SOURCES, SITE } from '../content/site';
 
-import { motion } from 'framer-motion';
-import { Calendar } from 'lucide-react';
-import Schema from '../components/Schema';
-import { SubmitEventForm } from '../components/SubmitEventForm';
-import { ComingSoonSection } from '../components/ComingSoonSection';
-
-// Empty schema array - events data will be submitted via form
-const eventSchemaArray: never[] = [];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
+export const metadata: Metadata = {
+  title: 'El Paso Events — The Annual Calendar',
+  description:
+    'The El Paso events that happen every year: the Sun Bowl, Plaza Classic Film Festival, Viva! El Paso, Chalk the Block, Amigo Airsho, Balloonfest and more, listed by season.',
+  alternates: { canonical: '/events' },
 };
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut',
-    },
-  },
-};
-
 
 export default function EventsPage() {
+  const grouped = eventsByMonth();
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'El Paso Annual Events Calendar',
+    url: `${SITE.url}/events`,
+    description: 'Recurring annual events in El Paso, Texas, listed by the window they usually fall in.',
+  };
+
+  const calendars = NEWS_SOURCES.filter((s) => s.name.includes('Visit El Paso') || s.name.includes('El Paso Live'));
+
   return (
     <>
-      {/* Inject Event schemas */}
-      {eventSchemaArray.map((schema, idx) => (
-        <Schema key={idx} schema={schema} />
-      ))}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <PageHero
+        eyebrow="Events"
+        title="What El Paso does every year"
+        dek="This is the annual calendar — the traditions the city organizes itself around. We list the window each one usually falls in rather than a date, because dates move and a wrong one wastes your weekend."
+      >
+        <div className="flex flex-wrap gap-3">
+          {calendars.map((c) => (
+            <a key={c.url} href={c.url} target="_blank" rel="noopener noreferrer" className="btn-secondary text-xs">
+              {c.name} <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+          ))}
+        </div>
+      </PageHero>
 
-      {/* CollectionPage Schema for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'CollectionPage',
-            name: 'Upcoming Events & Things to Do in El Paso',
-            description: 'Discover upcoming events, live music, local markets, festivals, and the best things to do in El Paso, Texas.',
-            url: 'https://elpaso.fyi/events',
-            mainEntity: {
-              '@type': 'LocalBusiness',
-              name: 'El Paso Events',
-              description: 'Your guide to the best events, live music, markets, festivals, and things to do happening in El Paso, TX.',
-              areaServed: {
-                '@type': 'City',
-                name: 'El Paso',
-                addressCountry: 'US',
-              },
-              telephone: '',
-              url: 'https://elpaso.fyi/events',
-            },
-            hasPart: [
-              {
-                '@type': 'Thing',
-                name: 'Live Music & Concerts',
-                description: 'Live music events and concerts happening in El Paso',
-              },
-              {
-                '@type': 'Thing',
-                name: 'Markets & Festivals',
-                description: 'Local markets, street fairs, and festivals in El Paso',
-              },
-              {
-                '@type': 'Thing',
-                name: 'Weekend Events',
-                description: 'Fun things to do this weekend in El Paso',
-              },
-            ],
-          }),
-        }}
-        suppressHydrationWarning
-      />
+      <div className="container-custom py-14">
+        <p className="font-mono text-xs uppercase tracking-widest text-ink-faint">
+          {ANNUAL_EVENTS.length} recurring events
+        </p>
 
-      <main className="bg-dark-bg text-dark-text min-h-screen">
-        {/* Header Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="space-y-6"
-          >
-            <motion.div variants={itemVariants}>
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-display mb-4">
-                El Paso<span className="text-sand"> Events & Things to Do</span>
-              </h1>
-              <p className="text-lg sm:text-xl text-dark-text-muted max-w-2xl">
-                Discover what's happening this weekend and beyond. From live music to food festivals, find the best things to do in El Paso, TX.
-              </p>
-            </motion.div>
+        <div className="mt-8 space-y-14">
+          {grouped.map((group) => (
+            <section key={group.month}>
+              <div className="flex items-center gap-4">
+                <h2 className="text-2xl">{group.month}</h2>
+                <span className="h-px flex-1 bg-sand-line" />
+              </div>
 
-            <motion.div variants={itemVariants} className="flex gap-4 flex-wrap">
-              <button className="px-4 py-2 border border-sand text-sand hover:bg-sand hover:text-dark-bg transition-colors rounded">
-                All Events
-              </button>
-              <button className="px-4 py-2 border border-dark-text-dim text-dark-text-muted hover:border-sand transition-colors rounded">
-                This Weekend
-              </button>
-              <button className="px-4 py-2 border border-dark-text-dim text-dark-text-muted hover:border-sand transition-colors rounded">
-                Music
-              </button>
-              <button className="px-4 py-2 border border-dark-text-dim text-dark-text-muted hover:border-sand transition-colors rounded">
-                Food
-              </button>
-            </motion.div>
-          </motion.div>
-        </section>
+              <div className="mt-6 grid gap-5 md:grid-cols-2">
+                {group.events.map((event) => (
+                  <article key={event.slug} className="card flex flex-col p-6">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="font-mono text-[0.65rem] uppercase tracking-widest text-sun">
+                        {event.window}
+                      </span>
+                      {event.marquee && (
+                        <span className="chip border-gold bg-gold/15 text-ink">Marquee</span>
+                      )}
+                    </div>
+                    <h3 className="mt-3 text-xl leading-snug">{event.name}</h3>
+                    <p className="mt-1 text-sm text-ink-faint">{event.where}</p>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">{event.what}</p>
+                    {event.why && (
+                      <p className="mt-3 border-l-2 border-sun pl-3 text-sm italic leading-relaxed text-ink-soft">
+                        {event.why}
+                      </p>
+                    )}
+                    {event.source && (
+                      <a
+                        href={event.source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-sun hover:text-sun-deep"
+                      >
+                        Confirm dates at {event.source.label}
+                        <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    )}
+                  </article>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
 
-        {/* Coming Soon Section */}
-        <ComingSoonSection
-          icon={Calendar}
-          heading="Local Events Coming Soon"
-          subheading="Help us discover El Paso's best events. Submit an event and we'll feature it here!"
-        />
-
-        {/* Call to Action */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-dark-text-dim">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="text-center space-y-6"
-          >
-            <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl font-bold">
-              Never Miss an Event
-            </motion.h2>
-            <motion.p variants={itemVariants} className="text-dark-text-muted max-w-2xl mx-auto">
-              Subscribe to our newsletter and get the best El Paso events delivered to your inbox weekly.
-            </motion.p>
-            <motion.button
-              variants={itemVariants}
-              className="btn-primary inline-block"
-            >
-              Subscribe to Events
-            </motion.button>
-          </motion.div>
-        </section>
-
-        {/* Submit Event Form Section - CTA */}
-        <section className="bg-light-bg pt-20 pb-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
-              <motion.div variants={itemVariants}>
-                <h2 className="text-3xl sm:text-4xl font-bold mb-2">
-                  Host an Event?
-                </h2>
-                <p className="text-lg text-dark-text-muted max-w-2xl">
-                  Have a show, pop-up, market, or event happening in El Paso? Let us know! Submit your event and we'll add it to the radar.
-                </p>
-              </motion.div>
-            </motion.div>
-            <SubmitEventForm />
-          </div>
-        </section>
-      </main>
+        <div className="mt-16 rounded-card border border-sand-line bg-white p-6 text-sm leading-relaxed text-ink-soft">
+          <strong className="font-semibold text-ink">Running an event in El Paso?</strong> Send the
+          details to{' '}
+          <a href={`mailto:${SITE.email}`} className="text-sun underline underline-offset-4">
+            {SITE.email}
+          </a>{' '}
+          and we will look at adding it. We list recurring events here; one-off happenings go in The
+          Dispatch.
+        </div>
+      </div>
     </>
   );
 }
