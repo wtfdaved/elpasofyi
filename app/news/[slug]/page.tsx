@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ExternalLink } from 'lucide-react';
 import Prose from '../../components/Prose';
 import { NEWS, formatDate, getPost } from '../../content/news';
 import { SITE } from '../../content/site';
@@ -69,6 +69,26 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <div className="mt-10">
           <Prose body={post.body} />
         </div>
+
+        {post.sources && post.sources.length > 0 && (
+          <section className="mt-10 max-w-prose rounded-card border-l-4 border-sage bg-white p-6">
+            <h2 className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-ink-faint">Sources</h2>
+            <ul className="mt-3 space-y-2">
+              {post.sources.map((source) => (
+                <li key={source.url}>
+                  <a
+                    href={source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-sun hover:text-sun-deep"
+                  >
+                    {source.label} <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <div className="mt-10 max-w-prose rounded-card border border-sand-line bg-white p-6 text-sm leading-relaxed text-ink-soft">
           Written by the {SITE.name} editors in El Paso. Spot something wrong?{' '}

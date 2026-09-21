@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { NEIGHBORHOODS, getNeighborhood } from '../../content/neighborhoods';
+import { PLACES } from '../../content/places';
+import { THINGS } from '../../content/things-to-do';
 import { SITE } from '../../content/site';
 
 export function generateStaticParams() {
@@ -30,6 +32,9 @@ export default async function NeighborhoodPage({ params }: { params: Promise<{ s
   if (!n) notFound();
 
   const others = NEIGHBORHOODS.filter((x) => x.slug !== n.slug).slice(0, 4);
+  // Listings tied to this part of town, straight from the directory.
+  const places = PLACES.filter((p) => p.zone === n.zone);
+  const things = THINGS.filter((t) => t.zone === n.zone);
 
   const schema = {
     '@context': 'https://schema.org',
@@ -67,28 +72,65 @@ export default async function NeighborhoodPage({ params }: { params: Promise<{ s
               ))}
             </ul>
 
-            <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            {places.length > 0 && (
+              <section className="mt-12">
+                <div className="flex items-end justify-between gap-4">
+                  <h2 className="text-2xl">Eat and drink here</h2>
+                  <Link href="/eat" className="text-sm font-semibold text-sun">
+                    All places →
+                  </Link>
+                </div>
+                <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                  {places.map((p) => (
+                    <Link key={p.slug} href={`/eat/${p.slug}`} className="card-hover p-5">
+                      <div className="flex items-start justify-between gap-3">
+                        <h3 className="text-lg leading-snug">{p.name}</h3>
+                        <span className="font-mono text-xs text-ink-faint">{p.price}</span>
+                      </div>
+                      <p className="mt-1 text-xs text-ink-faint">{p.kind} · {p.area}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-ink-soft">{p.blurb}</p>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {things.length > 0 && (
+              <section className="mt-12">
+                <div className="flex items-end justify-between gap-4">
+                  <h2 className="text-2xl">Do this here</h2>
+                  <Link href="/do" className="text-sm font-semibold text-sun">
+                    All things to do →
+                  </Link>
+                </div>
+                <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                  {things.map((t) => (
+                    <Link key={t.slug} href={`/do/${t.slug}`} className="card-hover p-5">
+                      <h3 className="text-lg leading-snug">{t.name}</h3>
+                      <p className="mt-1 text-xs text-ink-faint">{t.kind}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-ink-soft">{t.blurb}</p>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            <div className="mt-12 grid gap-6 sm:grid-cols-2">
               <div className="card p-6">
-                <h3 className="font-heading text-lg">Eat here</h3>
+                <h3 className="font-heading text-lg">Also worth knowing</h3>
                 <ul className="mt-3 space-y-2 text-sm text-ink-soft">
                   {n.eat.map((e) => (
                     <li key={e}>{e}</li>
                   ))}
                 </ul>
-                <Link href="/eat" className="mt-4 inline-block text-sm font-semibold text-sun">
-                  All places to eat →
-                </Link>
               </div>
               <div className="card p-6">
-                <h3 className="font-heading text-lg">Do here</h3>
+                <h3 className="font-heading text-lg">Nearby</h3>
                 <ul className="mt-3 space-y-2 text-sm text-ink-soft">
                   {n.doHere.map((d) => (
                     <li key={d}>{d}</li>
                   ))}
                 </ul>
-                <Link href="/do" className="mt-4 inline-block text-sm font-semibold text-sun">
-                  All things to do →
-                </Link>
               </div>
             </div>
           </div>

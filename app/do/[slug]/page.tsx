@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, MapPin } from 'lucide-react';
-import { DO_LABELS, THINGS, getThing } from '../../content/things-to-do';
+import { ArrowLeft, ExternalLink, Map, MapPin } from 'lucide-react';
+import { DO_LABELS, THINGS, THINGS_VERIFIED, getThing } from '../../content/things-to-do';
 import { SITE } from '../../content/site';
+import { longDate, mapsUrl, prettyHost } from '../../lib/links';
 
 export function generateStaticParams() {
   return THINGS.map((t) => ({ slug: t.slug }));
@@ -37,6 +38,7 @@ export default async function ThingPage({ params }: { params: Promise<{ slug: st
     name: thing.name,
     description: thing.blurb,
     url: `${SITE.url}/do/${thing.slug}`,
+    ...(thing.website ? { sameAs: thing.website } : {}),
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'El Paso',
@@ -95,6 +97,31 @@ export default async function ThingPage({ params }: { params: Promise<{ slug: st
           </div>
 
           <aside className="space-y-6">
+            <div className="card p-6">
+              <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-ink-faint">Find it</p>
+              <p className="mt-2 text-sm leading-relaxed text-ink">{thing.area}</p>
+              <div className="mt-4 flex flex-col gap-2">
+                <a
+                  href={mapsUrl(thing.name)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-sun hover:text-sun-deep"
+                >
+                  <Map className="h-4 w-4" /> Open in Maps
+                </a>
+                {thing.website && (
+                  <a
+                    href={thing.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-sun hover:text-sun-deep"
+                  >
+                    <ExternalLink className="h-4 w-4" /> {prettyHost(thing.website)}
+                  </a>
+                )}
+              </div>
+            </div>
+
             {thing.note && (
               <div className="rounded-card border-l-4 border-chile bg-white p-6">
                 <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-chile">Heads up</p>
@@ -112,7 +139,8 @@ export default async function ThingPage({ params }: { params: Promise<{ slug: st
             <div className="card p-6">
               <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-ink-faint">Before you go</p>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-                Seasons, fees and hours change. Confirm with the park, museum or venue.{' '}
+                Checked {longDate(THINGS_VERIFIED)}. Seasons, fees and hours change — confirm with the
+                park, museum or venue.{' '}
                 <a href={`mailto:${SITE.email}`} className="text-sun underline underline-offset-4">
                   Send a correction
                 </a>

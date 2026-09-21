@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import PageHero from '../components/PageHero';
 import EatBrowser from '../components/EatBrowser';
-import { PLACES } from '../content/places';
+import { PLACES, PLACES_VERIFIED } from '../content/places';
 import { SITE } from '../content/site';
+import { longDate } from '../lib/links';
 
 export const metadata: Metadata = {
   title: 'Where to Eat & Drink in El Paso',
@@ -42,9 +43,11 @@ export default function EatPage() {
         dek="Red chile enchiladas older than most of the city, rolled tacos in tomato broth, heirloom masa getting national attention, and the bars that outlasted every trend. No star ratings, no scraped reviews — just places we would send a friend."
       >
         <p className="max-w-2xl rounded-card border border-sand-line bg-white/70 p-4 text-sm text-ink-soft">
-          <strong className="font-semibold text-ink">A note on details:</strong> we do not print hours
-          or prices, because they change and a wrong hour sends you on a wasted drive. Call ahead or
-          check the restaurant directly before you go.
+          <strong className="font-semibold text-ink">
+            {PLACES.length} places, all checked {longDate(PLACES_VERIFIED)}.
+          </strong>{' '}
+          We do not print hours or prices, because they change and a wrong hour sends you on a wasted
+          drive. Every listing links to the business and to a map — confirm before you go.
         </p>
       </PageHero>
 

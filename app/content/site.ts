@@ -15,7 +15,7 @@ export const SITE = {
     tiktok: 'https://www.tiktok.com/@elpaso.fyi',
   },
   /** Last date the editors swept the listings end to end. */
-  lastReviewed: '2026-09-20',
+  lastReviewed: '2026-09-21',
 } as const;
 
 export const NAV: { label: string; href: string; blurb: string }[] = [

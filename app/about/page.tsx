@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { Mail } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import { NEWS_SOURCES, SITE } from '../content/site';
+import { PLACES } from '../content/places';
+import { THINGS } from '../content/things-to-do';
+import { ANNUAL_EVENTS } from '../content/events';
 
 export const metadata: Metadata = {
   title: 'About elpaso.fyi',
@@ -33,6 +36,10 @@ const RULES = [
     body: 'The Dispatch carries our own writing — seasonal reads, explainers, what changed around town. For breaking news we point you at the El Paso newsrooms doing that work.',
   },
   {
+    title: 'Every claim has a source behind it',
+    body: 'Dispatch posts list the newsrooms, organizers and official pages we used, and openings and closings link to whatever confirmed them. If we cannot point at a source, we do not print the claim.',
+  },
+  {
     title: 'Corrections get published',
     body: 'If we get something wrong, we fix it and say that we fixed it. Email us and it gets handled.',
   },
@@ -59,7 +66,9 @@ export default function AboutPage() {
                 else — goes mostly undescribed.
               </p>
               <p>
-                This site is the correction. Everything here is something we would put a friend onto:
+                This site is the correction. It currently holds {PLACES.length} places to eat and
+                drink, {THINGS.length} things to do and {ANNUAL_EVENTS.length} recurring events, and
+                every one of them is something we would put a friend onto:
                 the Tex-Mex rooms that have been doing it since the twenties, the trailheads twenty
                 minutes from downtown, the free museums, the annual traditions that actually organize
                 the year, and the neighborhoods that explain why the city is shaped the way it is.

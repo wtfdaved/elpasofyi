@@ -1,7 +1,11 @@
+import type { Zone } from './places';
+
 /**
  * Things to do. Same editorial rules as the eat listings: nothing invented,
  * no printed hours or prices, and a `note` wherever a visitor could get burned.
  */
+
+export const THINGS_VERIFIED = '2026-09-21';
 
 export type DoCategory = 'outdoors' | 'history' | 'museums' | 'downtown' | 'sports' | 'daytrip';
 
@@ -11,6 +15,8 @@ export interface Thing {
   category: DoCategory;
   kind: string;
   area: string;
+  zone: Zone;
+  website?: string;
   blurb: string;
   why: string[];
   planning?: string[];
@@ -36,6 +42,8 @@ export const THINGS: Thing[] = [
     category: 'outdoors',
     kind: 'State park',
     area: 'Inside the city limits',
+    zone: 'Citywide',
+    website: 'https://tpwd.texas.gov/state-parks/franklin-mountains',
     blurb: 'One of the largest urban parks in the United States, sitting in the middle of the city like a spine.',
     why: [
       'Trails for every level, from the easy loops at Tom Mays to the long grind up North Franklin Peak.',
@@ -58,6 +66,8 @@ export const THINGS: Thing[] = [
     category: 'outdoors',
     kind: 'State park',
     area: '32 miles east of the city',
+    zone: 'Out of town',
+    website: 'https://tpwd.texas.gov/state-parks/hueco-tanks',
     blurb: 'Rock basins that held water in the desert for thousands of years, ringed by some of the most significant pictographs in North America — and world-class bouldering.',
     why: [
       'Climbers fly in from other continents for the boulder problems here.',
@@ -80,6 +90,7 @@ export const THINGS: Thing[] = [
     category: 'outdoors',
     kind: 'Overlook',
     area: 'Rim Road / Murchison Park',
+    zone: 'Central',
     blurb: 'The five-minute version of the mountain view: park, walk to the rail, and see El Paso and Juárez laid out as one city.',
     why: [
       'The single clearest way to understand the geography of the border here.',
@@ -96,6 +107,7 @@ export const THINGS: Thing[] = [
     category: 'outdoors',
     kind: 'Scenic drive',
     area: 'Between the west and northeast sides',
+    zone: 'Northeast',
     blurb: 'A highway that climbs straight through the Franklins — the most casually spectacular commute in Texas.',
     why: [
       'Pull-offs with big views on both sides of the pass.',
@@ -110,6 +122,7 @@ export const THINGS: Thing[] = [
     category: 'history',
     kind: 'Historic route',
     area: 'Lower Valley: Ysleta, Socorro, San Elizario',
+    zone: 'Lower Valley',
     blurb: 'Three centuries of continuous worship along the valley: Ysleta Mission, Socorro Mission, and the San Elizario Chapel.',
     why: [
       'Ysleta del Sur Pueblo is one of the oldest continuously inhabited communities in Texas.',
@@ -130,6 +143,7 @@ export const THINGS: Thing[] = [
     category: 'history',
     kind: 'Historic cemetery',
     area: 'Central, near I-10',
+    zone: 'Central',
     blurb: 'A sprawling frontier burial ground with separate sections for Chinese railroad workers, Buffalo Soldiers, Jesuits, and the gunfighter John Wesley Hardin.',
     why: [
       'The old West is not a theme here — it is literally buried in the ground.',
@@ -145,6 +159,7 @@ export const THINGS: Thing[] = [
     category: 'history',
     kind: 'National Park Service site',
     area: 'Central, along the border',
+    zone: 'Central',
     blurb: 'A national park commemorating the peaceful settlement of a century-long border dispute between the United States and Mexico.',
     why: [
       'The visitor center explains why the river — and the border — moved.',
@@ -159,6 +174,7 @@ export const THINGS: Thing[] = [
     category: 'history',
     kind: 'Historic house',
     area: 'Magoffin, near downtown',
+    zone: 'Central',
     blurb: 'An 1875 adobe hacienda still holding the furnishings of the family that helped build El Paso.',
     why: [
       'Territorial-style adobe you can walk through, not just look at.',
@@ -174,6 +190,8 @@ export const THINGS: Thing[] = [
     category: 'museums',
     kind: 'Art museum',
     area: 'Downtown, Arts Festival Plaza',
+    zone: 'Downtown',
+    website: 'https://epma.art',
     blurb: 'A serious collection — European, American, Mexican colonial and contemporary border art — with free general admission.',
     why: [
       'Free, air-conditioned, and right in the middle of downtown.',
@@ -189,6 +207,7 @@ export const THINGS: Thing[] = [
     category: 'museums',
     kind: 'History museum',
     area: 'Downtown',
+    zone: 'Downtown',
     blurb: 'The city’s own story, plus the Digital Wall — an interactive archive of El Paso photographs you can pull apart with your hands.',
     why: [
       'The Digital Wall alone is worth the stop, especially with kids.',
@@ -203,6 +222,7 @@ export const THINGS: Thing[] = [
     category: 'museums',
     kind: 'Memorial museum',
     area: 'Downtown',
+    zone: 'Downtown',
     blurb: 'A small, carefully built museum founded by a survivor who settled in El Paso.',
     why: ['Free, sober, and unusually personal for a museum of its size.'],
     cost: 'Free',
@@ -214,6 +234,7 @@ export const THINGS: Thing[] = [
     category: 'museums',
     kind: 'Specialty museum',
     area: 'Northeast, near the Franklins',
+    zone: 'Northeast',
     blurb: 'Vehicles, aircraft, and artifacts documenting the history of the agency, housed in the only museum of its kind.',
     why: ['Free, and unavoidably part of the story of this region.'],
     cost: 'Free',
@@ -225,6 +246,8 @@ export const THINGS: Thing[] = [
     category: 'downtown',
     kind: 'Historic theater',
     area: 'Downtown',
+    zone: 'Downtown',
+    website: 'https://www.elpasolive.com',
     blurb: 'A 1930 Spanish Colonial movie palace with a ceiling full of stars, saved from demolition and now the city’s marquee venue.',
     why: [
       'Touring Broadway, concerts, and the Plaza Classic Film Festival every August.',
@@ -240,6 +263,7 @@ export const THINGS: Thing[] = [
     category: 'downtown',
     kind: 'City plaza',
     area: 'Downtown',
+    zone: 'Downtown',
     blurb: 'The heart of downtown, with Luis Jiménez’s fiberglass alligator sculpture standing in for the live ones that really lived here until 1965.',
     why: [
       'Shade, a splash pad, food nearby, and the center of downtown events.',
@@ -254,6 +278,7 @@ export const THINGS: Thing[] = [
     category: 'downtown',
     kind: 'Walkable district',
     area: 'Downtown, Union Plaza, Segundo Barrio',
+    zone: 'Downtown',
     blurb: 'Galleries, studios, and an open-air mural scene that runs from Union Plaza into Segundo Barrio and out to the Lincoln Park underpasses.',
     why: [
       'The Lincoln Park murals under the freeway columns are a landmark of Chicano public art.',
@@ -269,6 +294,7 @@ export const THINGS: Thing[] = [
     category: 'downtown',
     kind: 'Zoo',
     area: 'Central, near Washington Park',
+    zone: 'Central',
     blurb: 'A mid-size city zoo with an Asian grasslands section, a Chihuahuan Desert area, and enough shade to survive a summer morning.',
     why: ['The reliable answer to a weekend with kids.'],
     planning: ['Arrive at opening in summer. The animals and your family will both be happier.'],
@@ -281,6 +307,7 @@ export const THINGS: Thing[] = [
     category: 'outdoors',
     kind: 'Park & garden',
     area: 'West Central',
+    zone: 'West Side',
     blurb: 'A wetland, an archaeological site dating back thousands of years, and a desert garden — all on the same few acres.',
     why: [
       'Birding here is genuinely good, especially during migration.',
@@ -295,6 +322,7 @@ export const THINGS: Thing[] = [
     category: 'outdoors',
     kind: 'Wetlands',
     area: 'Lower Valley, near the river',
+    zone: 'Lower Valley',
     blurb: 'A restored stretch of Rio Grande bosque managed by UTEP, and the best birding in the county when the water is on.',
     why: ['Hundreds of species recorded. Bring binoculars and go at first light.'],
     note: 'Water flows are seasonal and change what you will see. Check UTEP’s park page.',
@@ -307,6 +335,7 @@ export const THINGS: Thing[] = [
     category: 'outdoors',
     kind: 'County park',
     area: 'Central / East',
+    zone: 'East Side',
     blurb: 'The county’s big park: a lake, golf, ballfields, a water park in season, and carne asada smoke every weekend.',
     why: ['This is where El Paso actually spends its Saturdays.'],
     cost: 'Small vehicle entry fee',
@@ -318,6 +347,8 @@ export const THINGS: Thing[] = [
     category: 'sports',
     kind: 'Ballpark',
     area: 'Downtown',
+    zone: 'Downtown',
+    website: 'https://www.milb.com/el-paso',
     blurb: 'Home of the El Paso Chihuahuas, Triple-A affiliate of the San Diego Padres, and the downtown project that changed the neighborhood around it.',
     why: [
       'One of the best-regarded ballparks in minor league baseball, with the mountains over the outfield.',
@@ -334,6 +365,7 @@ export const THINGS: Thing[] = [
     category: 'sports',
     kind: 'College sports & campus',
     area: 'West Central',
+    zone: 'West Side',
     blurb: 'A campus built in Bhutanese-inspired architecture — genuinely, sloping walls and all — wrapped around a stadium carved into the mountain.',
     why: [
       'The architecture story is real and the campus is worth a walk on its own.',
@@ -348,6 +380,7 @@ export const THINGS: Thing[] = [
     category: 'sports',
     kind: 'Racing & gaming',
     area: 'Sunland Park, New Mexico',
+    zone: 'New Mexico',
     blurb: 'Quarter horse and thoroughbred racing just over the state line, with the Sunland Derby as the marquee date.',
     why: ['Racing season gives the winter calendar something to point at.'],
     note: 'Racing runs a defined winter-to-spring season. Check the calendar before going for the horses.',
@@ -359,6 +392,7 @@ export const THINGS: Thing[] = [
     category: 'daytrip',
     kind: 'National park',
     area: 'Alamogordo, NM — about 90 minutes',
+    zone: 'Out of town',
     blurb: 'Gypsum dunes so white they read as snow, and the best sledding in the desert.',
     why: [
       'Buy a plastic saucer at the visitor center and sled the dunes. Everyone does it.',
@@ -378,6 +412,7 @@ export const THINGS: Thing[] = [
     category: 'daytrip',
     kind: 'Historic town',
     area: 'Doña Ana County, NM — about 45 minutes',
+    zone: 'Out of town',
     blurb: 'An adobe plaza where Billy the Kid was sentenced, surrounded by New Mexico chile country.',
     why: [
       'Green chile everything, plus pecan groves along the highway in.',
@@ -391,6 +426,7 @@ export const THINGS: Thing[] = [
     category: 'daytrip',
     kind: 'National park',
     area: 'About 2 hours east',
+    zone: 'Out of town',
     blurb: 'The highest point in Texas, a reef that used to be underwater, and McKittrick Canyon turning gold every fall.',
     why: [
       'Guadalupe Peak is the Texas summit — a hard, rewarding day hike.',
@@ -402,6 +438,106 @@ export const THINGS: Thing[] = [
     ],
     cost: 'National park entry fee',
     tags: ['hiking', 'fall color', 'day trip'],
+  },
+  {
+    slug: 'la-nube',
+    name: 'La Nube STEAM Discovery Center',
+    category: 'museums',
+    kind: 'Children\u2019s museum & science center',
+    area: 'Downtown Arts District',
+    zone: 'Downtown',
+    website: 'https://la-nube.org',
+    blurb:
+      'A 70,000-square-foot cloud-shaped building full of bilingual, hands-on exhibits — El Paso\u2019s first children\u2019s museum and science center, opened in August 2024.',
+    why: [
+      'The building itself, by Sn\u00f8hetta, is the most striking piece of new architecture downtown.',
+      'Bilingual exhibits built around this specific binational community, not a shipped-in template.',
+      'It has already taken a global children\u2019s museum award and drawn hundreds of thousands of visitors.',
+    ],
+    planning: [
+      'Weekends and school holidays get busy — buy ahead and go at opening.',
+      'Pair it with the art museum and the history museum; all three are within a few blocks.',
+    ],
+    cost: 'Admission',
+    tags: ['kids', 'new', 'architecture', 'downtown'],
+    canon: true,
+  },
+  {
+    slug: 'mexican-american-cultural-center',
+    name: 'El Paso Mexican American Cultural Center',
+    category: 'museums',
+    kind: 'Cultural center',
+    area: 'Downtown, at the Main Library',
+    zone: 'Downtown',
+    website: 'https://www.epmacc.org',
+    blurb:
+      'A three-story, $15 million cultural center built into the Main Library at Cleveland Square, opened in March 2025 after years of community pressure to build it.',
+    why: [
+      'Exhibits, performance space and archives dedicated to Mexican American history and art, in a city that is about 80 percent Hispanic.',
+      'It anchors the D\u00eda de los Muertos desfile and festival every October.',
+      'The library, the park and the art museum are all right there.',
+    ],
+    cost: 'Free',
+    tags: ['free', 'culture', 'new', 'downtown'],
+    canon: true,
+  },
+  {
+    slug: 'mckelligon-canyon',
+    name: 'McKelligon Canyon',
+    category: 'outdoors',
+    kind: 'Canyon park & amphitheater',
+    area: 'Central, in the Franklin Mountains',
+    zone: 'Central',
+    blurb:
+      'A box canyon cut into the Franklins with a road to the back of it, picnic areas, trailheads and a stone amphitheater that hosts Viva! El Paso each summer.',
+    why: [
+      'The easiest way to be surrounded by mountain without a real hike.',
+      'Sunset here, with the canyon walls going orange, is a standing local ritual.',
+      'Trailheads for the Ron Coleman and other routes start from the canyon.',
+    ],
+    planning: ['The gate closes in the evening — check posted hours before driving in at dusk.'],
+    cost: 'Free',
+    tags: ['canyon', 'free', 'sunset', 'amphitheater'],
+  },
+  {
+    slug: 'wyler-aerial-tramway',
+    name: 'Wyler Aerial Tramway (closed for reconstruction)',
+    category: 'outdoors',
+    kind: 'State park site',
+    area: 'Central, McKinley Ave',
+    zone: 'Central',
+    website: 'https://tpwd.texas.gov/state-parks/wyler-aerial-tramway',
+    blurb:
+      'The gondola to Ranger Peak has been closed since 2018. A reconstruction backed by roughly $27 million in state funding is underway — but it is not open, and will not be for a while.',
+    why: [
+      'Worth knowing about precisely so you do not drive up expecting a ride.',
+      'When it returns it will again be the only aerial tramway in Texas, with a view into two states and Mexico.',
+    ],
+    planning: [
+      'Phase 1 — parking, accessibility, restrooms and site work — has been targeted for completion around fall 2026.',
+      'The tramway itself, along with a visitor center and trails, comes in a later phase that still needs fundraising. Expect years, not months.',
+      'For the same view without the wait, drive Scenic Drive or hike from McKelligon Canyon.',
+    ],
+    note: 'Closed. Check the Texas Parks & Wildlife page for the current status before planning anything around it.',
+    cost: 'Closed',
+    tags: ['closed', 'under construction', 'views'],
+  },
+  {
+    slug: 'lincoln-park',
+    name: 'Lincoln Park & the freeway murals',
+    category: 'downtown',
+    kind: 'Public art',
+    area: 'Central, under the Spaghetti Bowl',
+    zone: 'Central',
+    blurb:
+      'Dozens of Chicano murals painted across the concrete columns where I-10 and US-54 cross — one of the most significant collections of Chicano public art in the Southwest.',
+    why: [
+      'Decades of community art, maintained and defended by the neighborhood that made it.',
+      'Free, outdoors, and unlike anything else you will photograph in Texas.',
+    ],
+    planning: ['Morning or late afternoon light is far better than midday glare.'],
+    cost: 'Free',
+    tags: ['murals', 'free', 'chicano art', 'photography'],
   },
 ];
 

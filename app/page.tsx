@@ -5,11 +5,17 @@ import SectionHeading from './components/SectionHeading';
 import NewsletterForm from './components/NewsletterForm';
 import { CANON } from './content/places';
 import { DO_CANON } from './content/things-to-do';
-import { MARQUEE_EVENTS } from './content/events';
+import HappeningNext, { HappeningNextHeading } from './components/HappeningNext';
+import ChangeLog from './components/ChangeLog';
+import { PLACES } from './content/places';
+import { THINGS } from './content/things-to-do';
 import { NEIGHBORHOODS } from './content/neighborhoods';
 import { NEWS, formatDate } from './content/news';
 import { GUIDES } from './content/guides';
 import { NAV, SITE } from './content/site';
+
+// Regenerate hourly so the "happening next" countdown does not go stale.
+export const revalidate = 3600;
 
 const FACTS = [
   { value: '1659', label: 'Year the first mission went up in the valley' },
@@ -50,6 +56,13 @@ export default function HomePage() {
             </Link>
           </div>
 
+          <div className="mt-14 max-w-3xl rounded-card border border-white/15 bg-white/5 p-6">
+            <HappeningNextHeading />
+            <div className="mt-4">
+              <HappeningNext limit={2} tone="dark" />
+            </div>
+          </div>
+
           <dl className="mt-16 grid max-w-3xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
             {FACTS.map((fact) => (
               <div key={fact.label}>
@@ -84,9 +97,9 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Start here"
           title="The Sun City canon"
-          dek="If you only get a handful of meals and a handful of afternoons in El Paso, spend them on these. Every one of them is a place a local would take a visitor without thinking twice."
+          dek={`If you only get a handful of meals in El Paso, spend them on these. Every one of the ${PLACES.length} places we list is somewhere a local would take a visitor without thinking twice.`}
           href="/eat"
-          linkLabel="All places to eat"
+          linkLabel={`All ${PLACES.length} places to eat`}
         />
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -110,9 +123,9 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Get outside"
             title="Things worth doing"
-            dek="A mountain range in the middle of town, missions older than the state, and a ballpark with the Franklins over the outfield wall."
+            dek="A mountain range in the middle of town, missions older than the state, a new science center downtown, and a ballpark with the Franklins over the outfield wall."
             href="/do"
-            linkLabel="All things to do"
+            linkLabel={`All ${THINGS.length} things to do`}
           />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {DO_CANON.slice(0, 8).map((thing) => (
@@ -166,25 +179,25 @@ export default function HomePage() {
         <div className="container-custom">
           <SectionHeading
             eyebrow="The calendar"
-            title="Things El Paso does every year"
-            dek="The annual traditions worth planning a trip around. We list the window each one usually lands in — confirm this year's dates with the organizer."
+            title="Happening next in El Paso"
+            dek="Dates we have confirmed with the organizers. This list moves forward on its own as the year does."
             href="/events"
             linkLabel="Full calendar"
           />
-          <ul className="divide-y divide-sand-line border-y border-sand-line">
-            {MARQUEE_EVENTS.map((event) => (
-              <li key={event.slug} className="flex flex-col gap-2 py-5 sm:flex-row sm:items-baseline sm:gap-8">
-                <span className="w-56 shrink-0 font-mono text-xs uppercase tracking-widest text-sun">
-                  {event.window}
-                </span>
-                <div>
-                  <h3 className="text-lg">{event.name}</h3>
-                  <p className="mt-1 text-sm text-ink-soft">{event.what}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <HappeningNext limit={4} />
         </div>
+      </section>
+
+      {/* --------------------------------------------------------- changes */}
+      <section className="container-custom py-20">
+        <SectionHeading
+          eyebrow="Openings & closings"
+          title="What changed around town"
+          dek="The question locals ask more than any other. When a place closes it comes off our lists and lands here, with the source that confirmed it."
+          href="/news"
+          linkLabel="The Dispatch"
+        />
+        <ChangeLog limit={4} />
       </section>
 
       {/* ---------------------------------------------------------- guides */}

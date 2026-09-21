@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { ExternalLink } from 'lucide-react';
 import PageHero from '../components/PageHero';
-import { ANNUAL_EVENTS, eventsByMonth } from '../content/events';
+import HappeningNext from '../components/HappeningNext';
+import { ANNUAL_EVENTS, EVENTS_VERIFIED, eventsByMonth, formatEventDate, upcomingEvents } from '../content/events';
+import { longDate } from '../lib/links';
 import { NEWS_SOURCES, SITE } from '../content/site';
 
 export const metadata: Metadata = {
@@ -11,8 +13,12 @@ export const metadata: Metadata = {
   alternates: { canonical: '/events' },
 };
 
+// Regenerate hourly so confirmed dates drop off the "next up" list as they pass.
+export const revalidate = 3600;
+
 export default function EventsPage() {
   const grouped = eventsByMonth();
+  const upcomingCount = upcomingEvents().length;
 
   const schema = {
     '@context': 'https://schema.org',
@@ -42,8 +48,23 @@ export default function EventsPage() {
       </PageHero>
 
       <div className="container-custom py-14">
+        {upcomingCount > 0 && (
+          <section className="mb-16">
+            <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <p className="eyebrow">Confirmed dates</p>
+                <h2 className="mt-2 text-3xl">Coming up next</h2>
+              </div>
+              <p className="font-mono text-xs uppercase tracking-widest text-ink-faint">
+                Checked {longDate(EVENTS_VERIFIED)}
+              </p>
+            </div>
+            <HappeningNext limit={6} />
+          </section>
+        )}
+
         <p className="font-mono text-xs uppercase tracking-widest text-ink-faint">
-          {ANNUAL_EVENTS.length} recurring events
+          {ANNUAL_EVENTS.length} recurring events, all year
         </p>
 
         <div className="mt-8 space-y-14">
@@ -67,6 +88,15 @@ export default function EventsPage() {
                     </div>
                     <h3 className="mt-3 text-xl leading-snug">{event.name}</h3>
                     <p className="mt-1 text-sm text-ink-faint">{event.where}</p>
+                    {event.next && (
+                      <p className="mt-3 inline-flex items-center rounded-full bg-sun/10 px-3 py-1 text-xs font-semibold text-sun-deep">
+                        Confirmed: {formatEventDate(event.next)}
+                        {event.next.detail ? ` · ${event.next.detail}` : ''}
+                      </p>
+                    )}
+                    {!event.next && event.latest && (
+                      <p className="mt-3 text-xs leading-relaxed text-ink-faint">{event.latest}</p>
+                    )}
                     <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">{event.what}</p>
                     {event.why && (
                       <p className="mt-3 border-l-2 border-sun pl-3 text-sm italic leading-relaxed text-ink-soft">

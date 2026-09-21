@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, MapPin } from 'lucide-react';
-import { CATEGORY_LABELS, PLACES, getPlace } from '../../content/places';
+import { ArrowLeft, ExternalLink, Map, MapPin } from 'lucide-react';
+import { CATEGORY_LABELS, PLACES, PLACES_VERIFIED, getPlace } from '../../content/places';
 import { SITE } from '../../content/site';
+import { longDate, mapsUrl, prettyHost } from '../../lib/links';
 
 export function generateStaticParams() {
   return PLACES.map((p) => ({ slug: p.slug }));
@@ -39,6 +40,8 @@ export default async function PlacePage({ params }: { params: Promise<{ slug: st
     servesCuisine: place.kind,
     priceRange: place.price,
     url: `${SITE.url}/eat/${place.slug}`,
+    ...(place.website ? { sameAs: place.website } : {}),
+    areaServed: place.area,
     address: {
       '@type': 'PostalAddress',
       streetAddress: place.address,
@@ -93,6 +96,34 @@ export default async function PlacePage({ params }: { params: Promise<{ slug: st
           </div>
 
           <aside className="space-y-6">
+            <div className="card p-6">
+              <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-ink-faint">Find it</p>
+              <p className="mt-2 text-sm leading-relaxed text-ink">
+                {place.address ?? place.area}
+                {place.address && <span className="block text-ink-faint">{place.area}</span>}
+              </p>
+              <div className="mt-4 flex flex-col gap-2">
+                <a
+                  href={mapsUrl(place.name, place.address)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-sun hover:text-sun-deep"
+                >
+                  <Map className="h-4 w-4" /> Open in Maps
+                </a>
+                {place.website && (
+                  <a
+                    href={place.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-sun hover:text-sun-deep"
+                  >
+                    <ExternalLink className="h-4 w-4" /> {prettyHost(place.website)}
+                  </a>
+                )}
+              </div>
+            </div>
+
             {place.note && (
               <div className="card p-6">
                 <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-ink-faint">Good to know</p>
@@ -110,8 +141,8 @@ export default async function PlacePage({ params }: { params: Promise<{ slug: st
             <div className="card p-6">
               <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-ink-faint">Before you go</p>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-                Hours and menus change. Confirm with the restaurant directly. Something here out of
-                date?{' '}
+                Checked {longDate(PLACES_VERIFIED)}. We do not publish hours or prices — they change,
+                and a wrong hour wastes your drive. Something here out of date?{' '}
                 <a href={`mailto:${SITE.email}`} className="text-sun underline underline-offset-4">
                   Tell us
                 </a>

@@ -1,9 +1,13 @@
+import type { Zone } from './places';
+
 /** Neighborhood profiles. Written for someone trying to understand the map. */
 
 export interface Neighborhood {
   slug: string;
   name: string;
   side: 'Central' | 'West' | 'East' | 'Northeast' | 'Lower Valley' | 'Across the line';
+  /** Ties the profile to listings in places.ts / things-to-do.ts. */
+  zone: Zone;
   oneLiner: string;
   character: string[];
   knownFor: string[];
@@ -17,6 +21,7 @@ export const NEIGHBORHOODS: Neighborhood[] = [
     slug: 'downtown',
     name: 'Downtown & Union Plaza',
     side: 'Central',
+    zone: 'Downtown',
     oneLiner: 'The oldest core of the city, in the middle of a long, uneven comeback — and increasingly winning it.',
     character: [
       'Early-20th-century bank towers and a 1930 movie palace, all within a few blocks.',
@@ -32,6 +37,7 @@ export const NEIGHBORHOODS: Neighborhood[] = [
     slug: 'segundo-barrio',
     name: 'Segundo Barrio',
     side: 'Central',
+    zone: 'Central',
     oneLiner: 'The Ellis Island of the border — generations of families entered the United States through these blocks.',
     character: [
       'Tenement-era buildings, a panadería on the corner, murals on nearly every wall.',
@@ -47,6 +53,7 @@ export const NEIGHBORHOODS: Neighborhood[] = [
     slug: 'sunset-heights',
     name: 'Sunset Heights',
     side: 'Central',
+    zone: 'Central',
     oneLiner: 'Victorian and Craftsman houses on the hill above downtown, with a revolution’s worth of history in them.',
     character: [
       'Steep streets, mature trees, and some of the best old housing stock in Texas.',
@@ -62,6 +69,7 @@ export const NEIGHBORHOODS: Neighborhood[] = [
     slug: 'kern-place',
     name: 'Kern Place & Cincinnati Entertainment District',
     side: 'West',
+    zone: 'West Side',
     oneLiner: 'The UTEP-adjacent neighborhood where the city goes out — a walkable strip of bars and patios under the mountain.',
     character: [
       '1920s houses on curving streets that climb toward the Franklins.',
@@ -77,6 +85,7 @@ export const NEIGHBORHOODS: Neighborhood[] = [
     slug: 'five-points-manhattan-heights',
     name: 'Five Points & Manhattan Heights',
     side: 'Central',
+    zone: 'Central',
     oneLiner: 'Central El Paso’s slow-burn revival — old bungalows, new small businesses, no pretense.',
     character: [
       'A historic district of 1920s homes next to a commercial crossroads that is filling back in.',
@@ -92,6 +101,7 @@ export const NEIGHBORHOODS: Neighborhood[] = [
     slug: 'west-side-upper-valley',
     name: 'West Side & Upper Valley',
     side: 'West',
+    zone: 'West Side',
     oneLiner: 'Mesa Street commerce on the bench, pecan groves and horse property down in the valley.',
     character: [
       'The West Side is where most of the newer restaurants and shopping have landed.',
@@ -107,6 +117,7 @@ export const NEIGHBORHOODS: Neighborhood[] = [
     slug: 'northeast',
     name: 'Northeast El Paso',
     side: 'Northeast',
+    zone: 'Northeast',
     oneLiner: 'Fort Bliss, the far side of the mountain, and the trailheads most visitors never find.',
     character: [
       'Shaped by the Army post — the base is one of the largest in the country and it shows.',
@@ -122,6 +133,7 @@ export const NEIGHBORHOODS: Neighborhood[] = [
     slug: 'lower-valley-mission-valley',
     name: 'Lower Valley & Mission Valley',
     side: 'Lower Valley',
+    zone: 'Lower Valley',
     oneLiner: 'The oldest continuously settled ground in the region, strung along the river and the Mission Trail.',
     character: [
       'Ysleta, Socorro, and San Elizario predate almost everything else in Texas.',
@@ -137,6 +149,7 @@ export const NEIGHBORHOODS: Neighborhood[] = [
     slug: 'east-side',
     name: 'East Side & Far East',
     side: 'East',
+    zone: 'East Side',
     oneLiner: 'Where most of the city actually lives now — new subdivisions, big-box retail, and a fast-growing restaurant scene.',
     character: [
       'The growth edge of El Paso for two decades and counting.',
@@ -152,6 +165,7 @@ export const NEIGHBORHOODS: Neighborhood[] = [
     slug: 'across-the-line',
     name: 'Across the Line: Juárez & Sunland Park',
     side: 'Across the line',
+    zone: 'New Mexico',
     oneLiner: 'El Paso does not make sense as a single-city story. Two national borders are inside the metro view.',
     character: [
       'Ciudad Juárez sits directly across the river and is the other half of the region’s daily life.',

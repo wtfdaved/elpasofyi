@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
 import PageHero from '../components/PageHero';
+import ChangeLog from '../components/ChangeLog';
 import { NEWS, formatDate } from '../content/news';
 import { NEWS_SOURCES, SITE } from '../content/site';
 
@@ -53,7 +54,19 @@ export default function NewsPage() {
               <span className="mt-6 inline-block text-sm font-semibold text-sun">Read the dispatch →</span>
             </Link>
 
-            <ul className="mt-10 divide-y divide-sand-line border-t border-sand-line">
+            <section className="mt-14">
+              <div className="mb-6">
+                <p className="eyebrow">Openings & closings</p>
+                <h2 className="mt-2 text-2xl">What changed around town</h2>
+                <p className="mt-2 max-w-2xl text-sm text-ink-soft">
+                  Every row is something we confirmed, with the source that confirmed it. When a place
+                  closes it comes off our lists and lands here.
+                </p>
+              </div>
+              <ChangeLog />
+            </section>
+
+            <ul className="mt-14 divide-y divide-sand-line border-t border-sand-line">
               {rest.map((post) => (
                 <li key={post.slug}>
                   <Link href={`/news/${post.slug}`} className="group block py-7">
